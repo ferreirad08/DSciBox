@@ -10,7 +10,7 @@ function xt = binning(x,n_bins)
 %Description
 %1. Discretize the data of a vector based on quantiles.
 %
-%n_bins is a number of groupings.
+%n_bins is the number of groupings.
 %
 %Examples
 %1.
