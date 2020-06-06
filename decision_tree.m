@@ -12,7 +12,7 @@ function label = decision_tree(X,Y,Xnew)
         C = unique(Y);
         if numel(C)==1
             label = C;
-            break 
+            break
         end
     end
 end
