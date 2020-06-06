@@ -8,7 +8,7 @@ function Q = quantile(X,p)
 %1. Q = quantile(X,p)
 %
 %Description 
-%1. Calculate the quantiles of a vector or matrix data using linear interpolation.
+%1. Calculate the quantiles of a vector or matrix data using linear regression.
 %
 %Examples
 %1.
