@@ -1,23 +1,20 @@
 function label = decision_tree(X,Y,Xnew)  
     while 1
-        [X,Y,Xnew] = sub_set(X,Y,Xnew);
+        g = gain(X,Y);
+        [~,feature] = max(g);
+        [str,~,values] = unique(X(:,feature));
+        [~,value] = ismember(Xnew(feature),str);
+        X = X(values==value,:);
+        X(:,feature) = [];
+        Y = Y(values==value);
+        Xnew(feature) = [];
+
         C = unique(Y);
         if numel(C)==1
             label = C;
             break 
         end
     end
-end
-
-function [X,Y,Xnew] = sub_set(X,Y,Xnew)
-    g = gain(X,Y);
-    [~,feature] = max(g);
-    [str,~,values] = unique(X(:,feature));
-    [~,value] = ismember(Xnew(feature),str);
-    X = X(values==value,:);
-    X(:,feature) = [];
-    Y = Y(values==value);
-    Xnew(feature) = [];
 end
 
 function g = gain(X,Y)
