@@ -7,8 +7,8 @@ function xt = binning(x,n_bins)
 %Syntax
 %1. xt = binning(x,n_bins)
 %
-%Description 
-%1. Calculate the quantiles of a vector data based on quantiles.
+%Description
+%1. Discretize the data of a vector based on quantiles.
 %
 %Examples
 %1.
