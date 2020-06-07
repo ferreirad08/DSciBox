@@ -1,14 +1,14 @@
-function [label,accuracy] = predict_gnb(X,Y,Xnew,Ynew)
+function [label,accuracy] = predict_gaussiannb(X,Y,Xnew,Ynew)
 %Gaussian Naive Bayes (GNB)
 %
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
-%predict_gnb
+%predict_gaussiannb
 %
 %Syntax
-%1. label = predict_gnb(X,Y,Xnew)
-%2. [label,accuracy] = predict_gnb(X,Y,Xnew,Ynew)
+%1. label = predict_gaussiannb(X,Y,Xnew)
+%2. [label,accuracy] = predict_gaussiannb(X,Y,Xnew,Ynew)
 %
 %Description 
 %1. Returns the estimated labels of one or multiple test instances.
@@ -25,7 +25,7 @@ function [label,accuracy] = predict_gnb(X,Y,Xnew,Ynew)
 %     X = meas;
 %     Y = species;
 %     Xnew = [min(meas);mean(meas);max(meas)];
-%     label = predict_gnb(X,Y,Xnew)
+%     label = predict_gaussiannb(X,Y,Xnew)
 %     label = 
 %         'setosa'
 %         'versicolor'
@@ -33,7 +33,7 @@ function [label,accuracy] = predict_gnb(X,Y,Xnew,Ynew)
 %
 %2.
 %     Ynew = {'versicolor';'versicolor';'virginica'};
-%     [label,accuracy] = predict_gnb(X,Y,Xnew,Ynew)
+%     [label,accuracy] = predict_gaussiannb(X,Y,Xnew,Ynew)
 %     label = 
 %         'setosa'
 %         'versicolor'
