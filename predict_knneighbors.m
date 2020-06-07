@@ -1,10 +1,8 @@
 function label = predict_knneighbors(X,Y,Xnew,k)
-%k-Nearest Neighbors (kNN)
-%
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
-%predict_knneighbors
+%k-Nearest Neighbors (kNN)
 %
 %Syntax
 %1. label = predict_knneighbors(X,Y,Xnew,k)
