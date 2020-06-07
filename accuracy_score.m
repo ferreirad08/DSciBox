@@ -21,6 +21,8 @@ function accuracy = accuracy_score(Ynew,Ypred)
 %     accuracy =
 %         0.6667
 
+if isrow(Ypred), Ypred = Ypred'; end
+
 [C,~,Ynew] = unique(Ynew);
 [~,Ypred] = ismember(Ypred,C);
 accuracy = sum(Ynew==Ypred)/numel(Ynew);
