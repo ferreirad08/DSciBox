@@ -1,30 +1,51 @@
-function xt = binning(x,n_bins)
+function Xt = binning(X,n_bins)
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
 %Quantile Binning Transformation
 %
 %Syntax
-%1. xt = binning(x,n_bins)
+%1. Xt = binning(X,n_bins)
 %
 %Description
-%1. Discretize the data of a vector based on quantiles.
+%1. Discrete the continuous variables for each column of a matrix based on quantiles.
 %
-%x is a variable with continuous values.
+%X is a M-by-N matrix with continuous variables in each column.
 %n_bins is the number of groupings.
 %
 %Examples
 %1.
-%     x = [30, 64, 49, 26, 69, 23, 56, 7, 69, 67,...
-%         87, 14, 67, 33, 88, 77, 75, 47, 44, 93];
-%     n_bins = 10;
-%     xt = binning(x,n_bins)
-%     xt =
-%         2 5 4 1 7 1 4 0 7 6 8 0 6 2 9 8 7 3 3 9
-
-if ~isrow(x), x = x'; end
+%     v = [10 1 2 3 4 7];
+%     n_bins = 3;
+%     vt = binning(v',n_bins)
+%     vt =
+%         2
+%         0
+%         0
+%         1
+%         1
+%         2
+%
+%2.
+%     X = [-2, 1, -4,   -1;
+%          -1, 2, -3, -0.5;
+%           0, 3, -2,  0.5;
+%           1, 4, -1,    2];
+%     n_bins = 3;
+%     Xt = binning(X,n_bins)
+%     Xt =
+%         0     0     0     0
+%         1     1     1     1
+%         2     2     2     2
+%         2     2     2     2
 
 p = (1:n_bins-1)/n_bins;
-Q = quantile(x,p);
-xt = sum(repmat(x,numel(Q),1)>=repmat(Q,1,(numel(x))));
+Q = quantile(X,p);
+
+[m,n] = size(X);
+Xt = zeros(m,n);
+for i = 1:n
+    Xt(:,i) = sum(repmat(X(:,i)',n_bins-1,1)...
+        >=repmat(Q(:,i),1,m));
+end
 end
