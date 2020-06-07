@@ -10,6 +10,7 @@ function xt = quantile_binning(x,n_bins)
 %Description
 %1. Discretize the data of a vector based on quantiles.
 %
+%x is a variable with continuous values.
 %n_bins is the number of groupings.
 %
 %Examples
