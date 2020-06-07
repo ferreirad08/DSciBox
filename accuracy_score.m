@@ -5,7 +5,7 @@ function accuracy = accuracy_score(Ynew,Ypred)
 %Contact: ferreirad08@gmail.com
 %
 %Syntax
-%1. accuracy = accuracy(Ynew,Ypred)
+%1. accuracy = accuracy_score(Ynew,Ypred)
 %
 %Description 
 %1. Returns the accuracy of the estimates (between 0 and 1).
@@ -17,7 +17,7 @@ function accuracy = accuracy_score(Ynew,Ypred)
 %1.
 %     Ynew = {'setosa';'versicolor';'virginica'};
 %     Ypred = {'versicolor';'versicolor';'virginica'};
-%     accuracy = accuracy(Ynew,Ypred)
+%     accuracy = accuracy_score(Ynew,Ypred)
 %     accuracy =
 %         0.6667
 
