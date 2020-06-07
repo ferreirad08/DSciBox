@@ -1,13 +1,13 @@
 function label = predict_dtree(X,Y,Xnew)  
     while 1
         g = gain(X,Y);
-        [~,feature] = max(g);
-        [str,~,values] = unique(X(:,feature));
-        [~,value] = ismember(Xnew(feature),str);
+        [~,I] = max(g);
+        [str,~,values] = unique(X(:,I));
+        [~,value] = ismember(Xnew(I),str);
         X = X(values==value,:);
-        X(:,feature) = [];
+        X(:,I) = [];
         Y = Y(values==value);
-        Xnew(feature) = [];
+        Xnew(I) = [];
 
         C = unique(Y);
         if numel(C)==1
