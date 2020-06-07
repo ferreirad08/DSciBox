@@ -1,10 +1,8 @@
 function label = predict_gaussiannb(X,Y,Xnew)
-%Gaussian Naive Bayes (GNB)
-%
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
-%predict_gaussiannb
+%Gaussian Naive Bayes (GNB)
 %
 %Syntax
 %1. label = predict_gaussiannb(X,Y,Xnew)
