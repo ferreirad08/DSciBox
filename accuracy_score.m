@@ -1,4 +1,4 @@
-function accuracy = accuracy(Ynew,Ypred)
+function accuracy = accuracy_score(Ynew,Ypred)
 %Accuracy
 %
 %Author: David Ferreira - Federal University of Amazonas
