@@ -1,4 +1,4 @@
-function [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
+function label = predict_knneighbors(X,Y,Xnew,k)
 %k-Nearest Neighbors (kNN)
 %
 %Author: David Ferreira - Federal University of Amazonas
@@ -8,17 +8,14 @@ function [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
 %
 %Syntax
 %1. label = predict_knneighbors(X,Y,Xnew,k)
-%2. [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
 %
 %Description 
 %1. Returns the estimated labels of one or multiple test instances.
-%2. Returns the estimated labels of one or multiple test instances and the accuracy of the estimates.
 %
 %X is a M-by-N matrix, with M instances of N features. 
 %Y is a M-by-1 matrix, with respective M labels to each training instance. 
 %Xnew is a P-by-N matrix, with P instances of N features to be classified.
 %k is a scalar, with the number of nearest neighbors selected.
-%Ynew is a P-by-1 matrix, with respective P labels to each test instance (Used to check the accuracy between 0 and 1).
 %
 %Examples
 %1.
@@ -32,16 +29,6 @@ function [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
 %         'setosa'
 %         'versicolor'
 %         'virginica'
-%
-%2.
-%     Ynew = {'versicolor';'versicolor';'virginica'};
-%     [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
-%     label = 
-%         'setosa'
-%         'versicolor'
-%         'virginica'
-%     accuracy =
-%         0.6667
 
 [C,~,Y] = unique(Y,'stable');
 
@@ -60,12 +47,6 @@ for i = 1:P
     % Nearest training label with maximum frequency (if duplicated, check the nearest training instance)
     [~,J] = max(frequencies);
     label(i) = Ynearest(J);
-end
-
-% Check the number of input and output arguments
-if nargin > 4 && nargout > 1
-    [~,Ynew] = ismember(Ynew,C);
-    accuracy = sum(label==Ynew)/P;
 end
 
 label = C(label);
