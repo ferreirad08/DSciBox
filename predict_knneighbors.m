@@ -1,14 +1,14 @@
-function [label,accuracy] = predict_knn(X,Y,Xnew,k,Ynew)
+function [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
 %k-Nearest Neighbors (kNN)
 %
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
-%predict_knn
+%predict_knneighbors
 %
 %Syntax
-%1. label = predict_knn(X,Y,Xnew,k)
-%2. [label,accuracy] = predict_knn(X,Y,Xnew,k,Ynew)
+%1. label = predict_knneighbors(X,Y,Xnew,k)
+%2. [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
 %
 %Description 
 %1. Returns the estimated labels of one or multiple test instances.
@@ -27,7 +27,7 @@ function [label,accuracy] = predict_knn(X,Y,Xnew,k,Ynew)
 %     Y = species;
 %     Xnew = [min(meas);mean(meas);max(meas)];
 %     k = 5;
-%     label = predict_knn(X,Y,Xnew,k)
+%     label = predict_knneighbors(X,Y,Xnew,k)
 %     label = 
 %         'setosa'
 %         'versicolor'
@@ -35,7 +35,7 @@ function [label,accuracy] = predict_knn(X,Y,Xnew,k,Ynew)
 %
 %2.
 %     Ynew = {'versicolor';'versicolor';'virginica'};
-%     [label,accuracy] = predict_knn(X,Y,Xnew,k,Ynew)
+%     [label,accuracy] = predict_knneighbors(X,Y,Xnew,k,Ynew)
 %     label = 
 %         'setosa'
 %         'versicolor'
