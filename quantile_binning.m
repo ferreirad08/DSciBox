@@ -1,8 +1,8 @@
-function xt = binning(x,n_bins)
+function xt = quantile_binning(x,n_bins)
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
-%binning
+%Quantile Binning Transformation
 %
 %Syntax
 %1. xt = binning(x,n_bins)
