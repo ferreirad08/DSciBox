@@ -1,11 +1,11 @@
-function Q = quantile_analysis(X,p)
+function Q = quantile(X,p)
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
 %Quantile Analysis
 %
 %Syntax
-%1. Q = quantile_analysis(X,p)
+%1. Q = quantile(X,p)
 %
 %Description 
 %1. Calculate the quantiles of a vector or matrix data based on linear regression.
@@ -14,7 +14,7 @@ function Q = quantile_analysis(X,p)
 %1.
 %     v = [10 1 2 3 4 7];
 %     p = [0.25 0.50 0.75];
-%     Q = quantile_analysis(v,p)
+%     Q = quantile(v,p)
 %     Q = 
 %         2.2500
 %         3.5000
@@ -22,7 +22,7 @@ function Q = quantile_analysis(X,p)
 %
 %2.
 %     X = [1 2; 2 5; 3 6; 4 10; 7 11; 10 13];
-%     Q = quantile_analysis(X,p)
+%     Q = quantile(X,p)
 %     Q = 
 %         2.2500    5.2500
 %         3.5000    8.0000
