@@ -1,7 +1,8 @@
 function label = predict_dtree(X,Y,Xnew)
 if isnumeric(X) && isnumeric(Xnew)
-    Xt = binning([X; Xnew],3);
     n = size(X,1);
+    n_bins = round(n^(1/3)*2); % Regra de Rice
+    Xt = binning([X; Xnew],n_bins);
     X = Xt(1:n,:);
     Xnew = Xt(n+1:end,:);
 end
