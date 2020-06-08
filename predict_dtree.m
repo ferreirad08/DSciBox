@@ -20,7 +20,8 @@ while 1
         break
     end
 
-    X = X(values==value,:); X(:,I) = [];
+    X = X(values==value,:);
+    X(:,I) = [];
     Xnew(I) = [];
 end
 end
