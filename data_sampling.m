@@ -1,4 +1,4 @@
-function [X,Xnew,Y,Ynew] = sampling(X,Y,p)
+function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
     % Simple or stratified random sampling.
     n = numel(Y);
     i = randperm(n,round(n*p));
