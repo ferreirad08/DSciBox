@@ -8,7 +8,6 @@ if isnumeric(X) && isnumeric(Xnew)
 end
 
 [C,~,Y] = unique(Y);
-disp(C)
 
 P = size(Xnew,1);
 label = zeros(P,1);
@@ -24,7 +23,12 @@ for i = 1:P
     end
 end
 
-% label = C(label);
+error = {'None'};
+if isnumeric(C), error = NaN; end
+
+C(numel(C)+1) = error;
+label(label==0) = numel(C);
+label = C(label);
 end
 
 function [X,Yd,Xnew] = branch(X,Yd,Xnew)
