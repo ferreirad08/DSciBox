@@ -7,34 +7,46 @@ if isnumeric(X) && isnumeric(Xnew)
     Xnew = Xt(n+1:end,:);
 end
 
-while 1
-    g = gain(X,Y);
-    [~,I] = max(g);
-    [str,~,values] = unique(X(:,I));
-    [~,value] = ismember(Xnew(I),str);
+[C,~,Y] = unique(Y);
+disp(C)
 
-    Y = Y(values==value);
-    C = unique(Y);
-    if numel(C)==1
-        label = C;
-        break
+P = size(Xnew,1);
+label = zeros(P,1);
+for i = 1:P
+    X_current = X;
+    Y_current = Y;
+    Xnew_current = Xnew(i,:);
+    while 1
+        label_current = unique(Y_current);
+        if numel(label_current)==1, label(i) = label_current; break, end
+        if numel(label_current)==0, label(i) = 0; break, end
+        [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
-
-    X = X(values==value,:);
-    X(:,I) = [];
-    Xnew(I) = [];
-end
 end
 
-function g = gain(X,Y)
+% label = C(label);
+end
+
+function [X,Yd,Xnew] = branch(X,Yd,Xnew)
+g = gain(X,Yd);
+[~,I] = max(g);
+[str,~,values] = unique(X(:,I));
+[~,value] = ismember(Xnew(I),str);
+
+X = X(values==value,:); X(:,I) = [];
+Yd = Yd(values==value);
+Xnew(I) = [];
+end
+
+function g = gain(X,Ys)
 [n_samples,n_features] = size(X);
-[~,~,Y] = unique(Y);
-g = ones(1,n_features)*entropy(Y);
+[~,~,Ys] = unique(Ys);
+g = ones(1,n_features)*entropy(Ys);
 for i = 1:n_features
     [~,~,feature] = unique(X(:,i));
     for j = 1:max(feature)
         p = histc(feature(feature==j),j)/n_samples;
-        g(i) = g(i) - p*entropy(Y(feature==j));
+        g(i) = g(i) - p*entropy(Ys(feature==j));
     end
 end
 end
