@@ -33,10 +33,10 @@ g = ones(1,n_features)*entropy(Y);
 for i = 1:n_features
     feature = X(:,i);
     [~,~,feature] = unique(feature);
-    for j=1:max(feature)
+    for j = 1:max(feature)
         p = histc(feature(feature==j),j)/n_samples;
-        h = entropy(Y(feature==j));
-        g(i) = g(i) - p*h;
+        e = entropy(Y(feature==j));
+        g(i) = g(i) - p*e;
     end
 end
 end
