@@ -5,7 +5,8 @@ function [Xt,Q] = binning(X,arg2)
 %Quantile Binning Transformation
 %
 %Syntax
-%1. Xt = binning(X,n_bins)
+%1. [Xt,Q] = binning(X,n_bins)
+%2. Xt = binning(X,Q)
 %
 %Description
 %1. Discrete the continuous variables for each column of a matrix based on quantiles.
