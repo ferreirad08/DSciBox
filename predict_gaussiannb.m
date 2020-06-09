@@ -45,8 +45,7 @@ for i = 1:P
     end
     
     % Sort the probabilities in descending order and check the estimated label
-    [~,I] = sort(probability,'descend');
-    label(i) = I(1);
+    [~,label(i)] = max(probability);
 end
 
 label = C(label);
