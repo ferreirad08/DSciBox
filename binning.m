@@ -1,4 +1,4 @@
-function Xt = binning(X,n_bins)
+function [Xt,Q] = binning(X,arg2)
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
@@ -39,8 +39,14 @@ function Xt = binning(X,n_bins)
 %         2     2     2     2
 %         2     2     2     2
 
-p = (1:n_bins-1)/n_bins;
-Q = quantile(X,p);
+if isscalar(arg2)
+    n_bins = arg2;
+    p = (1:n_bins-1)/n_bins;
+    Q = quantile(X,p);
+else
+    Q = arg2;
+    n_bins = size(Q,1)+1;
+end
 
 [m,n] = size(X);
 Xt = zeros(m,n);
