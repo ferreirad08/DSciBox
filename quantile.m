@@ -36,5 +36,6 @@ X(n+1,:) = 0;
 
 i = (n-1)*p+1;
 f = floor(i);
-Q = X(f,:) + (X(f+1,:)-X(f,:)).*repmat(i-f,1,m);
+Q = X(f,:) + (X(f+1,:)-X(f,:))...
+    .*repmat(i-f,1,m);
 end

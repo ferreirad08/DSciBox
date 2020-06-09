@@ -9,6 +9,12 @@ end
 
 [C,~,Y] = unique(Y);
 
+if isnumeric(C)
+ C(end+1) = NaN;
+else
+ C(end+1) = {'None'};
+end
+
 P = size(Xnew,1);
 label = zeros(P,1);
 for i = 1:P
@@ -18,16 +24,11 @@ for i = 1:P
     while 1
         label_current = unique(Y_current);
         if numel(label_current)==1, label(i) = label_current; break, end
-        if numel(label_current)==0, label(i) = 0; break, end
+        if numel(label_current)==0, label(i) = numel(C); break, end
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
 end
 
-error = {'None'};
-if isnumeric(C), error = NaN; end
-
-C(numel(C)+1) = error;
-label(label==0) = numel(C);
 label = C(label);
 end
 
