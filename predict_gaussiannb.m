@@ -26,8 +26,8 @@ function label = predict_gaussiannb(X,Y,Xnew)
 %         'versicolor'
 %         'virginica'
 
-[C,~,Y] = unique(Y,'stable');
-binranges = 1:numel(C);
+[C,~,Y] = unique(Y);
+binranges = unique(Y)';
 
 P = size(Xnew,1);
 label = zeros(P,1);
