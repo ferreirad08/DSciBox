@@ -10,9 +10,9 @@ end
 [C,~,Y] = unique(Y);
 
 if isnumeric(C)
- C(end+1) = NaN;
+    C(end+1) = NaN;
 else
- C(end+1) = {'None'};
+    C(end+1) = {'None'};
 end
 
 P = size(Xnew,1);
