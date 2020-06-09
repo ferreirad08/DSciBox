@@ -12,7 +12,7 @@ function [Xt,Q] = binning(X,arg2)
 %1. Discrete the continuous variables for each column of a matrix based on quantiles.
 %
 %X is a M-by-N matrix with continuous variables in each column.
-%n_bins is the number of groupings.
+%n_bins is the number of groupings (>2).
 %
 %Examples
 %1.
