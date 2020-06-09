@@ -36,8 +36,8 @@ P = size(Xnew,1);
 label = zeros(P,1);
 for i = 1:P
     % Euclidean distance between two points
-    A = repmat(Xnew(i,:),size(X,1),1)-X;
-    distances = sqrt(sum(A.^2,2));
+    A = repmat(Xnew(i,:),size(X,1),1);
+    distances = sqrt(sum((A-X).^2,2));
     % Sort the distances in ascending order and check the k nearest training labels
     [~,I] = sort(distances);
     Ynearest = Y(I(1:k));
