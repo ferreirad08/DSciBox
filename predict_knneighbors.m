@@ -30,7 +30,7 @@ function label = predict_knneighbors(X,Y,Xnew,k)
 %         'versicolor'
 %         'virginica'
 
-[C,~,Y] = unique(Y,'stable');
+[C,~,Y] = unique(Y);
 
 P = size(Xnew,1);
 label = zeros(P,1);
