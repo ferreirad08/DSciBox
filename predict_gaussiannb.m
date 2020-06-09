@@ -29,11 +29,13 @@ function label = predict_gaussiannb(X,Y,Xnew)
 [C,~,Y] = unique(Y);
 binranges = unique(Y)';
 
+% Class prior probability
+class_prior = histc(Y,binranges)/numel(Y);
+
 P = size(Xnew,1);
 label = zeros(P,1);
 for i = 1:P
-    % Class prior probability
-    probability = histc(Y,binranges)/numel(Y);
+    probability = class_prior;
     for j = binranges
         A = X(Y==j,:);
         S = std(A,1);
