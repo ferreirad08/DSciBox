@@ -28,14 +28,13 @@ function label = predict_gaussiannb_new(X,Y,Xnew)
 
 [C,~,Y] = unique(Y);
 n_class = numel(C);
-n_features = size(X,2);
-M = zeros(n_class,n_features);
-S = zeros(n_class,n_features);
 
+% Calculate the means and standard deviations
+model = zeros(n_class,size(X,2),2);
 for i = 1:n_class
     A = X(Y==i,:);
-    M(i,:) = mean(A);
-    S(i,:) = std(A,1);
+    model(i,:,1) = mean(A);
+    model(i,:,2) = std(A,1);
 end
 
 % Class prior probability
@@ -45,11 +44,12 @@ n_tests = size(Xnew,1);
 label = zeros(n_tests,1);
 for i = 1:n_tests
     % Probability density function (PDF) of the normal distribution
-    gauss = 1./(S.*sqrt(2.*pi))...
-        .*exp(-1/2.*((repmat(Xnew(i,:),n_class,1)-M)./S).^2);
+    gauss = 1./(model(:,:,2).*sqrt(2.*pi))...
+        .*exp(-1/2.*((repmat(Xnew(i,:),n_class,1)-model(:,:,1))...
+        ./model(:,:,2)).^2);
     % Product
     probability = prod([gauss prior],2);
-    % Sort the probabilities in descending order and check the estimated label
+    % Check the highest probability and the respective label
     [~,label(i)] = max(probability);
 end
 
