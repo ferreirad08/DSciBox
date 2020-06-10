@@ -1,4 +1,4 @@
-function label = predict_gaussiannb_new(X,Y,Xnew)
+function label = predict_gaussiannb(X,Y,Xnew)
 %Author: David Ferreira - Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
