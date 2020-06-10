@@ -29,8 +29,8 @@ function label = predict_gaussiannb_new(X,Y,Xnew)
 [C,~,Y] = unique(Y);
 n_class = numel(C);
 n_features = size(X,2);
-S = zeros(n_class,n_features);
 M = zeros(n_class,n_features);
+S = zeros(n_class,n_features);
 
 for i = 1:n_class
     A = X(Y==i,:);
