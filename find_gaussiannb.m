@@ -34,20 +34,19 @@ function [labels,probabilities] = find_gaussiannb(X,Y,Xnew)
 n_class = numel(C);
 
 % Calculate the means and standard deviations
-model = zeros(n_class,size(X,2),2);
+M = zeros(n_class,size(X,2)); S = M;
 for i = 1:n_class
     A = X(Y==i,:);
-    model(i,:,1) = mean(A);
-    model(i,:,2) = std(A,1);
+    M(i,:) = mean(A);
+    S(i,:) = std(A,1);
 end
 
 % Class prior probability
 prior = histc(Y,1:n_class)/numel(Y);
-
+% Repeats measurements in a matrix
+meas = repmat(Xnew,n_class,1);
 % Probability density function (PDF) of the normal distribution
-gauss = 1./(model(:,:,2).*sqrt(2.*pi))...
-    .*exp(-1/2.*((repmat(Xnew,n_class,1)-model(:,:,1))...
-    ./model(:,:,2)).^2);
+gauss = 1./(S.*sqrt(2.*pi)).*exp(-1/2.*((meas-M)./S).^2);
 % Product
 probability = prod([gauss prior],2);
 % Sort the normalized probabilities in descending order with their respective labels
