@@ -1,8 +1,10 @@
 function [labels,probabilities] = find_gaussiannb(X,Y,Xnew)
-%Gaussian Naive Bayes (GNB)
-%
-%Author: David Ferreira - Federal University of Amazonas
+%Author: David Ferreira
+%PhD student in Electrical Engineering
+%Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
+%
+%Gaussian Naive Bayes (GNB)
 %
 %Syntax
 %1. [labels,probabilities] = find_gaussiannb(X,Y,Xnew)
