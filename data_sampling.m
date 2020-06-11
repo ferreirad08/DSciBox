@@ -22,10 +22,6 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 %     Y = species;
 %     p = 0.25;
 %     [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
-%     label = 
-%         'setosa'
-%         'versicolor'
-%         'virginica'
 
 n = numel(Y);
 i = randperm(n,round(n*p));
