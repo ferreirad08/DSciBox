@@ -18,24 +18,12 @@ function [Xt,Q] = binning(X,arg2)
 %
 %Examples
 %1.
-%     v = [10 1 2 3 4 7];
-%     n_bins = 3;
-%     vt = binning(v',n_bins)
-%     vt =
-%         2
-%         0
-%         0
-%         1
-%         1
-%         2
-%
-%2.
-%     X = [-2, 1, -4,   -1;
+%     X = [-2, 1, -4, -1.0;
 %          -1, 2, -3, -0.5;
 %           0, 3, -2,  0.5;
-%           1, 4, -1,    2];
+%           1, 4, -1,  2.0];
 %     n_bins = 3;
-%     Xt = binning(X,n_bins)
+%     [Xt,Q] = binning(X,n_bins)
 %     Xt =
 %         0     0     0     0
 %         1     1     1     1
