@@ -20,6 +20,7 @@ function Q = quantile(X,p)
 %           4 13;
 %           7 10;
 %           1 11];
+%     p = [0.25 0.50 0.75];
 %     Q = quantile(X,p)
 %     Q = 
 %         2.2500    5.2500
