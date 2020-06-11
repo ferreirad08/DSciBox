@@ -36,7 +36,7 @@ function [label,model] = predict_gaussiannb(arg1,arg2,arg3)
 %         'virginica'     [1x4 double]    [1x4 double]    0.33333
 %
 %2.
-%     Xnew = [mean(meas)];
+%     Xnew = mean(meas);
 %     label = predict_gaussiannb(model,Xnew)
 %     label = 
 %         'versicolor'
