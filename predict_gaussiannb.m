@@ -40,29 +40,32 @@ function [label,model] = predict_gaussiannb(arg1,arg2,arg3)
 %         'versicolor'
 
 % Check the number of input
-if nargin > 2
-    X = arg1; 
-    Y = arg2;
-    Xnew = arg3;    
-    [C,~,Y] = unique(Y);
-    n_class = numel(C);
+switch nargin
+    case 2
+        model = arg1;
+        Xnew = arg2;
+        n_class = numel(model.C);
+    case 3
+        X = arg1; 
+        Y = arg2;
+        Xnew = arg3;    
+        [C,~,Y] = unique(Y);
+        n_class = numel(C);
 
-    % Calculate the means and standard deviations
-    M = zeros(n_class,size(X,2)); S = M;
-    for i = 1:n_class
-        A = X(Y==i,:);
-        M(i,:) = mean(A);
-        S(i,:) = std(A,1);
-    end
+        % Calculate the means and standard deviations
+        M = zeros(n_class,size(X,2)); S = M;
+        for i = 1:n_class
+            A = X(Y==i,:);
+            M(i,:) = mean(A);
+            S(i,:) = std(A,1);
+        end
 
-    % Class prior probability
-    prior = histc(Y,1:n_class)/numel(Y);
-    % Classification model
-    model = table(C,M,S,prior);
-else
-    model = arg1;
-    Xnew = arg2;
-    n_class = numel(model.C);
+        % Class prior probability
+        prior = histc(Y,1:n_class)/numel(Y);
+        % Classification model
+        model = table(C,M,S,prior);
+    otherwise
+        disp('Number of input arguments must be 2 or 3.')
 end
 
 n_tests = size(Xnew,1);
