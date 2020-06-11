@@ -7,7 +7,8 @@ function label = predict_gaussiannb(X,Y,Xnew)
 %Gaussian Naive Bayes (GNB)
 %
 %Syntax
-%1. label = predict_gaussiannb(X,Y,Xnew)
+%1. [label,model] = predict_gaussiannb(X,Y,Xnew)
+%2. label = predict_gaussiannb(model,Xnew)
 %
 %Description 
 %1. Returns the estimated labels of one or multiple test instances.
