@@ -14,6 +14,18 @@ function label = predict_dtree(X,Y,Xnew)
 %X is a M-by-N matrix, with M instances of N features. 
 %Y is a M-by-1 matrix, with respective M labels to each training instance. 
 %Xnew is a P-by-N matrix, with P instances of N features to be classified.
+%
+%Examples
+%1.
+%     load fisheriris
+%     X = meas;
+%     Y = species;
+%     Xnew = [min(meas);mean(meas);max(meas)];
+%     label = predict_dtree(X,Y,Xnew)
+%     label = 
+%         'setosa'
+%         'versicolor'
+%         'virginica'
 
 if isnumeric(X) && isnumeric(Xnew)
     n_bins = round(numel(Y)^(1/3)*2); % Regra de Rice
