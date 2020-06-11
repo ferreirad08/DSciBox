@@ -1,4 +1,20 @@
 function label = predict_dtree(X,Y,Xnew)
+%Author: David Ferreira - Federal University of Amazonas
+%PhD student in Electrical Engineering
+%Contact: ferreirad08@gmail.com
+%
+%Decision Tree (DT)
+%
+%Syntax
+%1. label = predict_dtree(X,Y,Xnew)
+%
+%Description 
+%1. Returns the estimated labels of one or multiple test instances.
+%
+%X is a M-by-N matrix, with M instances of N features. 
+%Y is a M-by-1 matrix, with respective M labels to each training instance. 
+%Xnew is a P-by-N matrix, with P instances of N features to be classified.
+
 if isnumeric(X) && isnumeric(Xnew)
     n_bins = round(numel(Y)^(1/3)*2); % Regra de Rice
     [X,Q] = binning(X,n_bins);
