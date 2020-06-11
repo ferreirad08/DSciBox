@@ -29,8 +29,7 @@ function [label,model] = predict_gaussiannb(arg1,arg2,arg3)
 %         'virginica'
 %     model = 
 %              C               M               S           prior 
-%         ____________    ____________    ____________    _______
-% 
+%         ____________    ____________    ____________    _______ 
 %         'setosa'        [1x4 double]    [1x4 double]    0.33333
 %         'versicolor'    [1x4 double]    [1x4 double]    0.33333
 %         'virginica'     [1x4 double]    [1x4 double]    0.33333
