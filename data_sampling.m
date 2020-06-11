@@ -13,7 +13,7 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 %
 %X is a M-by-N matrix, with M instances of N features. 
 %Y is a M-by-1 matrix, with respective M labels to each training instance. 
-%Xnew is a P-by-N matrix, with P instances of N features to be classified.
+%p is a float number between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split.
 %
 %Examples
 %1.
