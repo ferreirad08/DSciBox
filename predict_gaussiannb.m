@@ -1,7 +1,6 @@
 function [label,model] = predict_gaussiannb(arg1,arg2,arg3)
-%Author: David Ferreira
+%Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
-%Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
 %Gaussian Naive Bayes (GNB)
