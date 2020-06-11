@@ -1,7 +1,6 @@
 function [Xt,Q] = binning(X,arg2)
-%Author: David Ferreira
+%Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
-%Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
 %Quantile Binning Transformation
