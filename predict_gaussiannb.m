@@ -72,7 +72,8 @@ for i = 1:n_tests
     % Repeats measurements in a matrix
     meas = repmat(Xnew(i,:),n_class,1);
     % Probability density function (PDF) of the normal distribution
-    gauss = 1./(model.S.*sqrt(2.*pi)).*exp(-1/2.*((meas-model.M)./model.S).^2);
+    gauss = 1./(model.S.*sqrt(2.*pi))...
+        .*exp(-1/2.*((meas-model.M)./model.S).^2);
     % Product
     probability = prod([gauss model.prior],2);
     % Check the highest probability and the respective label
