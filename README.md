@@ -4,9 +4,14 @@
 
 Currently available functions:
  
-1. predict_gnb
-2. find_gnb
-3.
-4.
-5.
-6.
+01. predict_gaussiannb()
+02. predict_knneighbors()
+03. predict_dtree()
+04. find_gaussiannb()
+05. find_knneighbors()
+06. plot_knn()
+07. data_sampling()
+08. accuracy_score()
+09. binning()
+10. quantile()
+11. entropy()
