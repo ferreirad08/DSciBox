@@ -64,8 +64,6 @@ switch nargin
         prior = histc(Y,1:n_class)/numel(Y);
         % Classification model
         model = table(C,M,S,prior);
-    otherwise
-        disp('Number of input arguments must be 2 or 3.')
 end
 
 n_tests = size(Xnew,1);
