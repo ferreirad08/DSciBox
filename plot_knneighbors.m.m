@@ -1,4 +1,4 @@
-function plot_knn(X,Y,Xnew,k)
+function plot_knneighbors.m(X,Y,Xnew,k)
 %k-Nearest Neighbors (kNN)
 %
 %Author: David Ferreira - Federal University of Amazonas
