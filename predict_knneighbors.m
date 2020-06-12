@@ -1,7 +1,6 @@
 function label = predict_knneighbors(X,Y,Xnew,k)
-%Author: David Ferreira
+%Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
-%Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
 %
 %k-Nearest Neighbors (kNN)
