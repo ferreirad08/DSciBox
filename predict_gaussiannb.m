@@ -66,9 +66,9 @@ switch nargin
         model = table(C,M,S,prior);
 end
 
-n_tests = size(Xnew,1);
-label = zeros(n_tests,1);
-for i = 1:n_tests
+P = size(Xnew,1);
+label = zeros(P,1);
+for i = 1:P
     % Repeats measurements in a matrix
     meas = repmat(Xnew(i,:),n_class,1);
     % Probability density function (PDF) of the normal distribution
