@@ -14,7 +14,7 @@ function label = predict_knneighbors(X,Y,Xnew,k)
 %X is a M-by-N matrix, with M instances of N features. 
 %Y is a M-by-1 matrix, with respective M labels to each training instance. 
 %Xnew is a P-by-N matrix, with P instances of N features to be classified.
-%k is a scalar, with the number of nearest neighbors selected.
+%k is a scalar with the number of nearest neighbors selected.
 %
 %Examples
 %1.
