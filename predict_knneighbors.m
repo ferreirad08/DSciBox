@@ -37,13 +37,15 @@ for i = 1:P
     % Euclidean distance between two points
     A = repmat(Xnew(i,:),size(X,1),1);
     distances = sqrt(sum((A-X).^2,2));
-    % Sort the distances in ascending order and check the k nearest training labels
+    % Sort the distances in ascending order
+    % and check the k nearest training labels
     [~,I] = sort(distances);
     Ynearest = Y(I(1:k));
     % Frequencies of the k nearest training labels
     N = histc(Ynearest,1:max(Ynearest));
     frequencies = N(Ynearest);
-    % Nearest training label with maximum frequency (if duplicated, check the nearest training instance)
+    % Nearest training label with maximum frequency
+    % if duplicated, check the nearest training instance
     [~,J] = max(frequencies);
     label(i) = Ynearest(J);
 end
