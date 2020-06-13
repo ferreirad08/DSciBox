@@ -34,6 +34,7 @@ if isnumeric(X) && isnumeric(Xnew)
 end
 
 [C,~,Y] = unique(Y);
+binranges = unique(Y);
 
 P = size(Xnew,1);
 label = zeros(P,1);
@@ -42,7 +43,7 @@ for i = 1:P
     Y_current = Y;
     Xnew_current = Xnew(i,:);
     while 1
-        frequencies = histc(Y_current,unique(Y));
+        frequencies = histc(Y_current,binranges);
         M = max(frequencies);
         I = find(frequencies==M);
         if numel(I)==1, majority = I; end
