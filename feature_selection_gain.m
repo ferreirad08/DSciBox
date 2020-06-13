@@ -1,4 +1,4 @@
-function [Xt,indexes,g] = feature_selection_gain(X,Y,k)
+function [Xt,indexes,gain] = feature_selection_gain(X,Y,k)
 %Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
 %Contact: ferreirad08@gmail.com
@@ -9,15 +9,15 @@ function [Xt,indexes,g] = feature_selection_gain(X,Y,k)
 %1. [Xt,indexes,g] = feature_selection_gain(X,Y,k)
 
 [n_samples,n_features] = size(X);
-g = ones(1,n_features)*entropy(Y);
+gain = ones(1,n_features)*entropy(Y);
 for i = 1:n_features
     [~,~,feature] = unique(X(:,i));
     for j = 1:max(feature)
         p = histc(feature(feature==j),j)/n_samples;
-        g(i) = g(i) - p*entropy(Y(feature==j));
+        gain(i) = gain(i) - p*entropy(Y(feature==j));
     end
 end
 
-[g,indexes] = sort(g,'descend');
+[gain,indexes] = sort(gain,'descend');
 Xt = X(:,indexes(1:k));
 end
