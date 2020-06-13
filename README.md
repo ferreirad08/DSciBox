@@ -15,3 +15,4 @@ Currently available functions:
 09. binning()
 10. quantile()
 11. entropy()
+12. feature_selection_gain()
