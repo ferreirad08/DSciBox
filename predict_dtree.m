@@ -27,6 +27,7 @@ function label = predict_dtree(X,Y,Xnew)
 %         'versicolor'
 %         'virginica'
 
+% Discretize, if variables are continuous
 if isnumeric(X) && isnumeric(Xnew)
     n_bins = round(numel(Y)^(1/3)*2); % Regra de Rice
     [X,Q] = binning(X,n_bins);
