@@ -1,4 +1,6 @@
-function P = pca(X)
+function P = pricomp(X)
+%Principal Components Analisys
+
 % Calculate the mean of each column
 M = mean(X);
 % Center columns by subtracting column means
@@ -7,6 +9,7 @@ C = X - repmat(M,size(X,1),1);
 V = cov(C);
 % Eigendecomposition of covariance matrix
 [vectors,values] = eig(V);
+% Sort eigenvalues ​​and associated eigenvectors
 [~,i] = sort(sum(values),'descend');
 % Project data
 P = (vectors(:,i)'*C')';
