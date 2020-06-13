@@ -42,12 +42,13 @@ for i = 1:P
     X_current = X;
     Y_current = Y;
     Xnew_current = Xnew(i,:);
+    majority = [];
     while 1
         frequencies = histc(Y_current,binranges);
         S = sum(frequencies);
         M = max(frequencies);
         I = find(frequencies==M);
-        if S==M && S>0, label(i) = I; break, end
+        if S==M && M>0, label(i) = I; break, end
         if numel(I)==1, majority = I; end
         if S==0, label(i) = majority; break, end
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
