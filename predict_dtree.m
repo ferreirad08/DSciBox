@@ -49,9 +49,10 @@ for i = 1:P
         M = max(frequencies);
         I = find(frequencies==M);
         if S==M && M>0, label(i) = I; break, end
+        % Check the majority class
         if numel(I)==1, majority = I; end
         % If there are no more attributes and the class has
-        % not been defined, the majority vote will be used.
+        % not been defined, the majority class will be used.
         if S==0, label(i) = majority; break, end
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
