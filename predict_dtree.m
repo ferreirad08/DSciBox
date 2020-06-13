@@ -29,7 +29,8 @@ function label = predict_dtree(X,Y,Xnew)
 
 % Discretize, if variables are continuous
 if isnumeric(X) && isnumeric(Xnew)
-    n_bins = round(numel(Y)^(1/3)*2); % Regra de Rice
+    % Compute the number of bins based on Rice's Rule
+    n_bins = round(numel(Y)^(1/3)*2);
     [X,Q] = binning(X,n_bins);
     Xnew = binning(Xnew,Q);
 end
