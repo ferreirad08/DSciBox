@@ -52,7 +52,7 @@ for i = 1:P
         if S==M && M>0, label(i) = I; break, end
         % Check the majority class
         if numel(I)==1, majority = I; end
-        % If there are no more attributes and the class has not been defined,
+        % If there are no more features and the class has not been defined,
         % the majority class will be selected
         if S==0, label(i) = majority; break, end
         % Branches the non-pure node
@@ -64,7 +64,7 @@ label = C(label);
 end
 
 function [X,Y,Xnew] = branch(X,Y,Xnew)
-% Check the resource with the greatest gain of information
+% Check the feature with the greatest gain of information
 [~,I] = max(gain(X,Y));
 [str,~,values] = unique(X(:,I));
 [~,value] = ismember(Xnew(I),str);
