@@ -3,7 +3,7 @@ function P = pricomp(X)
 
 % Calculate the mean of each column
 M = mean(X);
-% Center columns by subtracting column means
+% Centers the columns by subtracting column means
 C = X - repmat(M,size(X,1),1);
 % Calculate covariance matrix of centered matrix
 V = cov(C);
