@@ -1,5 +1,5 @@
 function P = pricomp(X)
-%Principal Components Analisys
+%Principal Component Analysis
 
 % Calculate the mean of each column
 M = mean(X);
