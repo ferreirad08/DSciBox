@@ -43,12 +43,13 @@ for i = 1:P
     Xnew_current = Xnew(i,:);
     while 1
         frequencies = histc(Y_current,unique(Y));
-        I = find(frequencies==max(frequencies));
+        M = max(frequencies);
+        I = find(frequencies==M);
         if numel(I)==1, majority = I; end
 
-        label_current = unique(Y_current);
-        if numel(label_current)==1, label(i) = label_current; break, end
-        if sum(frequencies)==0, label(i) = majority; break, end
+        S = sum(frequencies);
+        if S==M, label(i) = label_current; break, end
+        if S==0, label(i) = majority; break, end
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
 end
