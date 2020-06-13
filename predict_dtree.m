@@ -67,7 +67,7 @@ end
 
 function [X,Y,Xnew] = branch(X,Y,Xnew)
 % Check the feature with the greatest gain of information
-[Xt,indexes,~] = gain(X,Y,1);
+[Xt,indexes,~] = feature_selection_gain(X,Y,1);
 [str,~,values] = unique(Xt);
 [~,value] = ismember(Xnew(indexes(1)),str);
 
