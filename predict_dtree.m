@@ -49,7 +49,7 @@ for i = 1:P
         if numel(I)==1, majority = I; end
 
         S = sum(frequencies);
-        if S==M, label(i) = Y_current(1); break, end
+        if S==M && S>0, label(i) = I; break, end
         if S==0, label(i) = majority; break, end
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
