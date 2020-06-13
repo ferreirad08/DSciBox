@@ -9,7 +9,7 @@ Xcentered = X - repmat(M,size(X,1),1);
 V = cov(Xcentered);
 % Eigendecomposition of covariance matrix
 [vectors,values] = eig(V);
-% Sorts eigenvalues ​​and associated eigenvectors
+% Sorts the eigenvalues ​​and associated eigenvectors
 [~,i] = sort(sum(values),'descend');
 % Project data
 P = (vectors(:,i)'*Xcentered')';
