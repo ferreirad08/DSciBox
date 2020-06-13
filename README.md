@@ -16,4 +16,4 @@ Currently available functions:
 10. quantile()
 11. entropy()
 12. feature_selection_gain()
-13. pca()
+13. principal_components()
