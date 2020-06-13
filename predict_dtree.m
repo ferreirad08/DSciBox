@@ -67,24 +67,12 @@ end
 
 function [X,Y,Xnew] = branch(X,Y,Xnew)
 % Check the feature with the greatest gain of information
-[~,I] = max(gain(X,Y));
-[str,~,values] = unique(X(:,I));
-[~,value] = ismember(Xnew(I),str);
+[Xt,indexes,~] = gain(X,Y,1);
+[str,~,values] = unique(Xt);
+[~,value] = ismember(Xnew(indexes(1)),str);
 
 X = X(values==value,:);
-X(:,I) = [];
+X(:,indexes(1)) = [];
 Y = Y(values==value);
-Xnew(I) = [];
-end
-
-function g = gain(X,Y)
-[n_samples,n_features] = size(X);
-g = ones(1,n_features)*entropy(Y);
-for i = 1:n_features
-    [~,~,feature] = unique(X(:,i));
-    for j = 1:max(feature)
-        p = histc(feature(feature==j),j)/n_samples;
-        g(i) = g(i) - p*entropy(Y(feature==j));
-    end
-end
+Xnew(indexes(1)) = [];
 end
