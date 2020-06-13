@@ -48,7 +48,7 @@ for i = 1:P
 
         label_current = unique(Y_current);
         if numel(label_current)==1, label(i) = label_current; break, end
-        if numel(label_current)==0, label(i) = majority; break, end
+        if sum(frequencies)==0, label(i) = majority; break, end
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
 end
