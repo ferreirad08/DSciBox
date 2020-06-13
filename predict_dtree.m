@@ -39,12 +39,12 @@ binranges = unique(Y);
 P = size(Xnew,1);
 label = zeros(P,1);
 for i = 1:P
-    X_current = X;
-    Y_current = Y;
-    Xnew_current = Xnew(i,:);
+    Xcurrent = X;
+    Ycurrent = Y;
+    Xnewcurrent = Xnew(i,:);
     majority = [];
     while 1
-        frequencies = histc(Y_current,binranges);
+        frequencies = histc(Ycurrent,binranges);
         S = sum(frequencies);
         M = max(frequencies);
         I = find(frequencies==M);
@@ -56,7 +56,7 @@ for i = 1:P
         % the majority class will be selected
         if S==0, label(i) = majority; break, end
         % Branches the non-pure node
-        [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
+        [Xcurrent,Ycurrent,Xnewcurrent] = branch(Xcurrent,Ycurrent,Xnewcurrent);
     end
 end
 
