@@ -1,16 +1,16 @@
-function P = pricomp(X)
+function P = principal_component(X)
 %Principal Component Analysis
 
 % Calculate the mean of each column
 M = mean(X);
 % Centers the columns by subtracting column means
-C = X - repmat(M,size(X,1),1);
+Xcentered = X - repmat(M,size(X,1),1);
 % Calculate covariance matrix of centered matrix
-V = cov(C);
+V = cov(Xcentered);
 % Eigendecomposition of covariance matrix
 [vectors,values] = eig(V);
 % Sort eigenvalues ​​and associated eigenvectors
 [~,i] = sort(sum(values),'descend');
 % Project data
-P = (vectors(:,i)'*C')';
+P = (vectors(:,i)'*Xcentered')';
 end
