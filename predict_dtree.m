@@ -55,6 +55,7 @@ for i = 1:P
         % If there are no more attributes and the class has not been defined,
         % the majority class will be selected
         if S==0, label(i) = majority; break, end
+        % Branches the non-pure node
         [X_current,Y_current,Xnew_current] = branch(X_current,Y_current,Xnew_current);
     end
 end
