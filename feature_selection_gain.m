@@ -1,5 +1,12 @@
-function [Xt,indexes,g] = gain(X,Y,k)
-% Gain of information
+function [Xt,indexes,g] = feature_selection_gain(X,Y,k)
+%Author: David Ferreira - Federal University of Amazonas
+%PhD student in Electrical Engineering
+%Contact: ferreirad08@gmail.com
+%
+%Gain of information
+%
+%Syntax
+%1. [Xt,indexes,g] = feature_selection_gain(X,Y,k)
 
 [n_samples,n_features] = size(X);
 g = ones(1,n_features)*entropy(Y);
