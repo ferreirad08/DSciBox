@@ -64,6 +64,7 @@ label = C(label);
 end
 
 function [X,Y,Xnew] = branch(X,Y,Xnew)
+% Check the resource with the greatest gain of information
 [~,I] = max(gain(X,Y));
 [str,~,values] = unique(X(:,I));
 [~,value] = ismember(Xnew(I),str);
