@@ -3,7 +3,7 @@ function [Xt,indexes,gain] = feature_selection_gain(X,Y,k)
 %PhD student in Electrical Engineering
 %Contact: ferreirad08@gmail.com
 %
-%Gain of information
+%Information Gain
 %
 %Syntax
 %1. [Xt,indexes,g] = feature_selection_gain(X,Y,k)
