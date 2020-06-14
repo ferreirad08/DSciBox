@@ -1,4 +1,4 @@
-function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
+function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
 %Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
 %Contact: ferreirad08@gmail.com
@@ -7,6 +7,7 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 %
 %Syntax
 %1. [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
+%1. [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,'stratified')
 %
 %Description 
 %1. Returns the estimated labels of one or multiple test instances.
@@ -23,9 +24,19 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 %     p = 0.25;
 %     [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 
-n = numel(Y);
-
-i = randperm(n,round(n*p));
+if nargin > 3 && strcmp(type,'stratified')
+    [~,~,Ynumerical] = unique(Y);
+    i = [];
+    for j = 1:max(Ynumerical)
+        k = find(Ynumerical==j);
+        n = numel(k);
+        l = randperm(n,round(n*p));
+        i = [i; k(l)];
+    end
+else
+    n = numel(Y);
+    i = randperm(n,round(n*p));
+end
 
 Xnew = X(i,:);
 X(i,:) = [];
