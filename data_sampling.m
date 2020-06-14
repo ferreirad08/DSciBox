@@ -24,7 +24,9 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 %     [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
 
 n = numel(Y);
+
 i = randperm(n,round(n*p));
+
 Xnew = X(i,:);
 X(i,:) = [];
 Ynew = Y(i);
