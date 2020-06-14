@@ -52,7 +52,7 @@ for i = 1:P
         I = find(frequencies==M);
         % If there is a single class (pure node), the class will be selected
         if S==M && M>0, label(i) = I; break, end
-        % Check the majority class
+        % Checks the majority class
         if numel(I)==1, majority = I; end
         % If there are no more features and the class has not been defined,
         % the majority class will be selected
