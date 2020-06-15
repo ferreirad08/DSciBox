@@ -1,5 +1,13 @@
 clc
 
+% Add library folders to the search path
+addpath('datasets')
+addpath('dscibox_src/dsb_find',...
+        'dscibox_src/dsb_predict',...
+        'dscibox_src/dsb_transformation',...
+        'dscibox_src/dsb_utils')
+% savepath
+
 disp('Fisher iris')
 load('fisheriris.mat')
 [X,Xnew,Y,Ynew] = data_sampling(meas,species,0.25,'stratified');
