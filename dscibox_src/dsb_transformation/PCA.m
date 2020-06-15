@@ -18,9 +18,9 @@ classdef PCA
             V = cov(Xcentered);
             % Eigendecomposition of covariance matrix
             [vectors,values] = eig(V);
-            % Sorts the eigenvalues ??and associated eigenvectors
+            % Sorts the eigenvalues and associated eigenvectors
             [~,i] = sort(sum(values),'descend');
-            % Project data
+            % Selects the desired number of coefficients
             obj.coeff = vectors(:,i(1:obj.n_components));
         end
         function Xt = transform(obj,X)
@@ -28,6 +28,7 @@ classdef PCA
             M = mean(X);
             % Centers the columns by subtracting column means
             Xcentered = X - repmat(M,size(X,1),1);
+            % Project data
             Xt = (obj.coeff'*Xcentered')';
         end
     end
