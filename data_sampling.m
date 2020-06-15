@@ -30,8 +30,7 @@ if nargin > 3 && strcmp(type,'stratified')
     for j = 1:max(Ynumerical)
         k = find(Ynumerical==j);
         n = numel(k);
-        l = randperm(n,round(n*p));
-        i = [i; k(l)];
+        i = [i; k(randperm(n,round(n*p)))];
     end
 else
     n = numel(Y);
