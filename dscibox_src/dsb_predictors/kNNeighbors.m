@@ -1,6 +1,6 @@
 classdef kNNeighbors
     properties
-        k
+        k = 5
         C
         X
         Y
