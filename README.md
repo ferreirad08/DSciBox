@@ -2,11 +2,11 @@
 
 [![View Gaussian Naive Bayes (GNB) Classifier on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/76355-gaussian-naive-bayes-gnb-classifier)
 
-Author: [MSc. David Ferreira](http://lattes.cnpq.br/3863655668683045)
+Author: [MSc. David Alan de O. Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 *Currently available functions:*
 
-Preprocessing :heavy_check_mark: :+1:
+Preprocessing
         
     PCA
         fit
