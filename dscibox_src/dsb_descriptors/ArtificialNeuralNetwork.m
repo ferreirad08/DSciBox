@@ -1,9 +1,9 @@
-function label = predict_knneighbors(X,Y,Xnew,k)
+function label = ArtificialNeuralNetwork(X,Y,Xnew,k)
 %Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
 %Contact: ferreirad08@gmail.com
 %
-%k-Nearest Neighbors (kNN)
+%Artificial Neural Network (ANN)
 %
 %Syntax
 %1. label = predict_knneighbors(X,Y,Xnew,k)
