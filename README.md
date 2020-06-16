@@ -8,10 +8,10 @@ Author: [David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 Preprocessing
         
-    PCA
+    PCA [OK]
         fit
         transform
-    Binning
+    Binning [OK]
         fit
         transform
     InformationGain
@@ -21,20 +21,20 @@ Preprocessing
         fit
         transform
 
-Utilities
+Utilities [OK]
 
-    data_sampling 
-    accuracy_score  
-    entropy 
+    data_sampling
+    accuracy_score
+    entropy
     quantile
         
 Predictors
 
-    kNNeighbors
+    kNNeighbors [OK]
         fit
         predict
         find
-    GaussianNB
+    GaussianNB [OK]
         fit
         predict
         find
