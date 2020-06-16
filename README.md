@@ -36,6 +36,12 @@ Predictors
     DTree
         fit
         predict
+    RandomForest
+        fit
+        predict
+    SVM
+        fit
+        predict
 
 Descriptors
 
