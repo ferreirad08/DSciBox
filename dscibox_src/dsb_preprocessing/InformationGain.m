@@ -23,7 +23,7 @@ classdef InformationGain
 
             [obj.gain,obj.indexes] = sort(obj.gain,'descend');
         end
-        function Xt = transform(obj,X)
+        function Xt = feature_selection(obj,X)
             Xt = X(:,obj.indexes(1:obj.k));
         end
     end
