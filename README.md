@@ -18,15 +18,11 @@ Preprocessing
 
 Utilities
 
-    data_sampling
-        
-    accuracy_score
-        
-    entropy
-        
+    data_sampling 
+    accuracy_score  
+    entropy 
     quantile
         
-
 Predictors
 
     kNNeighbors
