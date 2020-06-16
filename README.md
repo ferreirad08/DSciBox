@@ -8,7 +8,7 @@ Author: [David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 Preprocessing
         
-    PCA [OK]
+    PCA (Pricipal Component Analysis) [OK]
         fit
         transform
     Binning [OK]
@@ -23,29 +23,29 @@ Preprocessing
 
 Utilities [OK]
 
-    data_sampling
+    data_sampling (Simple or Stratified Random Sampling)
     accuracy_score
     entropy
-    quantile
+    quantile (Quantiles Analysis)
         
 Predictors
 
-    kNNeighbors [OK]
+    kNNeighbors (k-Nearest Neighbors) [OK]
         fit
         predict
         find
-    GaussianNB [OK]
+    GaussianNB (Gaussian Naive Bayes) [OK]
         fit
         predict
         find
-    DTree [OK]
+    DTree (Decision Tree) [OK]
         fit
         predict
     RandomForest
         fit
         predict
         find
-    SVM
+    SVM (Suport Vector Machine)
         fit
         predict
 
