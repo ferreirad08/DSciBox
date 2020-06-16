@@ -13,7 +13,7 @@ Preprocessing
         transform
     Binning [OK]
         fit
-        transform
+        discret
     InformationGain [OK]
         fit
         feature_selection
