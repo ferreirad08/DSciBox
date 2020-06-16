@@ -10,7 +10,7 @@ addpath('dscibox_src/dsb_find',...
 
 disp('Fisher iris')
 load('fisheriris.mat')
-[X,Xnew,Y,Ynew] = data_sampling(meas,species,0.25,'stratified');
+[X,Xnew,Y,Ynew] = data_sampling(meas,species,0.30,'stratified');
 
 k = 5;
 mk = kNNeighbors(k);
@@ -23,7 +23,7 @@ mg = GaussianNB();
 mg = mg.fit(X,Y);
 label = mg.predict(Xnew);
 disp(['GNB: ' num2str(accuracy_score(Ynew,label))])
-% [labels,probabilities] = m.find(Xnew(2,:))
+% [labels,probabilities] = mg.find(Xnew(2,:))
 
 mdt = DTree();
 mdt = mdt.fit(X,Y);
@@ -35,10 +35,8 @@ disp(['DT: ' num2str(accuracy_score(Ynew,label))])
 disp(' ')
 disp('Golf dataset')
 load('golf-dataset.mat')
-[X,Xnew,Y,Ynew] = data_sampling(predictors,target,0.25,'stratified');
+[X,Xnew,Y,Ynew] = data_sampling(predictors,target,0.30,'stratified');
 
-label = predict_dtree(X,Y,Xnew);
-disp(['DT: ' num2str(accuracy_score(Ynew,label))])
 mdt2 = DTree();
 mdt2 = mdt2.fit(X,Y);
 label = mdt2.predict(Xnew);
