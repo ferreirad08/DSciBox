@@ -26,7 +26,7 @@ Utilities [OK]
     data_sampling (Simple or Stratified Random Sampling)
     accuracy_score
     entropy
-    quantile (Quantiles Analysis)
+    quantile (Quantile Analysis)
         
 Predictors
 
