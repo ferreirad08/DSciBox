@@ -20,7 +20,7 @@ classdef DTree
                 n_bins = ceil(2*numel(Y)^(1/3));
                 obj.b = Binning(n_bins);
                 obj.b = obj.b.fit(X);
-                obj.X = obj.b.transform(X);
+                obj.X = obj.b.discret(X);
             else
                 obj.X = X;
             end
@@ -30,7 +30,7 @@ classdef DTree
         end
         function label = predict(obj,Xnew)
             if isnumeric(Xnew)
-                Xnew = obj.b.transform(Xnew);
+                Xnew = obj.b.discret(Xnew);
             end
             
             P = size(Xnew,1);
@@ -63,13 +63,16 @@ classdef DTree
 end
 
 function [X,Y,Xnew] = branch(X,Y,Xnew)
-% Check the feature with the greatest information gain
-[Xt,indexes,~] = feature_selection_gain(X,Y,1);
-[str,~,values] = unique(Xt);
-[~,value] = ismember(Xnew(indexes(1)),str);
+    % Check the feature with the greatest information gain
+    ig = InformationGain(1);
+    ig = ig.fit(X,Y);
+    Xt = ig.feature_selection(X);
+    
+    [str,~,values] = unique(Xt);
+    [~,value] = ismember(Xnew(ig.indexes(1)),str);
 
-X = X(values==value,:);
-X(:,indexes(1)) = [];
-Y = Y(values==value);
-Xnew(indexes(1)) = [];
+    X = X(values==value,:);
+    X(:,ig.indexes(1)) = [];
+    Y = Y(values==value);
+    Xnew(ig.indexes(1)) = [];
 end
