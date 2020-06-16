@@ -15,8 +15,11 @@ Preprocessing
         fit
         transform
     InformationGain
-        
+        fit
+        transform
     ChiSquared
+        fit
+        transform
 
 Utilities
 
@@ -41,6 +44,7 @@ Predictors
     RandomForest
         fit
         predict
+        find
     SVM
         fit
         predict
@@ -48,3 +52,4 @@ Predictors
 Descriptors
 
     ArtificialNeuralNetwork
+        descript
