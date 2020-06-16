@@ -41,7 +41,7 @@ Predictors
     DTree (Decision Tree) [OK]
         fit
         predict
-    RandomForest
+    RandomForest (Random Forest)
         fit
         predict
         find
@@ -51,5 +51,5 @@ Predictors
 
 Descriptors
 
-    ArtificialNeuralNetwork
+    ANN (Artificial Neural Network)
         descript
