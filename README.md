@@ -20,20 +20,35 @@ Currently available functions:
 
 Preprocessing
     PCA
+        
     Binning
+        
     InformationGain
+        
     Chi2
 
 Utilities
     data_sampling
+        
     accuracy_score
+        
     entropy
+        
     quantile
+        
 
 Predictors
     kNNeighbors
+        
     GaussianNB
+        
     DTree
 
 Descriptors
     Artificial Neural Network
+
+    label =
+    
+        'setosa'
+        'versicolor'
+        'virginica'
