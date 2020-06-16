@@ -11,7 +11,7 @@ Preprocessing
     PCA (Pricipal Component Analysis) [OK]
         fit
         transform
-    Binning [OK]
+    Binning (Quantile Binning Discretization) [OK]
         fit
         discret
     InformationGain [OK]
