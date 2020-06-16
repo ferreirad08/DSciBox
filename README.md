@@ -26,7 +26,7 @@ Preprocessing
         
     InformationGain
         
-    Chi2
+    ChiSquared
 
 Utilities
 
@@ -49,4 +49,4 @@ Predictors
 
 Descriptors
 
-    Artificial Neural Network
+    ArtificialNeuralNetwork
