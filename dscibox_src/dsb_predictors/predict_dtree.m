@@ -68,13 +68,16 @@ label = C(label);
 end
 
 function [X,Y,Xnew] = branch(X,Y,Xnew)
-% Check the feature with the greatest information gain
-[Xt,indexes,~] = feature_selection_gain(X,Y,1);
-[str,~,values] = unique(Xt);
-[~,value] = ismember(Xnew(indexes(1)),str);
+    % Check the feature with the greatest information gain
+    ig = InformationGain(1);
+    ig = ig.fit(X,Y);
+    Xt = ig.transform(X);
+    
+    [str,~,values] = unique(Xt);
+    [~,value] = ismember(Xnew(ig.indexes(1)),str);
 
-X = X(values==value,:);
-X(:,indexes(1)) = [];
-Y = Y(values==value);
-Xnew(indexes(1)) = [];
+    X = X(values==value,:);
+    X(:,ig.indexes(1)) = [];
+    Y = Y(values==value);
+    Xnew(ig.indexes(1)) = [];
 end
