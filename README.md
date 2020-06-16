@@ -14,12 +14,12 @@ Preprocessing
     Binning [OK]
         fit
         transform
-    InformationGain
+    InformationGain [OK]
         fit
-        transform
+        feature_selection
     ChiSquared
         fit
-        transform
+        feature_selection
 
 Utilities [OK]
 
@@ -38,7 +38,7 @@ Predictors
         fit
         predict
         find
-    DTree
+    DTree [OK]
         fit
         predict
     RandomForest
