@@ -12,7 +12,7 @@ disp('Fisher iris')
 load('fisheriris.mat')
 [X,Xnew,Y,Ynew] = data_sampling(meas,species,0.30,'stratified');
 
-k = 5;
+k = 5; % optional, k = 5 is the default
 mk = kNNeighbors(k);
 mk = mk.fit(X,Y);
 label = mk.predict(Xnew);
