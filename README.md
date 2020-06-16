@@ -19,6 +19,7 @@ Currently available functions:
 13. principal_component()
 
 Preprocessing
+        
     PCA
         
     Binning
@@ -28,6 +29,7 @@ Preprocessing
     Chi2
 
 Utilities
+
     data_sampling
         
     accuracy_score
@@ -38,6 +40,7 @@ Utilities
         
 
 Predictors
+
     kNNeighbors
         
     GaussianNB
@@ -45,10 +48,5 @@ Predictors
     DTree
 
 Descriptors
-    Artificial Neural Network
 
-    label =
-    
-        'setosa'
-        'versicolor'
-        'virginica'
+    Artificial Neural Network
