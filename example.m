@@ -23,3 +23,30 @@ n_bins = 3;
 b = Binning(n_bins);
 b = b.fit(X);
 Xt = b.transform(X)
+
+% ----------------------
+
+load fisheriris
+Xnew = [min(meas);mean(meas);max(meas)]
+
+m = GaussianNB();
+m = m.fit(meas,species);
+label = m.predict(Xnew)
+[labels,probabilities] = m.find(Xnew(2,:))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
