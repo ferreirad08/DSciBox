@@ -6,7 +6,7 @@
 
 Preprocessing
         
-    PCA :+1:
+    [X] PCA
         fit
         transformation
     Binning
