@@ -34,8 +34,13 @@ m = m.fit(meas,species);
 label = m.predict(Xnew)
 [labels,probabilities] = m.find(Xnew(2,:))
 
+% ----------------------
 
-
+k = 5
+mk = kNNeighbors(k);
+mk = mk.fit(meas,species);
+label = mk.predict(Xnew)
+[Xnearest,Ynearest,distances] = mk.find(Xnew(2,:))
 
 
 
