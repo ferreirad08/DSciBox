@@ -1,9 +1,9 @@
 function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
+%Simple or Stratified Random Sampling
+%
 %Author: David Ferreira - Federal University of Amazonas
 %PhD student in Electrical Engineering
 %Contact: ferreirad08@gmail.com
-%
-%Simple or Stratified Random Sampling
 %
 %Syntax
 %1. [X,Xnew,Y,Ynew] = data_sampling(X,Y,p)
