@@ -1,10 +1,10 @@
 function Q = quantile(X,p)
+%Quantile Analysis
+%
 %Author: David Ferreira
 %PhD student in Electrical Engineering
 %Federal University of Amazonas
 %Contact: ferreirad08@gmail.com
-%
-%Quantile Analysis
 %
 %Syntax
 %1. Q = quantile(X,p)
