@@ -8,7 +8,7 @@ Author: [MSc. David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 Preprocessing
         
-    PCA
+    PCA :heavy_check_mark:
         fit
         transformation
     Binning
