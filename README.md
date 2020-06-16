@@ -17,3 +17,23 @@ Currently available functions:
 11. entropy()
 12. feature_selection_gain()
 13. principal_component()
+
+Preprocessing
+    PCA
+    Binning
+    InformationGain
+    Chi2
+
+Utilities
+    data_sampling
+    accuracy_score
+    entropy
+    quantile
+
+Predictors
+    kNNeighbors
+    GaussianNB
+    DTree
+
+Descriptors
+    Artificial Neural Network
