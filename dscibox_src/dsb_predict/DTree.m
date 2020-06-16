@@ -21,6 +21,8 @@ classdef DTree
                 obj.b = Binning(n_bins);
                 obj.b = obj.b.fit(X);
                 obj.X = obj.b.transform(X);
+            else
+                obj.X = X;
             end
 
             [obj.C,~,obj.Y] = unique(Y);
