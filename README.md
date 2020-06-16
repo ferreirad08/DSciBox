@@ -6,7 +6,7 @@ Author: [MSc. David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 *Currently available functions:*
 
-Preprocessing :heavy_check_mark:
+Preprocessing :heavy_check_mark: :+1:
         
     PCA
         fit
