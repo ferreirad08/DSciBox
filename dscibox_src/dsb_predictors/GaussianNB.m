@@ -28,9 +28,9 @@ classdef GaussianNB
             % Class prior probability
             obj.prior = histc(Y,1:obj.n_class)/numel(Y);
         end
-        function label = predict(obj,Xnew)
+        function Ypred = predict(obj,Xnew)
             P = size(Xnew,1);
-            label = zeros(P,1);
+            Ypred = zeros(P,1);
             for i = 1:P
                 % Repeats measurements in a matrix
                 meas = repmat(Xnew(i,:),obj.n_class,1);
@@ -40,12 +40,12 @@ classdef GaussianNB
                 % Product
                 probability = prod([gauss obj.prior],2);
                 % Check the highest probability and the respective label
-                [~,label(i)] = max(probability);
+                [~,Ypred(i)] = max(probability);
             end
 
-            label = obj.C(label);
+            Ypred = obj.C(Ypred);
         end
-        function [labels,probabilities] = find(obj,Xnew)
+        function [Yunique,probabilities] = find(obj,Xnew)
             % Repeats measurements in a matrix
             meas = repmat(Xnew,obj.n_class,1);
             % Probability density function (PDF) of the normal distribution
@@ -55,7 +55,7 @@ classdef GaussianNB
             probability = prod([gauss obj.prior],2);
             % Sort the normalized probabilities in descending order with their respective labels
             [probabilities,I] = sort(probability/sum(probability),'descend');
-            labels = obj.C(I);
+            Yunique = obj.C(I);
         end
     end
 end
