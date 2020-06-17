@@ -32,10 +32,13 @@ Utilities [OK]
 
     Simple or Stratified Random Sampling
         [X,Xnew,Y,Ynew] = data_sampling(X,Y,0.30,'stratified') % 'simple' is the default
+    
     Accuracy Classification Score
         accuracy = accuracy_score(Ynew,Ypred)
+
     Information Entropy
         e = entropy(Y)
+
     Quantile Analysis
         Q = quantile(X,[0.25 0.50 0.75])
         
@@ -45,17 +48,21 @@ Predictors
         fit
         predict
         find
+
     GaussianNB (Gaussian Naive Bayes) [OK]
         fit
         predict
         find
+
     DTree (Decision Tree) [OK]
         fit
         predict
+
     RandomForest (Random Forest)
         fit
         predict
         find
+
     SVM (Suport Vector Machine)
         fit
         predict
