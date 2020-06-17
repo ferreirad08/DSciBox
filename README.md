@@ -66,12 +66,13 @@ Predictors
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
-    SVM (Suport Vector Machine)
+    Suport Vector Machine
         mdl = SVM()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
 Descriptors
 
-    ANN (Artificial Neural Network)
-        descript
+    Artificial Neural Network
+        mdl = ANN()
+        result = mdl.descript()
