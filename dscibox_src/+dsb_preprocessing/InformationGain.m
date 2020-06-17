@@ -1,4 +1,5 @@
 classdef InformationGain
+%Information Gain (IG)
     properties
         n_features
         gain
