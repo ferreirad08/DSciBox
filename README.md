@@ -24,7 +24,7 @@ Preprocessing
 Utilities [OK]
 
     data_sampling (Simple or Stratified Random Sampling)
-    accuracy_score (Accuracy Classification Score)
+    prediction_accuracy (Prediction Accuracy of Classifications)
     entropy (Information Entropy)
     quantile (Quantile Analysis)
         
