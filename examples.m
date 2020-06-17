@@ -1,11 +1,7 @@
 clc
 
 % Add library folders to the search path
-addpath('datasets')
-addpath('dscibox_src/dsb_descriptors',...
-        'dscibox_src/dsb_predictors',...
-        'dscibox_src/dsb_preprocessing',...
-        'dscibox_src/dsb_utilities')
+addpath('datasets','dscibox_src')
 % savepath
 
 disp('Fisher iris')
