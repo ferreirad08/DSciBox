@@ -4,7 +4,7 @@ clc
 addpath('dscibox_src')
 % savepath
 
-disp('Examples of classification using the fisheriris.mat')
+disp('Examples of classification using the Iris Dataset')
 
 load('fisheriris.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas,species,0.30,'stratified');
@@ -33,7 +33,7 @@ disp(['DT: ' num2str(accuracy)])
 %%
 
 disp(' ')
-disp('Examples of classification using the golf-dataset.mat')
+disp('Examples of classification using the Golf Dataset')
 
 load('golf-dataset.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(predictors,target,0.30,'stratified');
