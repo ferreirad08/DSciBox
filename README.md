@@ -8,6 +8,7 @@ PhD student in Electrical Engineering from the Federal University of Amazonas
 
 e-mail: ferreirad08@gmail.com
 
+
 *Currently available functions:*
 
 Preprocessing
