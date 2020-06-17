@@ -8,25 +8,33 @@ Author: [David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 Preprocessing
         
-    PCA (Pricipal Component Analysis) [OK]
-        fit
-        transform
-    Binning (Quantile Binning Transformation) [OK]
-        fit
-        transform
-    InformationGain (Feature Selection Based on Information Gain) [OK]
-        fit
-        feature_selection
-    ChiSquared (Feature Selection Based on Chi-squared)
-        fit
-        feature_selection
+    **Pricipal Component Analysis** [OK]
+        pca = PCA(n_components)
+        pca = pca.fit(X)
+        Xt = pca.transform(X)
+    **Quantile Binning Transformation** [OK]
+        b = Binning(n_bins)
+        b = b.fit(X)
+        Xt = b.transform(X)
+    Feature Selection Based on Information Gain [OK]
+        ig = InformationGain(k)
+        ig = ig.fit(X,Y)
+        Xt = ig.feature_selection(X)
+    Feature Selection Based on Chi-squared
+        cs = ChiSquared(k)
+        ig = cs.fit(X,Y)
+        Xt = cs.feature_selection(X)
 
 Utilities [OK]
 
-    data_sampling (Simple or Stratified Random Sampling)
-    accuracy_score (Accuracy Classification Score)
-    entropy (Information Entropy)
-    quantile (Quantile Analysis)
+    Simple or Stratified Random Sampling)
+        [X,Xnew,Y,Ynew] = data_sampling(X,Y,'stratified') % ('simple' is the default)
+    Accuracy Classification Score
+        accuracy = accuracy_score(Ynew,Ypred)
+    Information Entropy
+        entropy
+    Quantile Analysis
+        Q = quantile(X,p)
         
 Predictors
 
