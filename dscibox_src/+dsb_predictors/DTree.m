@@ -56,13 +56,13 @@ methods
         [obj.C,~,obj.Y] = unique(Y);
         obj.binranges = unique(obj.Y);
     end
-    function label = predict(obj,Xnew)
+    function Ypred = predict(obj,Xnew)
         if isnumeric(Xnew)
             Xnew = obj.b.transform(Xnew);
         end
 
         P = size(Xnew,1);
-        label = zeros(P,1);
+        Ypred = zeros(P,1);
         for i = 1:P
             Xcurrent = obj.X;
             Ycurrent = obj.Y;
@@ -74,18 +74,18 @@ methods
                 M = max(frequencies);
                 I = find(frequencies==M);
                 % If there is a single class (pure node), the class will be selected
-                if S==M && M>0, label(i) = I; break, end
+                if S==M && M>0, Ypred(i) = I; break, end
                 % Checks the majority class
                 if numel(I)==1, majority = I; end
                 % If there are no more features and the class has not been defined,
                 % the majority class will be selected
-                if S==0, label(i) = majority; break, end
+                if S==0, Ypred(i) = majority; break, end
                 % Branches the non-pure node
                 [Xcurrent,Ycurrent,Xnewcurrent] = branch(Xcurrent,Ycurrent,Xnewcurrent);
             end
         end
 
-        label = obj.C(label);
+        Ypred = obj.C(Ypred);
     end
 end
 end
