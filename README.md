@@ -10,17 +10,17 @@ e-mail: ferreirad08@gmail.com
 
 Preprocessing
         
-    Pricipal Component Analysis [OK]
+    Pricipal Component Analysis
         pca = PCA(n_components)
         pca = pca.fit(X)
         Xt = pca.transform(X)
     
-    Quantile Binning Transformation [OK]
+    Quantile Binning Transformation
         b = dsb_preprocessing.Binning(n_bins)
         b = b.fit(X)
         Xt = b.transform(X)
     
-    Feature Selection Based on Information Gain [OK]
+    Feature Selection Based on Information Gain
         ig = dsb_preprocessing.InformationGain(n_features)
         ig = ig.fit(X,Y)
         Xr = ig.feature_selection(X)
@@ -30,7 +30,7 @@ Preprocessing
         cs = cs.fit(X,Y)
         Xr = cs.feature_selection(X)
 
-Utilities [OK]
+Utilities
 
     Simple or Stratified Random Sampling
         [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,0.30,'stratified') % 'simple' is the default
@@ -46,19 +46,19 @@ Utilities [OK]
         
 Predictors
 
-    k-Nearest Neighbors [OK]
+    k-Nearest Neighbors
         mdl = dsb_predictors.kNNeighbors(k)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
 
-    Gaussian Naive Bayes [OK]
+    Gaussian Naive Bayes
         mdl = dsb_predictors.GaussianNB()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Ysorted,probabilities] = mdl.find(Xnew(1,:))
 
-    Decision Tree [OK]
+    Decision Tree
         mdl = dsb_predictors.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
