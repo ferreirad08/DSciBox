@@ -24,7 +24,7 @@ Preprocessing
         Xt = ig.feature_selection(X)
     
     Feature Selection Based on Chi-squared
-        cs = ChiSquared(k)
+        cs = ChiSquared(n_features)
         cs = cs.fit(X,Y)
         Xt = cs.feature_selection(X)
 
