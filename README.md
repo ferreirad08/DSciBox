@@ -8,11 +8,11 @@ Author: [David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 Preprocessing
         
-    **Pricipal Component Analysis** [OK]
+    ##Pricipal Component Analysis [OK]
         pca = PCA(n_components)
         pca = pca.fit(X)
         Xt = pca.transform(X)
-    **Quantile Binning Transformation** [OK]
+    ###Quantile Binning Transformation** [OK]
         b = Binning(n_bins)
         b = b.fit(X)
         Xt = b.transform(X)
