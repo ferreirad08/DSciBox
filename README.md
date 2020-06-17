@@ -2,8 +2,8 @@
 
 [![View Gaussian Naive Bayes (GNB) Classifier on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/76355-gaussian-naive-bayes-gnb-classifier)
 
-[David Alan de Oliveira Ferreira](http://lattes.cnpq.br/3863655668683045)\n
-PhD student in Electrical Engineering from the Federal University of Amazonas\n
+[David Alan de Oliveira Ferreira](http://lattes.cnpq.br/3863655668683045)\s\s
+PhD student in Electrical Engineering from the Federal University of Amazonas\s\s
 e-mail: ferreirad08@gmail.com
 
 *Currently available functions:*
