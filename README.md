@@ -37,10 +37,10 @@ Utilities [OK]
         accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
 
     Information Entropy
-        e = entropy(Y)
+        e = dsb_utilities.entropy(Y)
 
     Quantile Analysis
-        Q = quantile(X,[0.25 0.50 0.75])
+        Q = dsb_utilities.quantile(X,[0.25 0.50 0.75])
         
 Predictors
 
