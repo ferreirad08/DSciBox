@@ -31,7 +31,7 @@ Preprocessing
 Utilities [OK]
 
     Simple or Stratified Random Sampling
-        [X,Xnew,Y,Ynew] = data_sampling(X,Y,0.30,'stratified') % ('simple' is the default)
+        [X,Xnew,Y,Ynew] = data_sampling(X,Y,0.30,'stratified') % 'simple' is the default
     Accuracy Classification Score
         accuracy = accuracy_score(Ynew,Ypred)
     Information Entropy
