@@ -45,7 +45,7 @@ classdef GaussianNB
 
             Ypred = obj.C(Ypred);
         end
-        function [Yunique,probabilities] = find(obj,Xnew)
+        function [Ysorted,probabilities] = find(obj,Xnew)
             % Repeats measurements in a matrix
             meas = repmat(Xnew,obj.n_class,1);
             % Probability density function (PDF) of the normal distribution
@@ -55,7 +55,7 @@ classdef GaussianNB
             probability = prod([gauss obj.prior],2);
             % Sort the normalized probabilities in descending order with their respective labels
             [probabilities,I] = sort(probability/sum(probability),'descend');
-            Yunique = obj.C(I);
+            Ysorted = obj.C(I);
         end
     end
 end
