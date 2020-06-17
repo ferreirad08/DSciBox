@@ -19,7 +19,7 @@ Preprocessing
         Xt = b.transform(X)
     
     Feature Selection Based on Information Gain [OK]
-        ig = InformationGain(k)
+        ig = InformationGain(n_features)
         ig = ig.fit(X,Y)
         Xt = ig.feature_selection(X)
     
