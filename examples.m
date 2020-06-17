@@ -1,10 +1,13 @@
+clear
 clc
 
 % Add library folders to the search path
 addpath('dscibox_src')
 % savepath
 
-disp('Examples of classification using the Iris Dataset')
+%%
+
+fprintf('Examples using the Iris dataset with 30 percent for testing.\n');
 
 load('fisheriris.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas,species,0.30,'stratified');
@@ -14,26 +17,25 @@ mdl = dsb_predictors.kNNeighbors(k);
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
-disp(['kNN: ' num2str(accuracy)])
+fprintf('Accuracy of %s: %d.\n','k-Nearest Neighbors',accuracy);
 % [Xnearest,Ynearest,distances] = mdl.find(Xnew(2,:))
 
 mdl = dsb_predictors.GaussianNB();
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
-disp(['GNB: ' num2str(accuracy)])
+fprintf('Accuracy of %s: %d.\n','Gaussian Naive Bayes',accuracy);
 % [Ysorted,probabilities] = mdl.find(Xnew(2,:))
 
 mdl = dsb_predictors.DTree();
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
-disp(['DT: ' num2str(accuracy)])
+fprintf('Accuracy of %s: %d.\n','Decision Tree',accuracy);
 
 %%
 
-disp(' ')
-disp('Examples of classification using the Golf Dataset')
+fprintf('\nExamples using the Golf dataset with 30 percent for testing.\n');
 
 load('golf-dataset.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(predictors,target,0.30,'stratified');
@@ -42,4 +44,4 @@ mdl = dsb_predictors.DTree();
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
-disp(['DT: ' num2str(accuracy)])
+fprintf('Accuracy of %s: %d.\n','Decision Tree',accuracy);
