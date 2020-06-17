@@ -1,61 +1,101 @@
 classdef GaussianNB
-    properties
-        n_bins
-        C
-        n_class
-        M
-        S
-        prior
+%Gaussian Naive Bayes (GNB)
+%
+% SYNTAX
+% 1. [label,model] = predict_gaussiannb(X,Y,Xnew)
+% 2. label = predict_gaussiannb(model,Xnew)
+%
+% DESCRIPTION
+% 1. Returns the estimated labels of one or multiple test instances.
+%
+% X is a M-by-N matrix, with M instances of N features. 
+% Y is a M-by-1 matrix, with respective M labels to each training instance. 
+% Xnew is a P-by-N matrix, with P instances of N features to be classified.
+%
+% EXAMPLE
+% 1.
+%      load fisheriris
+%      X = meas;
+%      Y = species;
+%      Xnew = [min(meas);max(meas)];
+%      [label,model] = predict_gaussiannb(X,Y,Xnew)
+%      label =
+%          'setosa'
+%          'virginica'
+%      model = 
+%               C               M               S           prior 
+%          ____________    ____________    ____________    _______ 
+%          'setosa'        [1x4 double]    [1x4 double]    0.33333
+%          'versicolor'    [1x4 double]    [1x4 double]    0.33333
+%          'virginica'     [1x4 double]    [1x4 double]    0.33333
+%
+% 2.
+%      Xnew = mean(meas);
+%      label = predict_gaussiannb(model,Xnew)
+%      label = 
+%          'versicolor'
+%
+% David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
+% PhD student in Electrical Engineering from the Federal University of Amazonas
+% e-mail: ferreirad08@gmail.com
+
+properties
+    n_bins
+    C
+    n_class
+    M
+    S
+    prior
+end
+methods
+    function obj = GaussianNB(n_bins)
+        if nargin > 0
+            obj.n_bins = n_bins;
+        end
     end
-    methods
-        function obj = GaussianNB(n_bins)
-            if nargin > 0
-                obj.n_bins = n_bins;
-            end
-        end
-        function obj = fit(obj,X,Y)
-            [obj.C,~,Y] = unique(Y);
-            obj.n_class = numel(obj.C);
+    function obj = fit(obj,X,Y)
+        [obj.C,~,Y] = unique(Y);
+        obj.n_class = numel(obj.C);
 
-            % Calculate the means and standard deviations
-            obj.M = zeros(obj.n_class,size(X,2)); obj.S = obj.M;
-            for i = 1:obj.n_class
-                A = X(Y==i,:);
-                obj.M(i,:) = mean(A);
-                obj.S(i,:) = std(A,1);
-            end
-
-            % Class prior probability
-            obj.prior = histc(Y,1:obj.n_class)/numel(Y);
+        % Calculate the means and standard deviations
+        obj.M = zeros(obj.n_class,size(X,2)); obj.S = obj.M;
+        for i = 1:obj.n_class
+            A = X(Y==i,:);
+            obj.M(i,:) = mean(A);
+            obj.S(i,:) = std(A,1);
         end
-        function Ypred = predict(obj,Xnew)
-            P = size(Xnew,1);
-            Ypred = zeros(P,1);
-            for i = 1:P
-                % Repeats measurements in a matrix
-                meas = repmat(Xnew(i,:),obj.n_class,1);
-                % Probability density function (PDF) of the normal distribution
-                gauss = 1./(obj.S.*sqrt(2.*pi))...
-                    .*exp(-1/2.*((meas-obj.M)./obj.S).^2);
-                % Product
-                probability = prod([gauss obj.prior],2);
-                % Check the highest probability and the respective label
-                [~,Ypred(i)] = max(probability);
-            end
 
-            Ypred = obj.C(Ypred);
-        end
-        function [Ysorted,probabilities] = find(obj,Xnew)
+        % Class prior probability
+        obj.prior = histc(Y,1:obj.n_class)/numel(Y);
+    end
+    function Ypred = predict(obj,Xnew)
+        P = size(Xnew,1);
+        Ypred = zeros(P,1);
+        for i = 1:P
             % Repeats measurements in a matrix
-            meas = repmat(Xnew,obj.n_class,1);
+            meas = repmat(Xnew(i,:),obj.n_class,1);
             % Probability density function (PDF) of the normal distribution
             gauss = 1./(obj.S.*sqrt(2.*pi))...
                 .*exp(-1/2.*((meas-obj.M)./obj.S).^2);
             % Product
             probability = prod([gauss obj.prior],2);
-            % Sort the normalized probabilities in descending order with their respective labels
-            [probabilities,I] = sort(probability/sum(probability),'descend');
-            Ysorted = obj.C(I);
+            % Check the highest probability and the respective label
+            [~,Ypred(i)] = max(probability);
         end
+
+        Ypred = obj.C(Ypred);
     end
+    function [Ysorted,probabilities] = find(obj,Xnew)
+        % Repeats measurements in a matrix
+        meas = repmat(Xnew,obj.n_class,1);
+        % Probability density function (PDF) of the normal distribution
+        gauss = 1./(obj.S.*sqrt(2.*pi))...
+            .*exp(-1/2.*((meas-obj.M)./obj.S).^2);
+        % Product
+        probability = prod([gauss obj.prior],2);
+        % Sort the normalized probabilities in descending order with their respective labels
+        [probabilities,I] = sort(probability/sum(probability),'descend');
+        Ysorted = obj.C(I);
+    end
+end
 end
