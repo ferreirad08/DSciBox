@@ -94,9 +94,9 @@ function [X,Y,Xnew] = branch(X,Y,Xnew)
 % Check the feature with the greatest information gain
 ig = dsb_preprocessing.InformationGain(1);
 ig = ig.fit(X,Y);
-Xt = ig.feature_selection(X);
+Xr = ig.feature_selection(X);
 
-[str,~,values] = unique(Xt);
+[str,~,values] = unique(Xr);
 [~,value] = ismember(Xnew(ig.indexes(1)),str);
 
 X = X(values==value,:);
