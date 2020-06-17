@@ -11,13 +11,13 @@ Preprocessing
     PCA (Pricipal Component Analysis) [OK]
         fit
         transform
-    Binning (Numeric Transformation - Quantile Binning) [OK]
+    Binning (Quantile Binning Transformation) [OK]
         fit
         transform
-    InformationGain [OK]
+    InformationGain (Information Gain) [OK]
         fit
         feature_selection
-    ChiSquared
+    ChiSquared (Chi-squared)
         fit
         feature_selection
 
@@ -25,7 +25,7 @@ Utilities [OK]
 
     data_sampling (Simple or Stratified Random Sampling)
     accuracy_score
-    entropy
+    entropy (Information Entropy)
     quantile (Quantile Analysis)
         
 Predictors
