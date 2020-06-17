@@ -14,12 +14,12 @@ Preprocessing
         Xt = pca.transform(X)
     
     Quantile Binning Transformation [OK]
-        b = Binning(n_bins)
+        b = dsb_preprocessing.Binning(n_bins)
         b = b.fit(X)
         Xt = b.transform(X)
     
     Feature Selection Based on Information Gain [OK]
-        ig = InformationGain(n_features)
+        ig = dsb_preprocessing.InformationGain(n_features)
         ig = ig.fit(X,Y)
         Xr = ig.feature_selection(X)
     
@@ -31,10 +31,10 @@ Preprocessing
 Utilities [OK]
 
     Simple or Stratified Random Sampling
-        [X,Xnew,Y,Ynew] = data_sampling(X,Y,0.30,'stratified') % 'simple' is the default
+        [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,0.30,'stratified') % 'simple' is the default
     
     Accuracy Classification Score
-        accuracy = accuracy_score(Ynew,Ypred)
+        accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
 
     Information Entropy
         e = entropy(Y)
@@ -45,19 +45,19 @@ Utilities [OK]
 Predictors
 
     k-Nearest Neighbors [OK]
-        mdl = kNNeighbors(k)
+        mdl = dsb_predictors.kNNeighbors(k)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
 
     Gaussian Naive Bayes [OK]
-        mdl = GaussianNB()
+        mdl = dsb_predictors.GaussianNB()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Ysorted,probabilities] = mdl.find(Xnew(1,:))
 
     Decision Tree [OK]
-        mdl = DTree()
+        mdl = dsb_predictors.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
