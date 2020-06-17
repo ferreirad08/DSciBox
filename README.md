@@ -14,10 +14,10 @@ Preprocessing
     Binning (Quantile Binning Transformation) [OK]
         fit
         transform
-    InformationGain (Information Gain) [OK]
+    InformationGain (Feature Selection Based on Information Gain) [OK]
         fit
         feature_selection
-    ChiSquared (Chi-squared)
+    ChiSquared (Feature Selection Based on Chi-squared)
         fit
         feature_selection
 
