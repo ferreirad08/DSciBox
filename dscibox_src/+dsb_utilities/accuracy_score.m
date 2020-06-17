@@ -1,25 +1,26 @@
 function accuracy = accuracy_score(Ynew,Ypred)
-%Accuracy
+%Accuracy Classification Score
 %
-%Author: David Ferreira - Federal University of Amazonas
-%Contact: ferreirad08@gmail.com
+% SYNTAX
+% 1. accuracy = accuracy_score(Ynew,Ypred)
 %
-%Syntax
-%1. accuracy = accuracy_score(Ynew,Ypred)
+% DESCRIPTION
+% 1. Returns the accuracy of the estimates (between 0 and 1).
 %
-%Description 
-%1. Returns the accuracy of the estimates (between 0 and 1).
+% Ynew is a vector with real labels to each test instance.
+% Ypred is a vector with estimated labels to each test instance.
 %
-%Ynew is a vector with real labels to each test instance.
-%Ypred is a vector with estimated labels to each test instance.
+% EXAMPLE
+% 1.
+%      Ynew = {'setosa';'versicolor';'virginica'};
+%      Ypred = {'versicolor';'versicolor';'virginica'};
+%      accuracy = accuracy_score(Ynew,Ypred)
+%      accuracy =
+%          0.6667
 %
-%Examples
-%1.
-%     Ynew = {'setosa';'versicolor';'virginica'};
-%     Ypred = {'versicolor';'versicolor';'virginica'};
-%     accuracy = accuracy_score(Ynew,Ypred)
-%     accuracy =
-%         0.6667
+% David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
+% PhD student in Electrical Engineering from the Federal University of Amazonas
+% e-mail: ferreirad08@gmail.com
 
 if isrow(Ypred), Ypred = Ypred'; end
 
