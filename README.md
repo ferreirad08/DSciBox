@@ -13,7 +13,7 @@ Preprocessing
         pca = pca.fit(X)
         Xt = pca.transform(X)
     
-    Quantile Binning Transformation** [OK]
+    Quantile Binning Transformation [OK]
         b = Binning(n_bins)
         b = b.fit(X)
         Xt = b.transform(X)
@@ -25,7 +25,7 @@ Preprocessing
     
     Feature Selection Based on Chi-squared
         cs = ChiSquared(k)
-        ig = cs.fit(X,Y)
+        cs = cs.fit(X,Y)
         Xt = cs.feature_selection(X)
 
 Utilities [OK]
