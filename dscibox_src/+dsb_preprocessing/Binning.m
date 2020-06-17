@@ -56,7 +56,7 @@ methods
     end
     function obj = fit(obj,X)
         p = (1:obj.n_bins-1)/obj.n_bins;
-        obj.Q = quantile(X,p);
+        obj.Q = dsb_utilities.quantile(X,p);
     end
     function Xt = transform(obj,X)
         [m,n] = size(X);
