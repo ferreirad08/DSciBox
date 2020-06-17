@@ -21,12 +21,12 @@ Preprocessing
     Feature Selection Based on Information Gain [OK]
         ig = InformationGain(n_features)
         ig = ig.fit(X,Y)
-        Xt = ig.feature_selection(X)
+        Xr = ig.feature_selection(X)
     
     Feature Selection Based on Chi-squared
         cs = ChiSquared(n_features)
         cs = cs.fit(X,Y)
-        Xt = cs.feature_selection(X)
+        Xr = cs.feature_selection(X)
 
 Utilities [OK]
 
