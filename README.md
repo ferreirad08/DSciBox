@@ -8,18 +8,21 @@ Author: [David Ferreira](http://lattes.cnpq.br/3863655668683045)
 
 Preprocessing
         
-    ## Pricipal Component Analysis [OK]
+    Pricipal Component Analysis [OK]
         pca = PCA(n_components)
         pca = pca.fit(X)
         Xt = pca.transform(X)
-    ### Quantile Binning Transformation** [OK]
+    
+    Quantile Binning Transformation** [OK]
         b = Binning(n_bins)
         b = b.fit(X)
         Xt = b.transform(X)
+    
     Feature Selection Based on Information Gain [OK]
         ig = InformationGain(k)
         ig = ig.fit(X,Y)
         Xt = ig.feature_selection(X)
+    
     Feature Selection Based on Chi-squared
         cs = ChiSquared(k)
         ig = cs.fit(X,Y)
