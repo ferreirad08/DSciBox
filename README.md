@@ -37,7 +37,7 @@ Utilities [OK]
     Information Entropy
         e = entropy(Y)
     Quantile Analysis
-        Q = quantile(X,p)
+        Q = quantile(X,[0.25 0.50 0.75])
         
 Predictors
 
