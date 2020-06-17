@@ -13,7 +13,7 @@ classdef Binning
             p = (1:obj.n_bins-1)/obj.n_bins;
             obj.Q = quantile(X,p);
         end
-        function Xt = discret(obj,X)
+        function Xt = transform(obj,X)
             [m,n] = size(X);
             Xt = zeros(m,n);
             for i = 1:n
