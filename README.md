@@ -54,7 +54,7 @@ Predictors
         mdl = GaussianNB()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
-        [Yunique,probabilities] = mdl.find(Xnew(1,:))
+        [Ysorted,probabilities] = mdl.find(Xnew(1,:))
 
     Decision Tree [OK]
         mdl = DTree()
