@@ -62,19 +62,3 @@ Predictors
         mdl = dsb_predictors.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
-
-    Random Forest
-        mdl = RandomForest(n_trees)
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
-
-    Suport Vector Machine
-        mdl = SVM()
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
-
-Descriptors
-
-    Artificial Neural Network
-        mdl = ANN()
-        result = mdl.descript()
