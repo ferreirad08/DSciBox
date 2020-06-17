@@ -1,8 +1,7 @@
 clc
 
 % Add library folders to the search path
-addpath('datasets',...
-        'dscibox_src')
+addpath('dscibox_src')
 % savepath
 
 disp('Fisher iris')
