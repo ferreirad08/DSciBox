@@ -20,7 +20,7 @@ classdef DTree
                 n_bins = ceil(2*numel(Y)^(1/3));
                 obj.b = Binning(n_bins);
                 obj.b = obj.b.fit(X);
-                obj.X = obj.b.discret(X);
+                obj.X = obj.b.transform(X);
             else
                 obj.X = X;
             end
@@ -30,7 +30,7 @@ classdef DTree
         end
         function label = predict(obj,Xnew)
             if isnumeric(Xnew)
-                Xnew = obj.b.discret(Xnew);
+                Xnew = obj.b.transform(Xnew);
             end
             
             P = size(Xnew,1);
