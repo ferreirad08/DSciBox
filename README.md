@@ -44,28 +44,32 @@ Utilities [OK]
         
 Predictors
 
-    kNNeighbors (k-Nearest Neighbors) [OK]
-        fit
-        predict
-        find
+    k-Nearest Neighbors [OK]
+        mdl = kNNeighbors(k)
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
+        [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
 
-    GaussianNB (Gaussian Naive Bayes) [OK]
-        fit
-        predict
-        find
+    Gaussian Naive Bayes [OK]
+        mdl = GaussianNB()
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
+        [Yunique,probabilities] = mdl.find(Xnew(1,:))
 
-    DTree (Decision Tree) [OK]
-        fit
-        predict
+    Decision Tree [OK]
+        mdl = DTree()
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
 
-    RandomForest (Random Forest)
-        fit
-        predict
-        find
+    Random Forest
+        mdl = RandomForest(n_trees)
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
 
     SVM (Suport Vector Machine)
-        fit
-        predict
+        mdl = SVM()
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
 
 Descriptors
 
