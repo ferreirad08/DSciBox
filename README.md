@@ -47,8 +47,8 @@ Predictors
         Ypred = mdl.predict(Xnew)
         [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
 
-    Gaussian Naive Bayes
-        mdl = dsb_predictors.GaussianNB()
+    Naive Bayes
+        mdl = dsb_predictors.NaiveBayes(PDF) % PDF = 'gaussian' is the default
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Ysorted,probabilities] = mdl.find(Xnew(1,:))
