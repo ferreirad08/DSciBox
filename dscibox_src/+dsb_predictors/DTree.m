@@ -57,7 +57,7 @@ methods
             Xcurrent = obj.X;
             Ycurrent = obj.Y;
             Xnewcurrent = Xnew(i,:);
-            majority = [];
+            majority = 1;
             while 1
                 frequencies = histc(Ycurrent,obj.binranges);
                 S = sum(frequencies);
