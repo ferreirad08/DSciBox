@@ -13,7 +13,8 @@ load('fisheriris.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas,species,0.30,'stratified');
 
 k = 5; % k must be an integer, 5 is the default
-mdl = dsb_predictors.kNNeighbors(k);
+p_norm = 2 % p_norm must be an integer, 2 is the default
+mdl = dsb_predictors.kNNeighbors(k,p_norm);
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
