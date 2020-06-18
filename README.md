@@ -2,7 +2,7 @@
 
 [![View DSciBox on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/77067-dscibox)
 
-![Output:](https://github.com/ferreirad08/Log-normal-Shadowing-Model/blob/master/access_point_propagation.png?raw=true)
+![dscibox logo:](https://github.com/ferreirad08/DSciBox/blob/master/dscibox_logo.png)
 
 [David Alan de Oliveira Ferreira](http://lattes.cnpq.br/3863655668683045)  
 PhD student in Electrical Engineering from the Federal University of Amazonas  
