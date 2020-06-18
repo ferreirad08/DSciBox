@@ -24,11 +24,6 @@ Preprocessing
         ig = dsb_preprocessing.InformationGain(n_features)
         ig = ig.fit(X,Y)
         Xr = ig.feature_selection(X)
-    
-    Feature Selection Based on Chi-squared
-        cs = ChiSquared(n_features)
-        cs = cs.fit(X,Y)
-        Xr = cs.feature_selection(X)
 
 Utilities
 
