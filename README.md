@@ -11,7 +11,7 @@ e-mail: ferreirad08@gmail.com
 Preprocessing
         
     Pricipal Component Analysis
-        pca = PCA(n_components)
+        pca = dsb_preprocessing.PCA(n_components)
         pca = pca.fit(X)
         Xt = pca.transform(X)
     
