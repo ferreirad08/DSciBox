@@ -2,7 +2,7 @@ classdef NaiveBayes
 %Naive Bayes (NB)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.NaiveBayes(PDF) % PDF = 'gaussian' is the default
+% 1. mdl = dsb_predictors.NaiveBayes(PDF) % 'gaussian' and 'exponential' are the options
 %    mdl = mdl.fit(X,Y)
 %    Ypred = mdl.predict(Xnew)
 % 2. [Ysorted,probabilities] = mdl.find(Xnew(1,:))
@@ -11,8 +11,8 @@ classdef NaiveBayes
 % 1. Returns the estimated labels of one or multiple test instances.
 % 2. Returns the probabilities of each label in relation to a new instance.
 %
-% PDF is the...
-% X is a M-by-N matrix, with M instances of N features. 
+% PDF is the distribution of the numerical variables (features).
+% X is a M-by-N matrix, with M instances of N features.
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
 % Xnew is a P-by-N matrix, with P instances of N features to be classified.
 %
