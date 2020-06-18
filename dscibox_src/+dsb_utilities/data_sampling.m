@@ -16,10 +16,8 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
 % EXAMPLE
 % 1.
 %      load fisheriris
-%      X = meas;
-%      Y = species;
 %      p = 0.30;
-%      [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p,'stratified')
+%      [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas,species,p,'stratified')
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
