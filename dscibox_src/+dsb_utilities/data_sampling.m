@@ -3,7 +3,7 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
 %
 % SYNTAX
 % 1. [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p) % 'simple' is the default
-% 1. [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p,'stratified')
+% 2. [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p,'stratified')
 %
 % DESCRIPTION
 % 1. Splits data regardless of labels.
