@@ -2,8 +2,9 @@ classdef Binning
 %Quantile Binning Transformation
 %
 % SYNTAX
-% 1. [Xt,Q] = dsb_preprocessing.Binning(X,n_bins)
-% 2. Xt = binning(X,Q)
+% 1. b = dsb_preprocessing.Binning(n_bins)
+%    b = b.fit(X)
+%    Xt = b.transform(X)
 %
 % DESCRIPTION
 % 1. Discrete the continuous variables for each column of a matrix based on quantiles.
@@ -13,27 +14,20 @@ classdef Binning
 %
 % EXAMPLE
 % 1.
-%      X = [16     2;
-%            5    11;
-%            9     7;
-%            4    14];
+%      X = [16 2; 5 11; 9 7; 4 14];
 %      n_bins = 3;
-%      [Xt,Q] = dsb_preprocessing.Binning(X,n_bins)
+%      b = dsb_preprocessing.Binning(n_bins)
+%      b = b.fit(X)
+%      Xt = b.transform(X)
 %      Xt =
 %           2     0
 %           1     2
 %           2     1
 %           0     2
-%      Q =
-%           5     7
-%           9    11
 %
 % 2.
-%      X2 = [ 3    13;
-%            10     8;
-%             6    12;
-%            15     1];
-%      X2t = dsb_preprocessing.Binning(X2,Q)
+%      X2 = [3 13; 10 8; 6 12; 15 1];
+%      X2t = b.transform(X2)
 %      X2t =
 %           0     2
 %           2     1
