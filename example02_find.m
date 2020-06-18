@@ -20,8 +20,9 @@ mdl = dsb_predictors.kNNeighbors(k,p_norm);
 mdl = mdl.fit(meas,species);
 [Xnearest,Ynearest,distances] = mdl.find(Xnew)
 
-fprintf('\nIn Gaussian Naive Bayes, it is possible to obtain the probabilities of each label\n in relation to a new instance.\n');
+fprintf('\nIn Naive Bayes, it is possible to obtain the probabilities of each label\n in relation to a new instance.\n');
 
-mdl = dsb_predictors.GaussianNB();
+PDF = 'gaussian'; % PDF = 'gaussian' is the default
+mdl = dsb_predictors.NaiveBayes(PDF);
 mdl = mdl.fit(meas,species);
 [Ysorted,probabilities] = mdl.find(Xnew)

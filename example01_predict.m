@@ -20,11 +20,12 @@ Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
 fprintf('Accuracy of %s: %d.\n','k-Nearest Neighbors',accuracy);
 
-mdl = dsb_predictors.GaussianNB();
+PDF = 'gaussian'; % PDF = 'gaussian' is the default
+mdl = dsb_predictors.NaiveBayes(PDF);
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
-fprintf('Accuracy of %s: %d.\n','Gaussian Naive Bayes',accuracy);
+fprintf('Accuracy of %s: %d.\n','Naive Bayes',accuracy);
 
 mdl = dsb_predictors.DTree();
 mdl = mdl.fit(X,Y);
