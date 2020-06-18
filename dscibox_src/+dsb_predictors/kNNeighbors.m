@@ -46,10 +46,7 @@ methods
         Ypred = zeros(P,1);
         for i = 1:P
             % Euclidean distance between two points
-            A = repmat(Xnew(i,:),size(obj.X,1),1);
-            distances = sqrt(sum((A-obj.X).^obj.p_norm,2));
-            % Sort the distances in ascending order and check the k nearest training labels
-            [~,I] = sort(distances);
+            [~,I] = dist(obj.X,Xnew(i,:),obj.p_norm);
             Ynearest = obj.Y(I(1:obj.k));
             % Frequencies of the k nearest training labels
             N = histc(Ynearest,1:max(Ynearest));
@@ -63,13 +60,18 @@ methods
     end
     function [Xnearest,Ynearest,distances] = find(obj,Xnew)
         % Euclidean distance between two points
-        A = repmat(Xnew,size(obj.X,1),1);
-        distances = sqrt(sum((A-obj.X).^obj.p_norm,2));
-        % Sort the distances in ascending order and check the k nearest training instances
-        [distances,I] = sort(distances);
+        [distances,I] = dist(obj.X,Xnew,obj.p_norm);
         Xnearest = obj.X(I(1:obj.k),:);
         Ynearest = obj.C(obj.Y(I(1:obj.k)));
         distances = distances(1:obj.k);
     end
 end
+end
+
+function [distances,I] = dist(X,Xnew,p_norm)
+% Euclidean distance between two points
+A = repmat(Xnew,size(X,1),1);
+distances = sqrt(sum((A-X).^p_norm,2));
+% Sort the distances in ascending order and check the k nearest training labels
+[distances,I] = sort(distances);
 end
