@@ -22,7 +22,7 @@ mdl = mdl.fit(meas,species);
 
 fprintf('\nIn Naive Bayes, it is possible to obtain the probabilities of each label\n in relation to a new instance.\n');
 
-PDF = 'gaussian'; % PDF = 'gaussian' is the default
+PDF = 'gaussian'; % 'gaussian' and 'exponential' are the options
 mdl = dsb_predictors.NaiveBayes(PDF);
 mdl = mdl.fit(meas,species);
 [Ysorted,probabilities] = mdl.find(Xnew)
