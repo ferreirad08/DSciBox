@@ -14,7 +14,13 @@ function e = entropy(Y)
 %      Y = {'setosa';'versicolor';'virginica'};
 %      e = dsb_utilities.entropy(Y)
 %      e =
-%          1
+%          1.5850
+%
+% 2.
+%      Y2 = {'setosa';'setosa';'setosa'};
+%      e2 = dsb_utilities.entropy(Y2)
+%      e2 =
+%          0
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
