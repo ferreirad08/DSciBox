@@ -2,7 +2,7 @@ function accuracy = accuracy_score(Ynew,Ypred)
 %Accuracy Classification Score
 %
 % SYNTAX
-% 1. accuracy = accuracy_score(Ynew,Ypred)
+% 1. accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
 %
 % DESCRIPTION
 % 1. Returns the accuracy of the estimates (between 0 and 1).
@@ -14,7 +14,7 @@ function accuracy = accuracy_score(Ynew,Ypred)
 % 1.
 %      Ynew = {'setosa';'versicolor';'virginica'};
 %      Ypred = {'versicolor';'versicolor';'virginica'};
-%      accuracy = accuracy_score(Ynew,Ypred)
+%      accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
 %      accuracy =
 %          0.6667
 %
