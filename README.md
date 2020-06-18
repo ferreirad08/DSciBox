@@ -42,7 +42,7 @@ Utilities
 Predictors
 
     k-Nearest Neighbors
-        mdl = dsb_predictors.kNNeighbors(k)
+        mdl = dsb_predictors.kNNeighbors(k,p_norm)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
