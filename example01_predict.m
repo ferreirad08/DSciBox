@@ -18,14 +18,12 @@ mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
 fprintf('Accuracy of %s: %d.\n','k-Nearest Neighbors',accuracy);
-% [Xnearest,Ynearest,distances] = mdl.find(Xnew(2,:))
 
 mdl = dsb_predictors.GaussianNB();
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
 fprintf('Accuracy of %s: %d.\n','Gaussian Naive Bayes',accuracy);
-% [Ysorted,probabilities] = mdl.find(Xnew(2,:))
 
 mdl = dsb_predictors.DTree();
 mdl = mdl.fit(X,Y);
