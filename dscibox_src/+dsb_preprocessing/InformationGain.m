@@ -1,44 +1,36 @@
 classdef InformationGain
-%Information Gain (IG)
+%Feature Selection Based on Information Gain (IG)
 %
 % SYNTAX
-% 1. [Xt,Q] = dsb_preprocessing.Binning(X,n_bins)
-% 2. Xt = binning(X,Q)
+% 1. ig = dsb_preprocessing.InformationGain(n_features)
+%    ig = ig.fit(X,Y)
+%    Xr = ig.feature_selection(X)
 %
 % DESCRIPTION
 % 1. Discrete the continuous variables for each column of a matrix based on quantiles.
 %
-% X is a M-by-N matrix with continuous variables in each column.
-% n_bins is the number of groupings (n_bins > 2).
+% X is a M-by-N matrix, with M instances of N features. 
+% Y is a M-by-1 matrix, with respective M labels to each training instance. 
+% n_features is the number of features in Xr (reduced set).
 %
 % EXAMPLE
 % 1.
-%      X = [16     2;
-%            5    11;
-%            9     7;
-%            4    14];
-%      n_bins = 3;
-%      [Xt,Q] = dsb_preprocessing.Binning(X,n_bins)
-%      Xt =
-%           2     0
-%           1     2
-%           2     1
-%           0     2
-%      Q =
-%           5     7
-%           9    11
-%
-% 2.
-%      X2 = [ 3    13;
-%            10     8;
-%             6    12;
-%            15     1];
-%      X2t = dsb_preprocessing.Binning(X2,Q)
-%      X2t =
-%           0     2
-%           2     1
-%           1     2
-%           2     0
+%      X = [5.1  3.5  1.4  0.2;
+%           4.9  3.0  1.4  0.2;
+%           4.7  3.2  1.3  0.2;
+%           6.3  3.3  4.7  1.6;
+%           4.9  2.4  3.3  1.0];
+%      Y = [1; 1; 1; 2; 2; 2];
+%      n_features = 2;
+%      ig = dsb_preprocessing.InformationGain(n_features)
+%      ig = ig.fit(X,Y)
+%      Xr = ig.feature_selection(X)
+%      Xr =
+%          3.5  1.4
+%          3.0  1.4
+%          3.2  1.3
+%          3.3  4.7
+%          2.4  3.3
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
