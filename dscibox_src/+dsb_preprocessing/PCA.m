@@ -2,32 +2,23 @@ classdef PCA
 %Principal Component Analysis
 %
 % SYNTAX
-% 1. [Xt,coeff] = principal_component(X,n_components)
-% 2. Xt = principal_component(X,coeff)
+% 1. pca = PCA(n_components)
+%    pca = pca.fit(X)
+%    Xt = pca.transform(X)
 %
 % DESCRIPTION
-% 1. Apply the PCA transformation in the features and returns the principal component coefficients. 
-% 2. Apply the PCA transformation in the features based on input coefficients. 
+% 1. Apply the PCA transformation in the features.
 %
 % X is a M-by-N matrix with features (continuous variables) in each column.
-% n_components is the number of principal component.
+% n_components is the number of principal component (features) in Xt (transformed set).
 %
 % EXAMPLE
 % 1.
 %      X = [1 2 3; 4 5 6; 7 8 9];
 %      n_components = 2;
-%      [Xt,coeff] = principal_component(X,n_components)
-%      Xt =
-%         -5.1962   -0.0000
-%               0         0
-%          5.1962    0.0000
-%      coeff =
-%          0.5774   -0.0332
-%          0.5774   -0.6899
-%          0.5774    0.7231
-%
-% 2.
-%      Xt = principal_component(X,coeff)
+%      pca = PCA(n_components)
+%      pca = pca.fit(X)
+%      Xt = pca.transform(X)
 %      Xt =
 %         -5.1962   -0.0000
 %               0         0
