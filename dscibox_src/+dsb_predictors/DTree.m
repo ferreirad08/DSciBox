@@ -2,7 +2,9 @@ classdef DTree
 %Decision Tree (DT)
 %
 % SYNTAX
-% 1. label = dsb_predictors.DTree(X,Y,Xnew)
+% 1. mdl = dsb_predictors.DTree()
+%    mdl = mdl.fit(X,Y)
+%    Ypred = mdl.predict(Xnew)
 %
 % DESCRIPTION
 % 1. Returns the estimated labels of one or multiple test instances.
@@ -10,18 +12,6 @@ classdef DTree
 % X is a M-by-N matrix, with M instances of N features. 
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
 % Xnew is a P-by-N matrix, with P instances of N features to be classified.
-%
-% EXAMPLE
-% 1.
-%      load fisheriris
-%      X = meas;
-%      Y = species;
-%      Xnew = [min(meas);mean(meas);max(meas)];
-%      label = dsb_predictors.DTree(X,Y,Xnew)
-%      label = 
-%          'setosa'
-%          'versicolor'
-%          'virginica'
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
