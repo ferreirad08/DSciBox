@@ -2,38 +2,18 @@ classdef GaussianNB
 %Gaussian Naive Bayes (GNB)
 %
 % SYNTAX
-% 1. [label,model] = predict_gaussiannb(X,Y,Xnew)
-% 2. label = predict_gaussiannb(model,Xnew)
+% 1. mdl = dsb_predictors.GaussianNB()
+%    mdl = mdl.fit(X,Y)
+%    Ypred = mdl.predict(Xnew)
+% 2. [Ysorted,probabilities] = mdl.find(Xnew(1,:))
 %
 % DESCRIPTION
 % 1. Returns the estimated labels of one or multiple test instances.
+% 2. Returns the probabilities of each label in relation to a new instance.
 %
 % X is a M-by-N matrix, with M instances of N features. 
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
 % Xnew is a P-by-N matrix, with P instances of N features to be classified.
-%
-% EXAMPLE
-% 1.
-%      load fisheriris
-%      X = meas;
-%      Y = species;
-%      Xnew = [min(meas);max(meas)];
-%      [label,model] = predict_gaussiannb(X,Y,Xnew)
-%      label =
-%          'setosa'
-%          'virginica'
-%      model = 
-%               C               M               S           prior 
-%          ____________    ____________    ____________    _______ 
-%          'setosa'        [1x4 double]    [1x4 double]    0.33333
-%          'versicolor'    [1x4 double]    [1x4 double]    0.33333
-%          'virginica'     [1x4 double]    [1x4 double]    0.33333
-%
-% 2.
-%      Xnew = mean(meas);
-%      label = predict_gaussiannb(model,Xnew)
-%      label = 
-%          'versicolor'
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
