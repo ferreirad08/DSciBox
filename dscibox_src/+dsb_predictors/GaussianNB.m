@@ -20,7 +20,7 @@ classdef GaussianNB
 % e-mail: ferreirad08@gmail.com
 
 properties
-    n_bins
+    n
     C
     n_class
     M
@@ -28,9 +28,9 @@ properties
     prior
 end
 methods
-    function obj = GaussianNB(n_bins)
+    function obj = GaussianNB(n)
         if nargin > 0
-            obj.n_bins = n_bins;
+            obj.n = n;
         end
     end
     function obj = fit(obj,X,Y)
