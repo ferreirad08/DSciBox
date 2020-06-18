@@ -6,11 +6,12 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
 % 1. [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p,'stratified')
 %
 % DESCRIPTION
-% 1. Returns the estimated labels of one or multiple test instances.
+% 1. Splits data regardless of labels.
+% 2. Splits data proportionally to labels.
 %
 % X is a M-by-N matrix, with M instances of N features. 
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
-% p is a float number between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split.
+% p is a float number between 0.0 and 1.0 and represent the proportion of the dataset to include in the test set.
 %
 % EXAMPLE
 % 1.
