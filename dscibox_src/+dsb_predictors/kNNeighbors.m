@@ -22,14 +22,18 @@ classdef kNNeighbors
 
 properties
     k = 5
+    p_norm = 2
     C
     X
     Y
 end
 methods
-    function obj = kNNeighbors(k)
+    function obj = kNNeighbors(k,p_norm)
         if nargin > 0
             obj.k = k;
+        end
+        if nargin > 1
+            obj.p_norm = p_norm;
         end
     end
     function obj = fit(obj,X,Y)
@@ -42,7 +46,7 @@ methods
         for i = 1:P
             % Euclidean distance between two points
             A = repmat(Xnew(i,:),size(obj.X,1),1);
-            distances = sqrt(sum((A-obj.X).^2,2));
+            distances = sqrt(sum((A-obj.X).^obj.p_norm,2));
             % Sort the distances in ascending order and check the k nearest training labels
             [~,I] = sort(distances);
             Ynearest = obj.Y(I(1:obj.k));
@@ -59,7 +63,7 @@ methods
     function [Xnearest,Ynearest,distances] = find(obj,Xnew)
         % Euclidean distance between two points
         A = repmat(Xnew,size(obj.X,1),1);
-        distances = sqrt(sum((A-obj.X).^2,2));
+        distances = sqrt(sum((A-obj.X).^obj.p_norm,2));
         % Sort the distances in ascending order and check the k nearest training instances
         [distances,I] = sort(distances);
         Xnearest = obj.X(I(1:obj.k),:);
