@@ -7,7 +7,7 @@ addpath('dscibox_src')
 
 %%
 
-fprintf('Examples using the Iris dataset with 30 percent for testing.\n');
+fprintf('Classification examples using the Iris dataset with 30 percent for testing.\n');
 
 load('fisheriris.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas,species,0.30,'stratified');
@@ -35,7 +35,7 @@ fprintf('Accuracy of %s: %d.\n','Decision Tree',accuracy);
 
 %%
 
-fprintf('\nExamples using the Golf dataset with 30 percent for testing.\n');
+fprintf('\nClassification examples using the Golf dataset with 30 percent for testing.\n');
 
 load('golf-dataset.mat')
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(predictors,target,0.30,'stratified');
