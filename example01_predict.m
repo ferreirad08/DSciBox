@@ -20,7 +20,7 @@ Ypred = mdl.predict(Xnew);
 accuracy = dsb_utilities.accuracy_score(Ynew,Ypred);
 fprintf('Accuracy of %s: %d.\n','k-Nearest Neighbors',accuracy);
 
-PDF = 'gaussian'; % PDF = 'gaussian' is the default
+PDF = 'gaussian'; % 'gaussian' and 'exponential' are the options
 mdl = dsb_predictors.NaiveBayes(PDF);
 mdl = mdl.fit(X,Y);
 Ypred = mdl.predict(Xnew);
