@@ -2,7 +2,7 @@ classdef kNNeighbors
 %k-Nearest Neighbors (kNN)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.kNNeighbors(k,p_norm)
+% 1. mdl = dsb_predictors.kNNeighbors(k,p)
 %    mdl = mdl.fit(X,Y)
 %    Ypred = mdl.predict(Xnew)
 % 2. [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
@@ -15,7 +15,7 @@ classdef kNNeighbors
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
 % Xnew is a P-by-N matrix, with P instances of N features to be classified.
 % k is a scalar with the number of nearest neighbors selected.
-% p_norm is the power parameter for the distance metric.
+% p is the power parameter for the distance metric.
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
@@ -23,18 +23,18 @@ classdef kNNeighbors
 
 properties
     k = 5
-    p_norm = 2
+    p = 2
     C
     X
     Y
 end
 methods
-    function obj = kNNeighbors(k,p_norm)
+    function obj = kNNeighbors(k,p)
         if nargin > 0
             obj.k = k;
         end
         if nargin > 1
-            obj.p_norm = p_norm;
+            obj.p = p;
         end
     end
     function obj = fit(obj,X,Y)
@@ -45,8 +45,9 @@ methods
         P = size(Xnew,1);
         Ypred = zeros(P,1);
         for i = 1:P
-            % Euclidean distance between two points
-            [~,I] = dist(obj.X,Xnew(i,:),obj.p_norm);
+            % Distance between two points
+            [~,I] = similarity(obj.X,Xnew(i,:),obj.p);
+            % k nearest training labels
             Ynearest = obj.Y(I(1:obj.k));
             % Frequencies of the k nearest training labels
             N = histc(Ynearest,1:max(Ynearest));
@@ -59,8 +60,8 @@ methods
         Ypred = obj.C(Ypred);
     end
     function [Xnearest,Ynearest,distances] = find(obj,Xnew)
-        % Euclidean distance between two points
-        [distances,I] = dist(obj.X,Xnew,obj.p_norm);
+        % Distance between two points
+        [distances,I] = similarity(obj.X,Xnew,obj.p);
         Xnearest = obj.X(I(1:obj.k),:);
         Ynearest = obj.C(obj.Y(I(1:obj.k)));
         distances = distances(1:obj.k);
@@ -68,10 +69,10 @@ methods
 end
 end
 
-function [distances,I] = dist(X,Xnew,p_norm)
-% Euclidean distance between two points
-A = repmat(Xnew,size(X,1),1);
-distances = sqrt(sum((A-X).^p_norm,2));
+function [distances,I] = similarity(X,Xnew,p)
+% Distance between two points
+A = repmat(Xnew,size(X,1),1) - X;
+distances = dsb_utilities.vecnorm(A,p,2);
 % Sort the distances in ascending order and check the k nearest training labels
 [distances,I] = sort(distances);
 end
