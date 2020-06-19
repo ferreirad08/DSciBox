@@ -6,7 +6,7 @@ if nargin < 3
     dim = 1;
 end
 if isrow(A)
-    A = A';
+    dim = 2;
 end
 N = sum(abs(A).^p,dim).^(1/p);
 end
