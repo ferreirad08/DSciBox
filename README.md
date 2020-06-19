@@ -28,7 +28,7 @@ Preprocessing
 Utilities
 
     Simple or Stratified Random Sampling
-        [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,0.30,'stratified') % 'simple' is the default
+        [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,0.30,'stratified')
     
     Accuracy Classification Score
         accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
@@ -42,13 +42,13 @@ Utilities
 Predictors
 
     k-Nearest Neighbors
-        mdl = dsb_predictors.kNNeighbors(k,p_norm)
+        mdl = dsb_predictors.kNNeighbors(k,p)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
 
     Naive Bayes
-        mdl = dsb_predictors.NaiveBayes('gaussian') % 'exponential' is another option
+        mdl = dsb_predictors.NaiveBayes('gaussian')
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Ysorted,probabilities] = mdl.find(Xnew(1,:))
