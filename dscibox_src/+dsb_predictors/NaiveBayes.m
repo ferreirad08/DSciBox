@@ -64,6 +64,7 @@ methods
     function [Ysorted,probabilities] = find(obj,Xnew)
         % Class posterior probability
         [probabilities,I] = posterior(obj.PDF,obj.M,obj.S,Xnew,obj.n_class,obj.prior);
+        % Sort the labels in descending order
         Ysorted = obj.C(I);
     end
 end
@@ -83,6 +84,6 @@ elseif strcmp(PDF,'exponential')
 end
 % Product
 probability = prod([p prior],2);
-% Sort the normalized probabilities in descending order with their respective labels
+% Sort the normalized probabilities in descending order
 [probabilities,I] = sort(probability/sum(probability),'descend');
 end
