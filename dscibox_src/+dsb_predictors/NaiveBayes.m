@@ -79,7 +79,7 @@ if strcmp(PDF,'gaussian')
         .*exp(-1/2.*((meas-M)./S).^2);
 elseif strcmp(PDF,'exponential')
     % PDF of the exponential distribution
-    lambda = 1./M;
+    lambda = 1./M; % Rate Parameter
     p = lambda.*exp(-lambda.*meas);
 end
 % Product
