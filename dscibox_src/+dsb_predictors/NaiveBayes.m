@@ -75,8 +75,7 @@ function [probabilities,I] = posterior(PDF,M,S,Xnew,n_class,prior)
 meas = repmat(Xnew,n_class,1);
 if strcmp(PDF,'gaussian')
     % Probability density function (PDF) of the normal distribution
-    p = 1./(S.*sqrt(2.*pi))...
-        .*exp(-1/2.*((meas-M)./S).^2);
+    p = dsb_utilities.normpdf(meas,M,S);
 elseif strcmp(PDF,'exponential')
     % PDF of the exponential distribution
     lambda = 1./M; % Rate Parameter
