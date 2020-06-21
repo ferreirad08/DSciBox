@@ -24,8 +24,8 @@ properties
     PDF = 'gaussian'
     C
     n_class
-    M
-    S
+    mu
+    sigma
     prior
 end
 methods
@@ -39,11 +39,11 @@ methods
         obj.n_class = numel(obj.C);
 
         % Calculate the means and standard deviations
-        obj.M = zeros(obj.n_class,size(X,2)); obj.S = obj.M;
+        obj.mu = zeros(obj.n_class,size(X,2)); obj.sigma = obj.mu;
         for i = 1:obj.n_class
             A = X(Y==i,:);
-            obj.M(i,:) = mean(A);
-            obj.S(i,:) = std(A,1);
+            obj.mu(i,:) = mean(A);
+            obj.sigma(i,:) = std(A,1);
         end
 
         % Class prior probability
@@ -54,7 +54,7 @@ methods
         Ypred = zeros(P,1);
         for i = 1:P
             % Class posterior probability
-            [~,I] = posterior(obj.PDF,obj.M,obj.S,Xnew(i,:),obj.n_class,obj.prior);
+            [~,I] = posterior(obj.PDF,obj.mu,obj.sigma,Xnew(i,:),obj.n_class,obj.prior);
             % Check the label with highest probability
             Ypred(i) = I(1);
         end
@@ -63,22 +63,22 @@ methods
     end
     function [Ysorted,probabilities] = find(obj,Xnew)
         % Class posterior probability
-        [probabilities,I] = posterior(obj.PDF,obj.M,obj.S,Xnew,obj.n_class,obj.prior);
+        [probabilities,I] = posterior(obj.PDF,obj.mu,obj.sigma,Xnew,obj.n_class,obj.prior);
         % Sort the labels in descending order
         Ysorted = obj.C(I);
     end
 end
 end
 
-function [probabilities,I] = posterior(PDF,M,S,Xnew,n_class,prior)
+function [probabilities,I] = posterior(PDF,mu,sigma,Xnew,n_class,prior)
 % Repeats measurements in a matrix
 meas = repmat(Xnew,n_class,1);
 if strcmp(PDF,'gaussian')
     % Probability density function (PDF) of the normal distribution
-    p = dsb_utilities.normpdf(meas,M,S);
+    p = dsb_utilities.normpdf(meas,mu,sigma);
 elseif strcmp(PDF,'exponential')
     % PDF of the exponential distribution
-    p = dsb_utilities.exppdf(meas,M);
+    p = dsb_utilities.exppdf(meas,mu);
 end
 % Product
 probability = prod([p prior],2);
