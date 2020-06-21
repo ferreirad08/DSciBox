@@ -78,8 +78,7 @@ if strcmp(PDF,'gaussian')
     p = dsb_utilities.normpdf(meas,M,S);
 elseif strcmp(PDF,'exponential')
     % PDF of the exponential distribution
-    lambda = 1./M; % Rate Parameter
-    p = lambda.*exp(-lambda.*meas);
+    p = dsb_utilities.exppdf(meas,M);
 end
 % Product
 probability = prod([p prior],2);
