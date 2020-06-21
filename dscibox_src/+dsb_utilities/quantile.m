@@ -26,12 +26,14 @@ function Q = quantile(X,p)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
 % e-mail: ferreirad08@gmail.com
 
-if ~isrow(X), X = sort(X); end
-if isrow(p), p = p'; end
-
+if ~isrow(X)
+    X = sort(X);
+end
+if isrow(p)
+    p = p';
+end
 [n,m] = size(X);
 X(n+1,:) = 0;
-
 i = (n-1)*p+1;
 f = floor(i);
 Q = X(f,:) + (X(f+1,:)-X(f,:))...
