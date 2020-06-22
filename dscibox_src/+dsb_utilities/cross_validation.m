@@ -18,7 +18,7 @@ if nargin < 4
 end
 n = numel(Y);
 if n < k
-    disp('n < k')
+    error('Error occurred.')
 end
 n = n-rem(n,k);
 i = reshape(randperm(n),n/k,k);
