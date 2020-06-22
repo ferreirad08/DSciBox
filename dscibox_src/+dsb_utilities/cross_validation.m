@@ -13,6 +13,10 @@ function accuracy = cross_validation(mdl,X,Y,k)
 %     mu = mean(accuracy)
 %     mu =
 %         0.9467
+%
+% David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
+% PhD student in Electrical Engineering from the Federal University of Amazonas
+% e-mail: ferreirad08@gmail.com
 
 if nargin < 4
     k = 10;
