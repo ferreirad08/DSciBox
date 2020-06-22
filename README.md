@@ -33,6 +33,9 @@ Utilities
     Accuracy Classification Score
         accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
 
+    Cross Validation
+        accuracy = cross_validation(mdl,X,Y,k)
+
     Information Entropy
         e = dsb_utilities.entropy(Y)
 
