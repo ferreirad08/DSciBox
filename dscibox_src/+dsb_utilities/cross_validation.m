@@ -11,7 +11,7 @@ function accuracy = cross_validation(mdl,X,Y,k)
 %     accuracy = cross_validation(mdl,meas,species,k);
 %     mu = mean(accuracy)
 %     mu =
-%         0.95
+%         0.9467
 
 n = numel(Y);
 if n < k
