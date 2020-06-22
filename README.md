@@ -30,11 +30,11 @@ Utilities
     Simple or Stratified Random Sampling
         [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,0.30,'stratified')
     
-    Accuracy Classification Score
-        accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
-
     Cross Validation
         accuracy = cross_validation(mdl,X,Y,k)
+
+    Accuracy Classification Score
+        accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
 
     Information Entropy
         e = dsb_utilities.entropy(Y)
