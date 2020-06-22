@@ -1,6 +1,9 @@
 function accuracy = cross_validation(mdl,X,Y,k)
 %Cross Validation
 %
+% SYNTAX
+% 1. accuracy = cross_validation(mdl,X,Y,k)
+%
 % EXAMPLES
 % 1.
 %     load('fisheriris.mat')
