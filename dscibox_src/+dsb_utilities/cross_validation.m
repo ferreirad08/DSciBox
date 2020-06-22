@@ -4,8 +4,6 @@ function accuracy = cross_validation(mdl,X,Y,k)
 % EXAMPLES
 % 1.
 %     load('fisheriris.mat')
-%     mdl = dsb_predictors.kNNeighbors(5,2);
-%     mdl = dsb_predictors.NaiveBayes('gaussian');
 %     mdl = dsb_predictors.DTree();
 %     k = 10;
 %     accuracy = cross_validation(mdl,meas,species,k);
