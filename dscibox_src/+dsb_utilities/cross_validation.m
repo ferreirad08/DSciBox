@@ -13,6 +13,9 @@ function accuracy = cross_validation(mdl,X,Y,k)
 %     mu =
 %         0.9467
 
+if nargin < 4
+    k = 10;
+end
 n = numel(Y);
 if n < k
     disp('n < k')
