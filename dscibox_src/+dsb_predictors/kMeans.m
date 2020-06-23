@@ -1,37 +1,36 @@
-function [C2,i] = kMeans(X,arg2)
+function [idx,C] = kMeans(X,arg2)
 if nargin < 2
     arg2 = 8;
 end
 
 n_samples = size(X,1);
 if isscalar(arg2)
-    n_centroids = arg2;
-    C = X(randperm(n_samples,n_centroids),:);
+    k = arg2;
+    C = X(randperm(n_samples,k),:);
 else
     C = arg2;
-    n_centroids = size(C,1);
+    k = size(C,1);
 end
 
 while 1
-    [C2,i] = kMeans2(X,C,n_samples,n_centroids)
-    if C == C2
+    [idx,Cnew] = ordinary_function(X,C,n_samples,k);
+    if C == Cnew
         break
     end
-    C = C2;
+    C = Cnew;
 end
 end
 
-function [C,i] = kMeans2(X,C,n_samples,n_centroids)
-distances = zeros(n_samples,n_centroids);
-for i = 1:n_centroids
-    A = repmat(C(i,:),n_samples,1) - X;
-    distances(:,i) = vecnorm(A,2,2);
+function [idx,C] = ordinary_function(X,C,n_samples,k)
+distances = zeros(n_samples,k);
+for idx = 1:k
+    A = repmat(C(idx,:),n_samples,1) - X;
+    distances(:,idx) = dsb_utilities.vecnorm(A,2,2);
 end
 
-[~,i] = sort(distances,2);
-i = i(:,1);
-
-for j = 1:n_centroids
-    C(j,:) = mean(X(i == j,:));
+[~,idx] = sort(distances,2);
+idx = idx(:,1);
+for j = 1:k
+    C(j,:) = mean(X(idx == j,:));
 end
 end
