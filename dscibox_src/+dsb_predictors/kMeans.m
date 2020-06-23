@@ -2,20 +2,17 @@ classdef kMeans
 %k-Means (kM)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.kNNeighbors(k,p)
-%    mdl = mdl.fit(X,Y)
+% 1. mdl = dsb_predictors.kMeans(k,p)
+%    mdl = mdl.fit(X)
 %    Ypred = mdl.predict(Xnew)
-% 2. [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
 %
 % DESCRIPTION
-% 1. Returns the estimated labels of one or multiple test instances.
-% 2. Returns the values of the features, labels and distances of the k nearest instances to a new instance.
+% 1. Returns the estimated clusters of one or multiple test instances.
 %
-% X is a M-by-N matrix, with M instances of N features. 
-% Y is a M-by-1 matrix, with respective M labels to each training instance. 
-% Xnew is a P-by-N matrix, with P instances of N features to be classified.
-% k is a scalar with the number of nearest neighbors selected.
+% k is a scalar with the number of clusters selected.
 % p is the power parameter for the distance metric.
+% X is a M-by-N matrix, with M instances of N features.
+% Xnew is a P-by-N matrix, with P instances of N features for clustering.
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
@@ -53,6 +50,16 @@ methods
                 break
             end
             obj.C = Cnew;
+        end
+    end
+    function Ypred = predict(obj,Xnew)
+        P = size(Xnew,1);
+        Ypred = zeros(P,1);
+        for i = 1:P
+            A = repmat(Xnew(i,:),obj.k,1) - obj.C;
+            distances = dsb_utilities.vecnorm(A,obj.p,2);
+            [~,J] = sort(distances);
+            Ypred(i) = J(1);
         end
     end
 end
