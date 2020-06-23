@@ -1,3 +1,14 @@
+clear
+clc
+
+% Add library folders to the search path
+addpath('dscibox_src')
+% savepath
+
+%%
+
+fprintf('Examples of clustering using the Iris dataset.\n');
+
 load('fisheriris.mat')
 
 k = 3; % Number of clusters
@@ -7,8 +18,8 @@ mdl = dsb_descriptors.kMeans(k,p);
 X = meas(:,3:4);
 mdl = mdl.fit(X);
 
-Xnew = [min(X);mean(X);max(X)];
-Ypred = mdl.predict(Xnew);
+Xnew = [min(X);mean(X);max(X)]
+Ypred = mdl.predict(Xnew)
 
 hold on
 plot(X(1:50,1),X(1:50,2),'o')
