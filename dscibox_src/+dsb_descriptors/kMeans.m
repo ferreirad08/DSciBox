@@ -2,7 +2,7 @@ classdef kMeans
 %k-Means (kM)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.kMeans(k,p)
+% 1. mdl = dsb_predictors.kMeans(arg1,p) % arg1 is the number of clusters or the centroids of each cluster
 %    mdl = mdl.fit(X)
 %    Ypred = mdl.predict(Xnew)
 %
