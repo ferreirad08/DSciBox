@@ -31,7 +31,7 @@ methods
                 obj.k = arg1;
             else
                 obj.C = arg1;
-                obj.k = size(C,1);
+                obj.k = size(arg1,1);
             end
         end
         if nargin > 1
