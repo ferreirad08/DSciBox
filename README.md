@@ -60,3 +60,10 @@ Predictors
         mdl = dsb_predictors.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
+        
+Descriptors
+
+    k-Means
+        mdl = dsb_descriptors.kMeans(k,p)
+        mdl = mdl.fit(X)
+        Ypred = mdl.predict(Xnew)
