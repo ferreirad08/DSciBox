@@ -14,6 +14,26 @@ classdef kMeans
 % X is a M-by-N matrix, with M instances of N features.
 % Xnew is a P-by-N matrix, with P instances of N features for clustering.
 %
+% EXAMPLES
+% 1.
+% >> X = [[1, 2]; [1, 4]; [1, 0];[10, 2]; [10, 4]; [10, 0]];
+% >> k = 2;
+% >> mdl = dsb_descriptors.kMeans(k).fit(X);
+% >> Xnew = [[0, 0]; [12, 3]];
+% >> Ypred = mdl.predict(Xnew)
+% 
+% Ypred =
+% 
+%      1
+%      2
+% 
+% >> mdl.C
+% 
+% ans =
+% 
+%      1     2
+%     10     2
+%
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
 % e-mail: ferreirad08@gmail.com
