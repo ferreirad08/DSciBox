@@ -27,7 +27,7 @@ classdef kMeans
 %      1
 %      2
 % 
-% >> mdl.C
+% >> mdl.C % Centroids
 % 
 % ans =
 % 
