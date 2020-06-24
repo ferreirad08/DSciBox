@@ -12,10 +12,8 @@ fprintf('Examples of clustering using the Iris dataset.\n');
 load('fisheriris.mat')
 
 k = 3; % Number of clusters
-mdl = dsb_descriptors.kMeans(k);
-
 X = meas(:,3:4);
-mdl = mdl.fit(X);
+mdl = dsb_descriptors.kMeans(k).fit(X);
 
 Xnew = [min(X);mean(X);max(X)]
 Ypred = mdl.predict(Xnew)
