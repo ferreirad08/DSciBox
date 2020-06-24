@@ -1,6 +1,6 @@
 function N = vecnorm(A,p,dim)
 if nargin < 2
-    p = 2;
+    p = 2; % p-norm
 end
 if nargin < 3
     dim = 1;
