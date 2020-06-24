@@ -87,7 +87,7 @@ end
 end
 
 function [idx,C] = convergence(X,C,k)
-D = dsb_utilities.cdist(X,C);
+D = dsb_utilities.cdist(X,C).^2;
 [~,idx] = min(D,[],2);
 for j = 1:k
     C(j,:) = mean(X(idx == j,:));
