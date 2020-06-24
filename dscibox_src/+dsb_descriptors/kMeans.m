@@ -79,7 +79,7 @@ i = randi(size(X,1));
 C(1,:) = X(i,:);
 X(i,:) = [];
 for j = 2:k
-    D = dsb_utilities.cdist(X,C);
+    D = dsb_utilities.cdist(X,C).^2;
     [~,i] = max(min(D,[],2));
     C(j,:) = X(i,:);
     X(i,:) = [];
@@ -87,7 +87,7 @@ end
 end
 
 function [idx,C] = convergence(X,C,k)
-D = dsb_utilities.cdist(X,C).^2;
+D = dsb_utilities.cdist(X,C);
 [~,idx] = min(D,[],2);
 for j = 1:k
     C(j,:) = mean(X(idx == j,:));
