@@ -7,6 +7,6 @@ k = size(Y,1);
 D = zeros(n,k);
 for i = 1:k
     A = repmat(Y(i,:),n,1) - X;
-    D(:,i) = vecnorm(A,p,2);
+    D(:,i) = dsb_utilities.vecnorm(A,p,2);
 end
 end
