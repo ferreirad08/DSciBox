@@ -54,13 +54,13 @@ methods
         end
     end
     function obj = fit(obj,X)
-        n_samples = size(X,1);
+        % k-centroid initialization
         if isempty(obj.C)
-            obj.C = X(randperm(n_samples,obj.k),:);
+            obj.C = plusplus(X,obj.k);
         end
         
         while 1
-            [obj.idx,Cnew] = ordinary_function(X,obj.C,n_samples,obj.k);
+            [obj.idx,Cnew] = convergence(X,obj.C,obj.k);
             if obj.C == Cnew
                 break
             end
@@ -68,27 +68,27 @@ methods
         end
     end
     function Ypred = predict(obj,Xnew)
-        P = size(Xnew,1);
-        Ypred = zeros(P,1);
-        for i = 1:P
-            A = repmat(Xnew(i,:),obj.k,1) - obj.C;
-            distances = dsb_utilities.vecnorm(A,2,2);
-            [~,J] = sort(distances);
-            Ypred(i) = J(1);
-        end
+        D = dsb_utilities.cdist(Xnew,obj.C);
+        [~,Ypred] = min(D,[],2);
     end
 end
 end
 
-function [idx,C] = ordinary_function(X,C,n_samples,k)
-distances = zeros(n_samples,k);
-for idx = 1:k
-    A = repmat(C(idx,:),n_samples,1) - X;
-    distances(:,idx) = dsb_utilities.vecnorm(A,2,2);
+function C = plusplus(X,k)
+i = randi(size(X,1));
+C(1,:) = X(i,:);
+X(i,:) = [];
+for j = 2:k
+    D = dsb_utilities.cdist(X,C);
+    [~,i] = max(min(D,[],2));
+    C(j,:) = X(i,:);
+    X(i,:) = [];
+end
 end
 
-[~,idx] = sort(distances,2);
-idx = idx(:,1);
+function [idx,C] = convergence(X,C,k)
+D = dsb_utilities.cdist(X,C);
+[~,idx] = min(D,[],2);
 for j = 1:k
     C(j,:) = mean(X(idx == j,:));
 end
