@@ -12,8 +12,7 @@ fprintf('Examples of clustering using the Iris dataset.\n');
 load('fisheriris.mat')
 
 k = 3; % Number of clusters
-p = 2; % p-norm
-mdl = dsb_descriptors.kMeans(k,p);
+mdl = dsb_descriptors.kMeans(k);
 
 X = meas(:,3:4);
 mdl = mdl.fit(X);
