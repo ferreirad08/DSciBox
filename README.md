@@ -64,6 +64,6 @@ Predictors
 Descriptors
 
     k-Means
-        mdl = dsb_descriptors.kMeans(k,p)
+        mdl = dsb_descriptors.kMeans(k)
         mdl = mdl.fit(X)
         Ypred = mdl.predict(Xnew)
