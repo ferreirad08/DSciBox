@@ -2,7 +2,7 @@ classdef kMeans
 %k-Means (kM)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.kMeans(arg1,p) % arg1 is the number of clusters or the centroids of each cluster
+% 1. mdl = dsb_predictors.kMeans(arg1) % arg1 is the number of clusters or the centroids of each cluster
 %    mdl = mdl.fit(X)
 %    Ypred = mdl.predict(Xnew)
 %
@@ -10,7 +10,6 @@ classdef kMeans
 % 1. Returns the estimated clusters of one or multiple test instances.
 %
 % k is a scalar with the number of clusters selected.
-% p is the power parameter for the distance metric.
 % X is a M-by-N matrix, with M instances of N features.
 % Xnew is a P-by-N matrix, with P instances of N features for clustering.
 %
@@ -40,12 +39,11 @@ classdef kMeans
 
 properties
     k = 2
-    p = 2
     C = []
     idx
 end
 methods
-    function obj = kMeans(arg1,p)
+    function obj = kMeans(arg1)
         if nargin > 0
             if isscalar(arg1)
                 obj.k = arg1;
@@ -53,9 +51,6 @@ methods
                 obj.C = arg1;
                 obj.k = size(arg1,1);
             end
-        end
-        if nargin > 1
-            obj.p = p;
         end
     end
     function obj = fit(obj,X)
@@ -65,7 +60,7 @@ methods
         end
         
         while 1
-            [obj.idx,Cnew] = ordinary_function(X,obj.C,n_samples,obj.k,obj.p);
+            [obj.idx,Cnew] = ordinary_function(X,obj.C,n_samples,obj.k);
             if obj.C == Cnew
                 break
             end
@@ -77,7 +72,7 @@ methods
         Ypred = zeros(P,1);
         for i = 1:P
             A = repmat(Xnew(i,:),obj.k,1) - obj.C;
-            distances = dsb_utilities.vecnorm(A,obj.p,2);
+            distances = dsb_utilities.vecnorm(A,2,2);
             [~,J] = sort(distances);
             Ypred(i) = J(1);
         end
@@ -85,11 +80,11 @@ methods
 end
 end
 
-function [idx,C] = ordinary_function(X,C,n_samples,k,p)
+function [idx,C] = ordinary_function(X,C,n_samples,k)
 distances = zeros(n_samples,k);
 for idx = 1:k
     A = repmat(C(idx,:),n_samples,1) - X;
-    distances(:,idx) = dsb_utilities.vecnorm(A,p,2);
+    distances(:,idx) = dsb_utilities.vecnorm(A,2,2);
 end
 
 [~,idx] = sort(distances,2);
