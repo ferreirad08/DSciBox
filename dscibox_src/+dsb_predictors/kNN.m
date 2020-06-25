@@ -1,13 +1,13 @@
 function [Ypred,I] = kNN(X,Y,Xnew,k)
 [C,~,Y] = unique(Y);
-% calculate distances between instances
+% Calculate the distance between any two points
 D = dsb_utilities.cdist(Xnew,X);
-% sorts the distances in ascending order
+% Find the nearest neighbours based on these pairwise distances
 [~,I] = sort(D,2);
 % select the k nearest instances
 I = I(:,1:k);
 Ynearest = Y(I);
-% counts the frequencies of the labels
+% Majority vote on a class labels based on the nearest neighbour list
 frequencies = histc(Ynearest,1:max(Y),2);
 % select the most frequent label
 [~,J] = max(frequencies,[],2);
