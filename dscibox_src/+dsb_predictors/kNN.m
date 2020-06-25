@@ -1,6 +1,6 @@
 function [Ypred,I] = kNN(X,Y,Xnew,k)
 [C,~,Y] = unique(Y);
-% calculate the distances between the instances
+% calculate distances between instances
 D = dsb_utilities.cdist(Xnew,X);
 % sorts the distances in ascending order
 [~,I] = sort(D,2);
