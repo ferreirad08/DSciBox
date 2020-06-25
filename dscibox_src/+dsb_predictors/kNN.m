@@ -2,7 +2,7 @@ function [Ypred,I] = kNN(X,Y,Xnew,k)
 [C,~,Y] = unique(Y);
 % Calculate the distance between any two instances
 D = dsb_utilities.cdist(Xnew,X);
-% Find the nearest instances based on these pairwise distances
+% Find the nearest instances
 [~,I] = sort(D,2);
 I = I(:,1:k);
 Ynearest = Y(I);
