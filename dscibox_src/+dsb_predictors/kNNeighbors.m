@@ -9,7 +9,8 @@ classdef kNNeighbors
 %
 % DESCRIPTION
 % 1. Returns the estimated labels of one or multiple test instances.
-% 2. Returns the values of the features, labels and distances of the k nearest instances to a new instance.
+% 2. Returns the values of the features, labels and distances of the k
+% nearest instances to a new instance. 
 %
 % X is a M-by-N matrix, with M instances of N features. 
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
@@ -18,7 +19,8 @@ classdef kNNeighbors
 % p is the power parameter for the distance metric.
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
-% PhD student in Electrical Engineering from the Federal University of Amazonas
+% PhD student in Electrical Engineering from the Federal University of
+% Amazonas 
 % e-mail: ferreirad08@gmail.com
 
 properties
@@ -42,37 +44,27 @@ methods
         obj.X = X;
     end
     function Ypred = predict(obj,Xnew)
-        P = size(Xnew,1);
-        Ypred = zeros(P,1);
-        for i = 1:P
-            % Distance between two points
-            [~,I] = similarity(obj.X,Xnew(i,:),obj.p);
-            % k nearest training labels
-            Ynearest = obj.Y(I(1:obj.k));
-            % Frequencies of the k nearest training labels
-            N = histc(Ynearest,1:max(Ynearest));
-            frequencies = N(Ynearest);
-            % Nearest training label with maximum frequency (if duplicated, check the nearest training instance)
-            [~,J] = max(frequencies);
-            Ypred(i) = Ynearest(J);
-        end
-
+        indices = find(obj,Xnew);
+        Ynearest = obj.Y(indices)';
+        % Frequencies of the k nearest training labels
+        N = histc(Ynearest,1:max(obj.Y));
+        [n_class,P] = size(N);
+        frequencies = N(Ynearest...
+            + repmat(0:n_class:P*n_class-n_class,obj.k,1));
+        % Nearest training label with maximum frequency (if duplicated,
+        % check the nearest training instance) 
+        [~,J] = max(frequencies);
+        Ypred = Ynearest(J + (0:obj.k:P*obj.k-obj.k));
         Ypred = obj.C(Ypred);
     end
-    function [Xnearest,Ynearest,distances] = find(obj,Xnew)
+    function [indices,distances] = find(obj,Xnew)
         % Distance between two points
-        [distances,I] = similarity(obj.X,Xnew,obj.p);
-        Xnearest = obj.X(I(1:obj.k),:);
-        Ynearest = obj.C(obj.Y(I(1:obj.k)));
-        distances = distances(1:obj.k);
+        distances = dsb_utilities.cdist(Xnew,obj.X,obj.p);
+        % Sort the distances in ascending order and check the k nearest
+        % training labels 
+        [distances,indices] = sort(distances,2);
+        distances = distances(:,1:obj.k);
+        indices = indices(:,1:obj.k);
     end
 end
-end
-
-function [distances,I] = similarity(X,Xnew,p)
-% Distance between two points
-A = repmat(Xnew,size(X,1),1) - X;
-distances = dsb_utilities.vecnorm(A,p,2);
-% Sort the distances in ascending order and check the k nearest training labels
-[distances,I] = sort(distances);
 end
