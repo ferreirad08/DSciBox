@@ -54,34 +54,29 @@ methods
         Ypred = zeros(P,1);
         for i = 1:P
             % Class posterior probability
-            [~,I] = posterior(obj.PDF,obj.mu,obj.sigma,Xnew(i,:),obj.n_class,obj.prior);
+            [~,~,I] = find(obj,Xnew(i,:));
             % Check the label with highest probability
             Ypred(i) = I(1);
         end
 
         Ypred = obj.C(Ypred);
     end
-    function [Ysorted,probabilities] = find(obj,Xnew)
-        % Class posterior probability
-        [probabilities,I] = posterior(obj.PDF,obj.mu,obj.sigma,Xnew,obj.n_class,obj.prior);
+    function [Ysorted,probabilities,I] = find(obj,Xnew)
+        % Repeats measurements in a matrix
+        meas = repmat(Xnew,obj.n_class,1);
+        if strcmp(obj.PDF,'gaussian')
+            % Probability density function (PDF) of the normal distribution
+            p = dsb_utilities.normpdf(meas,obj.mu,obj.sigma);
+        elseif strcmp(obj.PDF,'exponential')
+            % PDF of the exponential distribution
+            p = dsb_utilities.exppdf(meas,obj.mu);
+        end
+        % Product
+        probability = prod([p obj.prior],2);
+        % Sort the normalized probabilities in descending order
+        [probabilities,I] = sort(probability/sum(probability),'descend');
         % Sort the labels in descending order
         Ysorted = obj.C(I);
     end
 end
-end
-
-function [probabilities,I] = posterior(PDF,mu,sigma,Xnew,n_class,prior)
-% Repeats measurements in a matrix
-meas = repmat(Xnew,n_class,1);
-if strcmp(PDF,'gaussian')
-    % Probability density function (PDF) of the normal distribution
-    p = dsb_utilities.normpdf(meas,mu,sigma);
-elseif strcmp(PDF,'exponential')
-    % PDF of the exponential distribution
-    p = dsb_utilities.exppdf(meas,mu);
-end
-% Product
-probability = prod([p prior],2);
-% Sort the normalized probabilities in descending order
-[probabilities,I] = sort(probability/sum(probability),'descend');
 end
