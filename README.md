@@ -48,7 +48,7 @@ Predictors
         mdl = dsb_predictors.kNNeighbors(k,p)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
-        [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
+        [indices,distances] = mdl.find(Xnew)
 
     Naive Bayes
         mdl = dsb_predictors.NaiveBayes('gaussian')
