@@ -56,14 +56,27 @@ methods
     function obj = fit(obj,X)
         % k-centroid initialization
         if isempty(obj.C)
-            obj.C = plusplus(X,obj.k);
+            Xcopy = X;
+            i = randi(size(Xcopy,1));
+            obj.C(1,:) = Xcopy(i,:);
+            Xcopy(i,:) = [];
+            for j = 2:obj.k
+                D = dsb_utilities.cdist(Xcopy,obj.C).^2;
+                [~,i] = max(min(D,[],2));
+                obj.C(j,:) = Xcopy(i,:);
+                Xcopy(i,:) = [];
+            end
         end
         
+        % convergence
+        Cnew = zeros(size(obj.C));
         while 1
-            [obj.idx,Cnew] = convergence(X,obj.C,obj.k);
-            if obj.C == Cnew
-                break
+            obj.idx = predict(obj,X);
+            for j = 1:obj.k
+                Cnew(j,:) = mean(X(obj.idx == j,:));
             end
+            
+            if obj.C == Cnew, break, end
             obj.C = Cnew;
         end
     end
@@ -71,25 +84,5 @@ methods
         D = dsb_utilities.cdist(Xnew,obj.C);
         [~,Ypred] = min(D,[],2);
     end
-end
-end
-
-function C = plusplus(X,k)
-i = randi(size(X,1));
-C(1,:) = X(i,:);
-X(i,:) = [];
-for j = 2:k
-    D = dsb_utilities.cdist(X,C).^2;
-    [~,i] = max(min(D,[],2));
-    C(j,:) = X(i,:);
-    X(i,:) = [];
-end
-end
-
-function [idx,C] = convergence(X,C,k)
-D = dsb_utilities.cdist(X,C);
-[~,idx] = min(D,[],2);
-for j = 1:k
-    C(j,:) = mean(X(idx == j,:));
 end
 end
