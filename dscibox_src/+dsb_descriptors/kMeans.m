@@ -72,6 +72,7 @@ methods
         % convergence
         Cnew = zeros(size(obj.C));
         while 1
+            % associate each instance with the closest centroid
             obj.idx = predict(obj,X);
             for j = 1:obj.k
                 Cnew(j,:) = mean(X(obj.idx == j,:));
@@ -84,6 +85,7 @@ methods
     function Ypred = predict(obj,Xnew)
         % distance measure
         D = dsb_utilities.cdist(Xnew,obj.C);
+        % associate each instance with the closest centroid
         [~,Ypred] = min(D,[],2);
     end
 end
