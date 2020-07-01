@@ -74,6 +74,8 @@ methods
         while 1
             % associate each instance with the closest centroid
             obj.idx = predict(obj,X);
+            % recalculate each centroid using all instances
+            % associated with it
             for j = 1:obj.k
                 Cnew(j,:) = mean(X(obj.idx == j,:));
             end
