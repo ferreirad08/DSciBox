@@ -39,7 +39,7 @@ classdef kMeans
 
 properties
     k = 2 % number of clusters
-    C = []
+    C = [] % centroids of each cluster
     idx
 end
 methods
