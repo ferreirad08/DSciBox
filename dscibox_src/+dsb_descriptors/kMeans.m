@@ -54,7 +54,7 @@ methods
         end
     end
     function obj = fit(obj,X)
-        % k-means++ initialization
+        % initializing clusters by the k-means++ algorithm
         if isempty(obj.C)
             Xcopy = X;
             i = randi(size(Xcopy,1));
