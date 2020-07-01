@@ -54,7 +54,7 @@ methods
         end
     end
     function obj = fit(obj,X)
-        % k-centroid initialization
+        % k-means++ initialization
         if isempty(obj.C)
             Xcopy = X;
             i = randi(size(Xcopy,1));
