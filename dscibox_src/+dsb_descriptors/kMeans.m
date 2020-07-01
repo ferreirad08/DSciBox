@@ -79,7 +79,7 @@ methods
                 Cnew(j,:) = mean(X(obj.idx == j,:));
             end
             
-            % if no instances change of associated centroid
+            % break, if no instances change of associated centroid
             if obj.C == Cnew, break, end
             obj.C = Cnew;
         end
