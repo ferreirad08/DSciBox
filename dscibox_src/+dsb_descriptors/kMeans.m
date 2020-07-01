@@ -38,7 +38,7 @@ classdef kMeans
 % e-mail: ferreirad08@gmail.com
 
 properties
-    k = 2
+    k = 2 % number of clusters
     C = []
     idx
 end
@@ -61,6 +61,7 @@ methods
             obj.C(1,:) = Xcopy(i,:);
             Xcopy(i,:) = [];
             for j = 2:obj.k
+                % distance measure
                 D = dsb_utilities.cdist(Xcopy,obj.C).^2;
                 [~,i] = max(min(D,[],2));
                 obj.C(j,:) = Xcopy(i,:);
@@ -81,6 +82,7 @@ methods
         end
     end
     function Ypred = predict(obj,Xnew)
+        % distance measure
         D = dsb_utilities.cdist(Xnew,obj.C);
         [~,Ypred] = min(D,[],2);
     end
