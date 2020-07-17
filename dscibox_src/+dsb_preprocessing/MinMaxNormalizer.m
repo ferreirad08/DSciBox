@@ -20,9 +20,9 @@ methods
         obj.min_ = min(X);
         obj.max_ = max(X);
     end
-    function Xn = transform(obj,X)
+    function Xt = transform(obj,X)
         n_ = size(X,1);
-        Xn = (X-repmat(obj.min_,n_,1))...
+        Xt = (X-repmat(obj.min_,n_,1))...
             ./(repmat(obj.max_,n_,1)-repmat(obj.min_,n_,1));
     end
 end
