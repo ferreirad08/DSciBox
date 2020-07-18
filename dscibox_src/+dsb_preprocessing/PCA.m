@@ -57,7 +57,7 @@ methods
         % Centers the columns by subtracting column means
         Xcentered = X - repmat(obj.mu,size(X,1),1);
         % Project data
-        Xt = (obj.coeff'*Xcentered')';
+        Xt = Xcentered*obj.coeff;
     end
 end
 end
