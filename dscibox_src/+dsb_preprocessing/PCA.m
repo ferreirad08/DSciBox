@@ -45,9 +45,9 @@ methods
         % Centers the columns by subtracting column means
         Xcentered = X - repmat(obj.mu,size(X,1),1);
         % Calculates the covariance matrix of centered matrix
-        V = cov(Xcentered);
+        C = cov(Xcentered);
         % Eigendecomposition of covariance matrix
-        [vectors,values] = eig(V);
+        [vectors,values] = eig(C);
         % Sorts the eigenvalues and associated eigenvectors
         [~,i] = sort(sum(values),'descend');
         % Selects the desired number of coefficients
