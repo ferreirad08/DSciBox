@@ -30,7 +30,7 @@ classdef PCA
 
 properties
     n_components
-    M
+    mu
     coeff
 end
 methods
@@ -41,9 +41,9 @@ methods
     end
     function obj = fit(obj,X)
         % Calculates the mean of each column
-        obj.M = mean(X);
+        obj.mu = mean(X);
         % Centers the columns by subtracting column means
-        Xcentered = X - repmat(obj.M,size(X,1),1);
+        Xcentered = X - repmat(obj.mu,size(X,1),1);
         % Calculates the covariance matrix of centered matrix
         V = cov(Xcentered);
         % Eigendecomposition of covariance matrix
@@ -55,7 +55,7 @@ methods
     end
     function Xt = transform(obj,X)
         % Centers the columns by subtracting column means
-        Xcentered = X - repmat(obj.M,size(X,1),1);
+        Xcentered = X - repmat(obj.mu,size(X,1),1);
         % Project data
         Xt = (obj.coeff'*Xcentered')';
     end
