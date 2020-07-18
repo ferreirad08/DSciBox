@@ -47,11 +47,11 @@ methods
         % Calculates the covariance matrix of centered matrix
         C = cov(Xcentered);
         % Eigendecomposition of covariance matrix
-        [vectors,values] = eig(C);
+        [V,D] = eig(C);
         % Sorts the eigenvalues and associated eigenvectors
-        [~,i] = sort(sum(values),'descend');
+        [~,I] = sort(sum(D),'descend');
         % Selects the desired number of coefficients
-        obj.coeff = vectors(:,i(1:obj.n_components));
+        obj.coeff = V(:,I(1:obj.n_components));
     end
     function Xt = transform(obj,X)
         % Centers the columns by subtracting column means
