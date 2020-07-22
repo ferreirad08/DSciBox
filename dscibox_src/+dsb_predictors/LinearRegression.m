@@ -55,7 +55,7 @@ methods
         % calculating the Pearson correlation coefficient (rho) and the
         % determination coefficient (R^2)
         Ypred = predict(obj,X);
-        rho = cov(Y,Ypred)/(std(Y)*std(Ypred));
+        rho = corr(Y,Ypred);
         obj.R_squared = rho*rho;
     end
     function Ypred = predict(obj,Xnew)
@@ -71,11 +71,16 @@ function r = cov(x,y)
 end
 
 % defining the variance function
-function r = var(x)
-    r = cov(x,x);
+function sigma_squared = var(x)
+    sigma_squared = cov(x,x);
 end
 
 % defining the standard deviation function
-function r = std(x)
-    r = var(x)^(1/2);
+function sigma = std(x)
+    sigma = var(x)^(1/2);
+end
+
+% defining the Pearson correlation coefficient function
+function rho = corr(x,y)
+    rho = cov(x,y)/(std(x)*std(y));
 end
