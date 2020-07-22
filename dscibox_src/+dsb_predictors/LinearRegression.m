@@ -64,8 +64,8 @@ end
 end
 
 % defining the covariance function
-function r = cov(x,y)
-    r = mean((x-mean(x)).*(y-mean(y)));
+function c = cov(x,y)
+    c = mean((x-mean(x)).*(y-mean(y)));
 end
 
 % defining the variance function
