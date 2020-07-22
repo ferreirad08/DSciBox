@@ -65,6 +65,11 @@ Predictors
         mdl = dsb_predictors.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
+
+    Linear Regression
+        reg = dsb_predictors.LinearRegression()
+        reg = reg.fit(X,Y)
+        [Ypred,R_squared] = reg.predict(Xnew)
         
 Descriptors
 
