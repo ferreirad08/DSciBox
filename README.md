@@ -69,7 +69,7 @@ Predictors
     Linear Regression
         reg = dsb_predictors.LinearRegression()
         reg = reg.fit(X,Y)
-        [Ypred,R_squared] = reg.predict(Xnew)
+        Ypred = reg.predict(Xnew)
         
 Descriptors
 
