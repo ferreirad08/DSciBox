@@ -63,6 +63,11 @@ methods
 end
 end
 
+% defining the mean function
+function mu = mean(x)
+    mu = sum(x)/numel(x);
+end
+
 % defining the covariance function
 function c = cov(x,y)
     c = mean((x-mean(x)).*(y-mean(y)));
