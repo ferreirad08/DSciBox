@@ -52,11 +52,9 @@ methods
         b = mean(Y)-a*mean(X);
         obj.coeff = [a, b];
         
-        % calculating the Pearson correlation coefficient (rho) and the
-        % determination coefficient (R^2)
+        % calculating the determination coefficient
         Ypred = predict(obj,X);
-        rho = corr(Y,Ypred);
-        obj.R_squared = rho*rho;
+        obj.R_squared = corr(Y,Ypred)^2;
     end
     function Ypred = predict(obj,Xnew)
         % estimating points of the line
