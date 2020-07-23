@@ -47,7 +47,7 @@ methods
         indices = find(obj,Xnew);
         Ynearest = obj.Y(indices)';
         % Frequencies of the k nearest training labels
-        N = histc(Ynearest,1:max(obj.Y));
+        N = histc(Ynearest,1:max(obj.Y),1);
         [n_class,P] = size(N);
         frequencies = N(Ynearest...
             + repmat(0:n_class:P*n_class-n_class,obj.k,1));
