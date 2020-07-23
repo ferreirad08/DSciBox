@@ -1,3 +1,3 @@
-function distance = sorensen(a,b)
-distance = sum(abs(a-b))/sum((a+b))
+function D = sorensen(A,B)
+D = sum(abs(A-B),2) ./ sum(A+B,2);
 end
