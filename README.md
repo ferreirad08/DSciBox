@@ -47,7 +47,7 @@ Utilities
     Quantile Analysis
         Q = dsb_utilities.quantile(X,[0.25 0.50 0.75])
         
-Predictors
+Classification
 
     k-Nearest Neighbors
         mdl = dsb_predictors.kNNeighbors(k,p)
@@ -66,12 +66,14 @@ Predictors
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
+Regression
+
     Linear Regression
         reg = dsb_predictors.LinearRegression()
         reg = reg.fit(X,Y)
         Ypred = reg.predict(Xnew)
         
-Descriptors
+Clustering
 
     k-Means
         mdl = dsb_descriptors.kMeans(k)
