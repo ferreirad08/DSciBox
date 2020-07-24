@@ -23,7 +23,7 @@ if nargin < 4
 end
 n = numel(Y);
 if n < k
-    error('Error occurred.')
+    error('Error occurred: the number of samples must not be less than k.')
 end
 n = n-rem(n,k);
 i = reshape(randperm(n),n/k,k);
