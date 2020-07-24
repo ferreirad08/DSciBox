@@ -25,8 +25,7 @@ n = numel(Y);
 if n < k
     error('Error occurred: the number of samples must not be less than k.')
 end
-r = rem(n,k);
-i = reshape(randperm(n,n-r),[],k);
+i = reshape(randperm(n,n-rem(n,k)),[],k);
 
 accuracy = zeros(1,k);
 for fold = 1:k
