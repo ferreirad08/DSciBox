@@ -50,7 +50,7 @@ Utilities
 Classification
 
     k-Nearest Neighbors
-        mdl = dsb_predictors.kNNeighbors(k,p)
+        mdl = dsb_predictors.kNNeighbors(k,'euclidean')
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [indices,distances] = mdl.find(Xnew)
