@@ -14,7 +14,7 @@ if nargin < 3 || strcmp(metric,'euclidean')
     D = minkowski(XA,XB,2);
 elseif strcmp(metric,'manhattan') || strcmp(metric,'cityblock')
     D = minkowski(XA,XB,1);
-elseif strcmp(metric,'sorensen')
+elseif strcmp(metric,'sorensen') || strcmp(metric,'braycurtis')
     D = sorensen(XA,XB);    
 end
 end
