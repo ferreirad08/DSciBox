@@ -12,7 +12,7 @@ function D = cdist(XA,XB,metric)
 
 if nargin < 3 || strcmp(metric,'euclidean')
     D = minkowski(XA,XB,2);
-elseif strcmp(metric,'manhattan')
+elseif strcmp(metric,'manhattan') || strcmp(metric,'cityblock')
     D = minkowski(XA,XB,1);
 elseif strcmp(metric,'sorensen')
     D = sorensen(XA,XB);    
