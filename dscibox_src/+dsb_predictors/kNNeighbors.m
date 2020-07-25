@@ -16,7 +16,7 @@ classdef kNNeighbors
 % Y is a M-by-1 matrix, with respective M labels to each training instance. 
 % Xnew is a P-by-N matrix, with P instances of N features to be classified.
 % k is a scalar with the number of nearest neighbors selected.
-% p is the power parameter for the distance metric.
+% metric is the distance metric.
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of
