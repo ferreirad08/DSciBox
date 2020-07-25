@@ -2,10 +2,10 @@ classdef kNNeighbors
 %k-Nearest Neighbors (kNN)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.kNNeighbors(k,p)
+% 1. mdl = dsb_predictors.kNNeighbors(k,metric)
 %    mdl = mdl.fit(X,Y)
 %    Ypred = mdl.predict(Xnew)
-% 2. [Xnearest,Ynearest,distances] = mdl.find(Xnew(1,:))
+% 2. [indices,distances] = mdl.find(Xnew)
 %
 % DESCRIPTION
 % 1. Returns the estimated labels of one or multiple test instances.
@@ -25,18 +25,18 @@ classdef kNNeighbors
 
 properties
     k = 5
-    p = 2
+    metric = 'euclidean'
     C
     X
     Y
 end
 methods
-    function obj = kNNeighbors(k,p)
+    function obj = kNNeighbors(k,metric)
         if nargin > 0
             obj.k = k;
         end
         if nargin > 1
-            obj.p = p;
+            obj.metric = metric;
         end
     end
     function obj = fit(obj,X,Y)
@@ -59,7 +59,7 @@ methods
     end
     function [indices,distances] = find(obj,Xnew)
         % Distance between two points
-        distances = dsb_utilities.cdist(Xnew,obj.X,obj.p);
+        distances = dsb_utilities.cdist(Xnew,obj.X,obj.metric);
         % Sort the distances in ascending order and check the k nearest
         % training labels 
         [distances,indices] = sort(distances,2);
