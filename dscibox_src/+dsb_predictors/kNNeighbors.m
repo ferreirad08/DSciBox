@@ -9,7 +9,7 @@ classdef kNNeighbors
 %
 % DESCRIPTION
 % 1. Returns the estimated labels of one or multiple test instances.
-% 2. Returns the values of the features, labels and distances of the k
+% 2. Returns the indices and distances of the k
 % nearest instances to a new instance. 
 %
 % X is a M-by-N matrix, with M instances of N features. 
