@@ -15,8 +15,7 @@ Xnew = mean(meas); % Creating a new instance from the mean values
 fprintf('\nIn the k-Nearest Neighbors, it is possible to obtain the indices and\n distances of the k nearest instances to a new instance.\n');
 
 k = 5; % k must be an integer, 5 is the default
-p = 2; % p must be an integer, 2 is the default
-mdl = dsb_predictors.kNNeighbors(k,p);
+mdl = dsb_predictors.kNNeighbors(k,'euclidean');
 mdl = mdl.fit(meas,species);
 [indices,distances] = mdl.find([min(meas);mean(meas);max(meas)])
 
