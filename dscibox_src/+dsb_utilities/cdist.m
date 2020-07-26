@@ -11,30 +11,18 @@ function D = cdist(XA,XB,metric)
 %     1.8856    3.3561    2.8477         0
 
 if nargin < 3 || strcmp(metric,'euclidean')
-    D = minkowski(XA,XB,2);
+    f = @(A,XA) vecnorm(A-XA,2,2);
 elseif strcmp(metric,'manhattan') || strcmp(metric,'cityblock')
-    D = minkowski(XA,XB,1);
+    f = @(A,XA) vecnorm(A-XA,1,2);
 elseif strcmp(metric,'sorensen') || strcmp(metric,'braycurtis')
-    D = sorensen(XA,XB);    
-end
+    f = @(A,XA) sum(abs(A-XA),2) ./ sum(A+XA,2);
 end
 
-function D = minkowski(XA,XB,p)
 n = size(XA,1);
 k = size(XB,1);
 D = zeros(n,k);
 for i = 1:k
     A = repmat(XB(i,:),n,1);
-    D(:,i) = dsb_utilities.vecnorm(A-XA,p,2);
-end
-end
-
-function D = sorensen(XA,XB)
-n = size(XA,1);
-k = size(XB,1);
-D = zeros(n,k);
-for i = 1:k
-    A = repmat(XB(i,:),n,1);
-    D(:,i) = sum(abs(A-XA),2) ./ sum(A+XA,2);
+    D(:,i) = f(A,XA);
 end
 end
