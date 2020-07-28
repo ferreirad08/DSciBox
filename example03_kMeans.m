@@ -9,7 +9,7 @@ addpath('dscibox_src')
 
 fprintf('Examples of clustering using the Iris dataset.\n');
 
-load('fisheriris.mat')
+load('datasets/fisheriris.mat')
 
 k = 3; % Number of clusters
 X = meas(:,3:4);
