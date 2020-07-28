@@ -2,7 +2,7 @@ classdef NaiveBayes
 %Naive Bayes (NB)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.NaiveBayes(PDF) % 'gaussian' and 'exponential' are the options
+% 1. mdl = dsb_classification.NaiveBayes(PDF) % 'gaussian' and 'exponential' are the options
 %    mdl = mdl.fit(X,Y)
 %    Ypred = mdl.predict(Xnew)
 % 2. [Ysorted,probabilities] = mdl.find(Xnew(1,:))
