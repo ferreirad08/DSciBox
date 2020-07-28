@@ -13,7 +13,7 @@ load('datasets/fisheriris.mat')
 
 k = 3; % Number of clusters
 X = meas(:,3:4);
-mdl = dsb_descriptors.kMeans(k).fit(X);
+mdl = dsb_clustering.kMeans(k).fit(X);
 
 Xnew = [min(X);mean(X);max(X)]
 Ypred = mdl.predict(Xnew)
