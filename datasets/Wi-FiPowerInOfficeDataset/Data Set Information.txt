@@ -1,0 +1,21 @@
+Data Set Information
+
+Name:
+
+Wi-FiPowerInOfficeDataset
+
+Creators:
+
+D.A.O. Ferreira & C.B. Carvalho
+
+Description:
+
+O Wi-FiPowerInOfficeDataset é um MAT-file (.mat) com três variáveis: samples, rps_coordinates e aps_coordinates.
+
+A variável samples possui 16 classes de 220 instâncias cada, em que cada classe se refere a um ponto de referência (RP).
+Possui no total 3520 observações em dBm de 8 atributos, em que cada atributo se refere a um ponto de acesso Wi-Fi (AP based on NodeMCU-8266 [http://www.ai-thinker.com/pro_view-67.html]). 
+A última coluna é o identificador do RP.
+
+A variável rps_coordinates possui as coordenadas tridimensionais (largura, comprimento e altura) dos 16 RPs, respectivamente em cada linha.
+
+A variável aps_coordinates possui as coordenadas tridimensionais (largura, comprimento e altura) dos 8 APs, respectivamente em cada linha.
