@@ -9,7 +9,7 @@ addpath('dscibox_src')
 
 fprintf('Examples using the Iris dataset.\n');
 
-load('fisheriris.mat')
+load('datasets/fisheriris.mat')
 Xnew = mean(meas); % Creating a new instance from the mean values
 
 fprintf('\nIn the k-Nearest Neighbors, it is possible to obtain the indices and\n distances of the k nearest instances to a new instance.\n');
