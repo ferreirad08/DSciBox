@@ -2,7 +2,7 @@ classdef DTree
 %Decision Tree (DT)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.DTree()
+% 1. mdl = dsb_classification.DTree()
 %    mdl = mdl.fit(X,Y)
 %    Ypred = mdl.predict(Xnew)
 %
