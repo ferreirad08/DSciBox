@@ -2,6 +2,8 @@
 
 [![View DSciBox on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/77067-dscibox)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [David Alan de Oliveira Ferreira](http://lattes.cnpq.br/3863655668683045)  
 PhD student in Electrical Engineering from the Federal University of Amazonas  
 e-mail: ferreirad08@gmail.com
