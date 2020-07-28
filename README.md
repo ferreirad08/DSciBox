@@ -50,32 +50,32 @@ Utilities
 Classification
 
     k-Nearest Neighbors
-        mdl = dsb_predictors.kNNeighbors(k,'euclidean')
+        mdl = dsb_classification.kNNeighbors(k,'euclidean')
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [indices,distances] = mdl.find(Xnew)
 
     Naive Bayes
-        mdl = dsb_predictors.NaiveBayes('gaussian')
+        mdl = dsb_classification.NaiveBayes('gaussian')
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Ysorted,probabilities] = mdl.find(Xnew(1,:))
 
     Decision Tree
-        mdl = dsb_predictors.DTree()
+        mdl = dsb_classification.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
 Regression
 
     Linear Regression
-        reg = dsb_predictors.LinearRegression()
+        reg = dsb_regression.LinearRegression()
         reg = reg.fit(X,Y)
         Ypred = reg.predict(Xnew)
         
 Clustering
 
     k-Means
-        mdl = dsb_descriptors.kMeans(k)
+        mdl = dsb_clustering.kMeans(k)
         mdl = mdl.fit(X)
         Ypred = mdl.predict(Xnew)
