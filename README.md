@@ -1,6 +1,6 @@
 # DSciBox (Data Science Toolbox)
 
-[![View DSciBox on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/77067-dscibox) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![View DSciBox on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/77067-dscibox) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ferreirad08/DSciBox/blob/master/LICENSE)
 
 [David Alan de Oliveira Ferreira](http://lattes.cnpq.br/3863655668683045)  
 PhD student in Electrical Engineering from the Federal University of Amazonas  
