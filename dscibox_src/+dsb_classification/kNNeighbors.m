@@ -2,7 +2,7 @@ classdef kNNeighbors
 %k-Nearest Neighbors (kNN)
 %
 % SYNTAX
-% 1. mdl = dsb_predictors.kNNeighbors(k,metric)
+% 1. mdl = dsb_classification.kNNeighbors(k,metric)
 %    mdl = mdl.fit(X,Y)
 %    Ypred = mdl.predict(Xnew)
 % 2. [indices,distances] = mdl.find(Xnew)
