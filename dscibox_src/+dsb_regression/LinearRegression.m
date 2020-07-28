@@ -2,7 +2,7 @@ classdef LinearRegression
 %Linear Regression
 %
 % SYNTAX
-% 1. reg = dsb_predictors.LinearRegression()
+% 1. reg = dsb_regression.LinearRegression()
 %    reg = reg.fit(X,Y)
 %    Ypred = reg.predict(Xnew)
 %
@@ -17,7 +17,7 @@ classdef LinearRegression
 % 1.
 %      X = [2,3,9,6];
 %      Y = [5,7,12,8];
-%      reg = LinearRegression().fit(X,Y);
+%      reg = dsb_regression.LinearRegression().fit(X,Y);
 %      reg.coeff
 %      ans =
 %          0.9000 3.5000
