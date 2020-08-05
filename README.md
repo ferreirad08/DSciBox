@@ -6,6 +6,8 @@
 
 [![in: LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/david-f-3a918ba5)
 
+"{\"localizedFirstName\":\"David\",\"localizedLastName\":\"F.\",\"localizedProfiles\":[{\"vanityName\":\"david-f-3a918ba5\",\"firstName\":\"David\",\"lastName\":\"F.\",\"profileUrl\":\"https://br.linkedin.com/in/david-f-3a918ba5\",\"displayLocale\":\"Português\",\"encodedId\":null,\"locale\":\"pt_BR\",\"canonicalName\":null}],\"pageKey\":\"profile-badge-create\",\"badgeVersion\":\"v1\",\"jsBeaconUrl\":\"https://www.linkedin.com/analytics/noauthtracker\",\"defaultBadgeType\":null,\"canonicalUrl\":\"https://www.linkedin.com/badges/profile/create?vanityname=david-f-3a918ba5&preferredlocale=pt_BR\",\"cdnJsPath\":\"https://platform.linkedin.com/badges/js/profile.js\"}"
+
 *Currently available functions:*
 
 Preprocessing
