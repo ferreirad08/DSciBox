@@ -4,8 +4,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ferreirad08/DSciBox/blob/master/LICENSE)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/david-f-3a918ba5)
 
-![Linkedin](https://img.shields.io/linkedin/url?color=white&label=LinkedIn&logo=linkedin&logoColor=blue&style=social&url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fdavid-f-3a918ba5)
-
 *Currently available functions:*
 
 Preprocessing
