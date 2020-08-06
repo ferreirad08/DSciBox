@@ -44,6 +44,9 @@ Utilities
 
     Quantile Analysis
         Q = dsb_utilities.quantile(X,[0.25 0.50 0.75])
+
+    Distance matrix
+        D = dsb_utilities.cdist(XA,XB,'euclidean')
         
 Classification
 
