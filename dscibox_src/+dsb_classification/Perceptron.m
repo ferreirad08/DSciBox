@@ -2,27 +2,28 @@ classdef Perceptron
 %Perceptron with Delta Rule
 
 properties
-    n = 0.5 % learning rate
-    bias = 0
+    alpha = 0.01 % Learning Rate
+    n_features
     w
+    bias = 0
 end
 methods
-    function obj = Perceptron(n,bias)
+    function obj = Perceptron(alpha,n_features)
         if nargin > 0
-            obj.n = n;
+            obj.alpha = alpha;
         end
         if nargin > 1
-            obj.bias = bias;
+            obj.n_features = n_features;
         end
+        obj.w = randn(1,n_features);
     end
     function obj = fit(obj,X,Y)
-        obj.w = randn(1,size(X,2));
         for i = 1:size(X,1)
             output = sum(X(i,:).*obj.w) + obj.bias;
             Ypred = output >= 0;
             e = Y(i) - Ypred;
             if e ~= 0
-                obj.w = obj.w + obj.n*e.*X(i,:);
+                obj.w = obj.w + obj.alpha*e.*X(i,:);
             end
         end
     end
