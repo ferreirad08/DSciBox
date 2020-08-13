@@ -5,7 +5,7 @@ properties
     alpha = 0.01 % Learning Rate
     n_iter = 2000
     w
-    bias = 0
+    bias
 end
 methods
     function obj = Perceptron(n_features,alpha,n_iter)
@@ -17,6 +17,7 @@ methods
         end
         
         obj.w = 1-2.*rand(1,n_features);
+        obj.bias = 1-2*rand;
     end
     function obj = fit(obj,X,Y)
         for j = 1:obj.n_iter
