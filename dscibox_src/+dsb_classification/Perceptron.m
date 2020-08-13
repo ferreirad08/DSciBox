@@ -12,7 +12,7 @@ methods
             obj.alpha = alpha;
         end
         
-        obj.w = randn(1,n_features);
+        obj.w = 1-2.*rand(1,n_features);
     end
     function obj = fit(obj,X,Y)
         for i = 1:size(X,1)
