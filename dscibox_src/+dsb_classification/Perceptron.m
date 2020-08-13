@@ -38,13 +38,8 @@ methods
         end
     end
     function Ypred = predict(obj,Xnew)
-        P = size(Xnew,1);
-        Ypred = zeros(P,1);
-        for i = 1:P
-            output = sum(Xnew(i,:).*obj.w) + obj.bias;
-            Ypred(i) = output >= 0; % Loss Function
-        end
-        
+        output = sum(Xnew.*repmat(obj.w,size(Xnew,1),1),2) + obj.bias;
+        Ypred = output >= 0; % Loss Function
         Ypred = obj.C(Ypred+1);
     end
 end
