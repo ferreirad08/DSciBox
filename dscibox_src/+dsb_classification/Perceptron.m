@@ -8,18 +8,18 @@ properties
     bias
 end
 methods
-    function obj = Perceptron(n_features,alpha,n_iter)
-        if nargin > 1
+    function obj = Perceptron(alpha,n_iter)
+        if nargin > 0
             obj.alpha = alpha;
         end
-        if nargin > 2
+        if nargin > 1
             obj.n_iter = n_iter;
         end
-        
-        obj.w = 1-2.*rand(1,n_features);
-        obj.bias = 1-2*rand;
     end
     function obj = fit(obj,X,Y)
+        obj.w = 1-2.*rand(1,n_features);
+        obj.bias = 1-2*rand;
+
         for j = 1:obj.n_iter
             cum_error = 0;
             for i = 1:size(X,1)
