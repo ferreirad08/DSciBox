@@ -6,6 +6,7 @@ properties
     n_epochs = 2000
     w
     bias
+    C
 end
 methods
     function obj = Perceptron(alpha,n_epochs)
@@ -17,6 +18,8 @@ methods
         end
     end
     function obj = fit(obj,X,Y)
+        [obj.C,~,Y] = unique(Y); Y = Y-1;
+        
         obj.w = rand(1,size(X,2));
         obj.bias = rand;
 
@@ -41,6 +44,8 @@ methods
             output = sum(Xnew(i,:).*obj.w) + obj.bias;
             Ypred(i) = output >= 0; % Loss Function
         end
+        
+        Ypred = obj.C(Ypred+1);
     end
 end
 end
