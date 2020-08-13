@@ -67,6 +67,11 @@ Classification
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
+    Perceptron
+        mdl = dsb_classification.Perceptron(alpha,n_epochs)
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
+
 Regression
 
     Linear Regression
