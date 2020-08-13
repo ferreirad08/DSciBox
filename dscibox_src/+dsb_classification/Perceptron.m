@@ -13,7 +13,7 @@ methods
             obj.alpha = alpha;
         end
         if nargin > 1
-            obj.n_iter = n_iter;
+            obj.n_epochs = n_epochs;
         end
     end
     function obj = fit(obj,X,Y)
@@ -39,7 +39,7 @@ methods
         Ypred = zeros(P,1);
         for i = 1:P
             output = sum(Xnew(i,:).*obj.w) + obj.bias;
-            Ypred(i) = output >= 0;
+            Ypred(i) = output >= 0; % Loss Function
         end
     end
 end
