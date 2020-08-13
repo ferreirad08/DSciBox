@@ -25,10 +25,10 @@ methods
             for i = 1:size(X,1)
                 output = sum(X(i,:).*obj.w) + obj.bias;
                 Ypred = output >= 0; % Loss Function
-                error = Y(i) - Ypred;
-                if error ~= 0
-                    cum_error = cum_error + 1;
+                if Ypred ~= Y(i)
+                    error = Y(i) - Ypred;
                     obj.w = obj.w + obj.alpha*error.*X(i,:);
+                    cum_error = cum_error + 1;
                 end
             end
             if cum_error == 0, break, end
