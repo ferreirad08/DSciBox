@@ -17,8 +17,8 @@ methods
         end
     end
     function obj = fit(obj,X,Y)
-        obj.w = 1-2.*rand(1,size(X,2));
-        obj.bias = 1-2*rand;
+        obj.w = rand(1,size(X,2));
+        obj.bias = rand;
 
         for j = 1:obj.n_iter
             cum_error = 0;
