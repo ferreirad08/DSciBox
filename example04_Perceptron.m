@@ -1,6 +1,10 @@
 clear, clc
-addpath('C:\Program Files\MATLAB\R2016a\toolbox\dscibox_src')
-load fisheriris
+
+% Add library folders to the search path
+addpath('dscibox_src')
+% savepath
+
+load('datasets/fisheriris.mat')
 
 [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas(1:100,1:4),species(1:100),0.30,'stratified');
 mdl = dsb_classification.Perceptron();
