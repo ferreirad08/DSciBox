@@ -18,9 +18,9 @@ methods
         for i = 1:size(X,1)
             output = sum(X(i,:).*obj.w) + obj.bias;
             Ypred = output >= 0;
-            e = Y(i) - Ypred;
-            if e ~= 0
-                obj.w = obj.w + obj.alpha*e.*X(i,:);
+            error = Y(i) - Ypred;
+            if error ~= 0
+                obj.w = obj.w + obj.alpha*error.*X(i,:);
             end
         end
     end
