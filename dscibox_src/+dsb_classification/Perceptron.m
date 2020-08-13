@@ -3,12 +3,12 @@ classdef Perceptron
 
 properties
     alpha = 0.01 % Learning Rate
-    n_iter = 2000
+    n_epochs = 2000
     w
     bias
 end
 methods
-    function obj = Perceptron(alpha,n_iter)
+    function obj = Perceptron(alpha,n_epochs)
         if nargin > 0
             obj.alpha = alpha;
         end
@@ -20,7 +20,7 @@ methods
         obj.w = rand(1,size(X,2));
         obj.bias = rand;
 
-        for j = 1:obj.n_iter
+        for j = 1:obj.n_epochs
             cum_error = 0;
             for i = 1:size(X,1)
                 output = sum(X(i,:).*obj.w) + obj.bias;
