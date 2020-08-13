@@ -3,7 +3,6 @@ classdef Perceptron
 
 properties
     alpha = 0.01 % Learning Rate
-    n_features
     w
     bias = 0
 end
@@ -12,9 +11,7 @@ methods
         if nargin > 0
             obj.alpha = alpha;
         end
-        if nargin > 1
-            obj.n_features = n_features;
-        end
+        
         obj.w = randn(1,n_features);
     end
     function obj = fit(obj,X,Y)
