@@ -15,13 +15,13 @@ methods
     end
     function obj = fit(obj,X,Y)
         for j = 1:obj.n_iter
-            cum_error = [];
+            cum_error = 0;
             for i = 1:size(X,1)
                 output = sum(X(i,:).*obj.w) + obj.bias;
                 Ypred = output >= 0;
                 error = Y(i) - Ypred;
-                cum_error = [cum_error,error];
                 if error ~= 0
+                    cum_error = cum_error + 1;
                     obj.w = obj.w + obj.alpha*error.*X(i,:);
                 end
             end
