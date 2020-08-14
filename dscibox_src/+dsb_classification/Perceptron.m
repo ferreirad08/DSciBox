@@ -31,6 +31,7 @@ methods
                 if Ypred ~= Y(i)
                     error = Y(i) - Ypred;
                     obj.w = obj.w + obj.alpha*error.*X(i,:);
+                    obj.bias = obj.bias + obj.alpha*error*-1;
                     cum_error = cum_error + 1;
                 end
             end
