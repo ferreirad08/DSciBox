@@ -27,16 +27,16 @@ methods
         X = [repmat(obj.bias,n,1), X];
 
         for j = 1:obj.n_epochs
-            cum_error = 0;
+            error = 0;
             for i = 1:n
                 u = sum(obj.w.*X(i,:)); % Activation Potential
                 Ypred = u >= 0; % Activation Function
                 if Ypred ~= Y(i)
                     obj.w = obj.w + obj.eta*(Y(i) - Ypred).*X(i,:);
-                    cum_error = cum_error + 1;
+                    error = 1;
                 end
             end
-            if cum_error == 0, break, end
+            if ~error, break, end
         end
     end
     function Ypred = predict(obj,Xnew)
