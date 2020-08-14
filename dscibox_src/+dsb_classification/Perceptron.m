@@ -33,9 +33,8 @@ methods
                 output = sum(X(i,:).*obj.w) + obj.threshold;
                 Ypred = output >= 0; % Loss Function
                 if Ypred ~= Y(i)
-                    error = Y(i) - Ypred;
-                    obj.w = obj.w + obj.eta*error.*X(i,:);
-                    obj.threshold = obj.threshold + obj.eta*error*obj.bias;
+                    obj.w = obj.w + obj.eta*(Y(i) - Ypred).*X(i,:);
+                    obj.threshold = obj.threshold + obj.eta*(Y(i) - Ypred)*obj.bias;
                     cum_error = cum_error + 1;
                 end
             end
