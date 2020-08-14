@@ -6,8 +6,8 @@ addpath('dscibox_src')
 
 load('datasets/fisheriris.mat')
 
-[X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas(1:100,:),species(1:100),0.30,'stratified');
+[X,Xnew,Y,Ynew] = dsb_utils.data_sampling(meas(1:100,:),species(1:100),0.30,'stratified');
 mdl = dsb_classification.Perceptron();
 mdl = mdl.fit(X,Y)
 Ypred = mdl.predict(Xnew);
-accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
+accuracy = dsb_utils.accuracy_score(Ynew,Ypred)
