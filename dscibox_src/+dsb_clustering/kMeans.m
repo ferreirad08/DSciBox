@@ -62,7 +62,7 @@ methods
             Xcopy(i,:) = [];
             for j = 2:obj.k
                 % distance measure
-                D = dsb_utilities.cdist(Xcopy,obj.C).^2;
+                D = dsb_utils.cdist(Xcopy,obj.C).^2;
                 [~,i] = max(min(D,[],2));
                 obj.C(j,:) = Xcopy(i,:);
                 Xcopy(i,:) = [];
@@ -86,7 +86,7 @@ methods
     end
     function Ypred = predict(obj,Xnew)
         % distance measure
-        D = dsb_utilities.cdist(Xnew,obj.C);
+        D = dsb_utils.cdist(Xnew,obj.C);
         % associate each instance with the closest centroid
         [~,Ypred] = min(D,[],2);
     end
