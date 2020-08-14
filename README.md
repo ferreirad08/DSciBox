@@ -31,22 +31,22 @@ Preprocessing
 Utilities
 
     Simple or Stratified Random Sampling
-        [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,0.30,'stratified')
+        [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(X,Y,0.30,'stratified')
     
     Cross Validation
-        accuracy = cross_validation(mdl,X,Y,k)
+        accuracy = dsb_utils.cross_validation(mdl,X,Y,k)
 
     Accuracy Classification Score
-        accuracy = dsb_utilities.accuracy_score(Ynew,Ypred)
+        accuracy = dsb_utils.accuracy_score(Ynew,Ypred)
 
     Information Entropy
-        e = dsb_utilities.entropy(Y)
+        e = dsb_utils.entropy(Y)
 
     Quantile Analysis
-        Q = dsb_utilities.quantile(X,[0.25 0.50 0.75])
+        Q = dsb_utils.quantile(X,[0.25 0.50 0.75])
 
     Distance Matrix
-        D = dsb_utilities.cdist(XA,XB,'euclidean')
+        D = dsb_utils.cdist(XA,XB,'euclidean')
         
 Classification
 
@@ -67,7 +67,7 @@ Classification
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
-    Perceptron
+    Perceptron Network
         mdl = dsb_classification.Perceptron(alpha,n_epochs)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
