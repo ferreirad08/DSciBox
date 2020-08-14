@@ -2,7 +2,7 @@ function e = entropy(Y)
 %Information Entropy
 %
 % SYNTAX
-% 1. e = dsb_utilities.entropy(Y)
+% 1. e = dsb_utils.entropy(Y)
 %
 % DESCRIPTION
 % 1. Returns the entropy for a vector.
@@ -12,13 +12,13 @@ function e = entropy(Y)
 % EXAMPLE
 % 1.
 %      Y = {'setosa';'versicolor';'virginica'};
-%      e = dsb_utilities.entropy(Y)
+%      e = dsb_utils.entropy(Y)
 %      e =
 %          1.5850
 %
 % 2.
 %      Y2 = {'setosa';'setosa';'setosa'};
-%      e2 = dsb_utilities.entropy(Y2)
+%      e2 = dsb_utils.entropy(Y2)
 %      e2 =
 %          0
 %
