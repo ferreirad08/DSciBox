@@ -49,12 +49,12 @@ methods
     end
     function obj = fit(obj,X,Y)
         [m,n] = size(X);
-        obj.gain = ones(1,n)*dsb_utilities.entropy(Y);
+        obj.gain = ones(1,n)*dsb_utils.entropy(Y);
         for i = 1:n
             [~,~,feature] = unique(X(:,i));
             for j = 1:max(feature)
                 p = histc(feature(feature==j),j)/m;
-                obj.gain(i) = obj.gain(i) - p*dsb_utilities.entropy(Y(feature==j));
+                obj.gain(i) = obj.gain(i) - p*dsb_utils.entropy(Y(feature==j));
             end
         end
 
