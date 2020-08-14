@@ -68,7 +68,7 @@ Classification
         Ypred = mdl.predict(Xnew)
 
     Perceptron Network
-        mdl = dsb_classification.Perceptron(alpha,n_epochs)
+        mdl = dsb_classification.Perceptron(eta,n_epochs,bias)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
