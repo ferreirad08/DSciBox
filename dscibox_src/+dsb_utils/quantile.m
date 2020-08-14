@@ -2,7 +2,7 @@ function Q = quantile(X,p)
 %Quantile Analysis
 %
 % SYNTAX
-% 1. Q = dsb_utilities.quantile(X,p)
+% 1. Q = dsb_utils.quantile(X,p)
 %
 % DESCRIPTION
 % 1. Calculate the quantiles for each column of a matrix based on linear regression.
@@ -16,7 +16,7 @@ function Q = quantile(X,p)
 %            7   10;
 %            1   11];
 %      p = [0.25 0.50 0.75];
-%      Q = dsb_utilities.quantile(X,p)
+%      Q = dsb_utils.quantile(X,p)
 %      Q = 
 %          2.2500    5.2500
 %          3.5000    8.0000
