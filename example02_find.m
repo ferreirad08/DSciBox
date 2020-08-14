@@ -1,5 +1,4 @@
-clear
-clc
+clear, clc
 
 % Add library folders to the search path
 addpath('dscibox_src')
