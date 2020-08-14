@@ -5,8 +5,8 @@ properties
     eta = 0.01 % Learning Rate
     n_epochs = 2000
     bias = -1
-    w
-    C
+    w % Synaptic Weights
+    C % Class Names
 end
 methods
     function obj = Perceptron(eta,n_epochs,bias)
