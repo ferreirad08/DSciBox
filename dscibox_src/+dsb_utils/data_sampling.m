@@ -2,8 +2,8 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
 %Simple or Stratified Random Sampling
 %
 % SYNTAX
-% 1. [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p) % 'simple' is the default
-% 2. [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(X,Y,p,'stratified')
+% 1. [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(X,Y,p) % 'simple' is the default
+% 2. [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(X,Y,p,'stratified')
 %
 % DESCRIPTION
 % 1. Splits data regardless of labels.
@@ -17,7 +17,7 @@ function [X,Xnew,Y,Ynew] = data_sampling(X,Y,p,type)
 % 1.
 %      load fisheriris
 %      p = 0.30;
-%      [X,Xnew,Y,Ynew] = dsb_utilities.data_sampling(meas,species,p,'stratified')
+%      [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(meas,species,p,'stratified')
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % PhD student in Electrical Engineering from the Federal University of Amazonas
