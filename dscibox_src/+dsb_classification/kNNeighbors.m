@@ -60,7 +60,7 @@ methods
     end
     function [indices,distances] = find(obj,Xnew)
         % Distance between two points
-        distances = dsb_utilities.cdist(Xnew,obj.X,obj.metric);
+        distances = dsb_utils.cdist(Xnew,obj.X,obj.metric);
         % Sort the distances in ascending order and check the k nearest
         % training labels 
         [distances,indices] = sort(distances,2);
