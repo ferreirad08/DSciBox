@@ -2,14 +2,14 @@ function accuracy = cross_validation(mdl,X,Y,k)
 %Cross Validation
 %
 % SYNTAX
-% 1. accuracy = cross_validation(mdl,X,Y,k)
+% 1. accuracy = dsb_utils.cross_validation(mdl,X,Y,k)
 %
 % EXAMPLES
 % 1.
 %     load('fisheriris.mat')
 %     mdl = dsb_predictors.DTree();
 %     k = 10;
-%     accuracy = cross_validation(mdl,meas,species,k);
+%     accuracy = dsb_utils.cross_validation(mdl,meas,species,k);
 %     mu = mean(accuracy)
 %     mu =
 %         0.9467
