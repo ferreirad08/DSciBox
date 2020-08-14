@@ -1,5 +1,5 @@
 classdef Perceptron
-%Perceptron with Delta Rule
+%Perceptron Network
 
 properties
     eta = 0.01 % Learning Rate
