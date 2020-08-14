@@ -3,7 +3,7 @@ function D = cdist(XA,XB,metric)
 %           35.1174, -89.9711;
 %           35.9728, -83.9422;
 %           36.1667, -86.7833];
-% D = dsb_utilities.cdist(coords,coords,'euclidean')
+% D = dsb_utils.cdist(coords,coords,'euclidean')
 % D =
 %          0    4.7044    1.6172    1.8856
 %     4.7044         0    6.0893    3.3561
@@ -11,9 +11,9 @@ function D = cdist(XA,XB,metric)
 %     1.8856    3.3561    2.8477         0
 
 if nargin < 3 || strcmp(metric,'euclidean')
-    f = @(A,XA) dsb_utilities.vecnorm(A-XA,2,2);
+    f = @(A,XA) dsb_utils.vecnorm(A-XA,2,2);
 elseif strcmp(metric,'manhattan') || strcmp(metric,'cityblock')
-    f = @(A,XA) dsb_utilities.vecnorm(A-XA,1,2);
+    f = @(A,XA) dsb_utils.vecnorm(A-XA,1,2);
 elseif strcmp(metric,'sorensen') || strcmp(metric,'braycurtis')
     f = @(A,XA) sum(abs(A-XA),2) ./ sum(A+XA,2);
 end
