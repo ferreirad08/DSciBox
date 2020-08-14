@@ -41,6 +41,6 @@ for fold = 1:k
 
     mdl = mdl.fit(Xtrain,Ytrain);
     Ypred = mdl.predict(Xnew);
-    accuracy(fold) = dsb_utilities.accuracy_score(Ynew,Ypred);
+    accuracy(fold) = dsb_utils.accuracy_score(Ynew,Ypred);
 end
 end
