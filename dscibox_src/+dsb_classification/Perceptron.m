@@ -29,8 +29,8 @@ methods
         for j = 1:obj.n_epochs
             cum_error = 0;
             for i = 1:n
-                output = sum(X(i,:).*obj.w);
-                Ypred = output >= 0; % Loss Function
+                u = sum(X(i,:).*obj.w);
+                Ypred = u >= 0; % Loss Function
                 if Ypred ~= Y(i)
                     obj.w = obj.w + obj.eta*(Y(i) - Ypred).*X(i,:);
                     cum_error = cum_error + 1;
@@ -42,8 +42,8 @@ methods
     function Ypred = predict(obj,Xnew)
         n = size(Xnew,1);
         Xnew = [repmat(obj.bias,n,1), Xnew];
-        output = sum(Xnew.*repmat(obj.w,n,1),2);
-        Ypred = output >= 0; % Loss Function
+        u = sum(Xnew.*repmat(obj.w,n,1),2);
+        Ypred = u >= 0; % Loss Function
         Ypred = obj.C(Ypred+1);
     end
 end
