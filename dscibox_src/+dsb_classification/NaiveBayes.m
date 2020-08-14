@@ -66,10 +66,10 @@ methods
         meas = repmat(Xnew,obj.n_class,1);
         if strcmp(obj.PDF,'gaussian')
             % Probability density function (PDF) of the normal distribution
-            p = dsb_utilities.normpdf(meas,obj.mu,obj.sigma);
+            p = dsb_utils.normpdf(meas,obj.mu,obj.sigma);
         elseif strcmp(obj.PDF,'exponential')
             % PDF of the exponential distribution
-            p = dsb_utilities.exppdf(meas,obj.mu);
+            p = dsb_utils.exppdf(meas,obj.mu);
         end
         % Product
         probability = prod([p obj.prior],2);
