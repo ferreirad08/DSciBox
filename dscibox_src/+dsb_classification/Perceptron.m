@@ -2,7 +2,7 @@ classdef Perceptron
 %Perceptron with Delta Rule
 
 properties
-    alpha = 0.01 % Learning Rate
+    eta = 0.01 % Learning Rate
     n_epochs = 2000
     w
     bias = -1
@@ -10,9 +10,9 @@ properties
     C
 end
 methods
-    function obj = Perceptron(alpha,n_epochs,bias)
+    function obj = Perceptron(eta,n_epochs,bias)
         if nargin > 0
-            obj.alpha = alpha;
+            obj.eta = eta;
         end
         if nargin > 1
             obj.n_epochs = n_epochs;
@@ -34,8 +34,8 @@ methods
                 Ypred = output >= 0; % Loss Function
                 if Ypred ~= Y(i)
                     error = Y(i) - Ypred;
-                    obj.w = obj.w + obj.alpha*error.*X(i,:);
-                    obj.threshold = obj.threshold + obj.alpha*error*obj.bias;
+                    obj.w = obj.w + obj.eta*error.*X(i,:);
+                    obj.threshold = obj.threshold + obj.eta*error*obj.bias;
                     cum_error = cum_error + 1;
                 end
             end
