@@ -21,7 +21,7 @@ methods
         [obj.C,~,Y] = unique(Y); Y = Y-1;
         
         obj.w = rand(1,size(X,2));
-        obj.bias = -rand;
+        obj.bias = -1*rand;
 
         for j = 1:obj.n_epochs
             cum_error = 0;
