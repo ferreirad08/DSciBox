@@ -5,33 +5,37 @@ properties
     alpha = 0.01 % Learning Rate
     n_epochs = 2000
     w
-    bias
+    bias = -1
+    threshold
     C
 end
 methods
-    function obj = Perceptron(alpha,n_epochs)
+    function obj = Perceptron(alpha,n_epochs,bias)
         if nargin > 0
             obj.alpha = alpha;
         end
         if nargin > 1
             obj.n_epochs = n_epochs;
         end
+        if nargin > 2
+            obj.bias = bias;
+        end
     end
     function obj = fit(obj,X,Y)
         [obj.C,~,Y] = unique(Y); Y = Y-1;
         
         obj.w = rand(1,size(X,2));
-        obj.bias = -1*rand;
+        obj.threshold = obj.bias*rand;
 
         for j = 1:obj.n_epochs
             cum_error = 0;
             for i = 1:size(X,1)
-                output = sum(X(i,:).*obj.w) + obj.bias;
+                output = sum(X(i,:).*obj.w) + obj.threshold;
                 Ypred = output >= 0; % Loss Function
                 if Ypred ~= Y(i)
                     error = Y(i) - Ypred;
                     obj.w = obj.w + obj.alpha*error.*X(i,:);
-                    obj.bias = obj.bias + obj.alpha*error*-1;
+                    obj.threshold = obj.threshold + obj.alpha*error*obj.bias;
                     cum_error = cum_error + 1;
                 end
             end
@@ -39,7 +43,7 @@ methods
         end
     end
     function Ypred = predict(obj,Xnew)
-        output = sum(Xnew.*repmat(obj.w,size(Xnew,1),1),2) + obj.bias;
+        output = sum(Xnew.*repmat(obj.w,size(Xnew,1),1),2) + obj.threshold;
         Ypred = output >= 0; % Loss Function
         Ypred = obj.C(Ypred+1);
     end
