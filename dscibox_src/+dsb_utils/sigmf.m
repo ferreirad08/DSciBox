@@ -1,8 +1,7 @@
 function y = sigmf(x,params)
 if nargin < 2
-    params = [1, 0];
+    params = [1 0];
 end
-a = params(1);
-c = params(2);
-y = 1./(1+exp(-a.*(x-c)));
+y = 1./(1+exp(-params(1)...
+    .*(x-params(2))));
 end
