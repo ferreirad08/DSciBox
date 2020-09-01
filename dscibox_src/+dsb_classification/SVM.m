@@ -1,7 +1,7 @@
 clear, clc, load fisheriris
 addpath('C:\Program Files\MATLAB\R2016a\toolbox\dscibox_src')
-y_train = ones(100,1);
 y_train(1:50) = -1;
+y_train(51:100) = 1;
 [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(meas(1:100,[1 3]),y_train,0.10,'stratified');
 
 eta = 0.0001; % Learning Rate
