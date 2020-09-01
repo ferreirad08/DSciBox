@@ -10,7 +10,7 @@ n_epochs = 10000; % Number of Epochs
 w = zeros(n,m); % Synaptic Weights
 
 for epoch = 1:n_epochs
-    lambida = 1/epoch; % Regularization Parameter
+    lambda = 1/epoch; % Regularization Parameter
     
     y = sum(w.*X,2);
     prod = y .* Y;
@@ -18,10 +18,10 @@ for epoch = 1:n_epochs
     for i = 1:n
         if prod(i) >= 1
             cost = 0;
-            w = w - eta * (2 * lambida * w);
+            w = w - eta * (2 * lambda * w);
         else
             cost = 1 - prod(i);
-            w = w + eta * (repmat(y_train(i) * X(i,:),n,1) - 2 * lambida * w);
+            w = w + eta * (repmat(y_train(i) * X(i,:),n,1) - 2 * lambda * w);
         end
     end
 end
