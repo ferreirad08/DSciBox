@@ -9,8 +9,8 @@ n_epochs = 10000; % Number of Epochs
 [n,m] = size(X);
 w = zeros(n,m); % Synaptic Weights
 
-for epoch = 1:n_epochs
-    lambda = 1/epoch; % Regularization Parameter
+for j = 1:n_epochs
+    lambda = 1/j; % Regularization Parameter
     
     y = sum(w.*X,2);
     prod = y .* Y;
