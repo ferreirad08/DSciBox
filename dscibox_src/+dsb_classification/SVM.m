@@ -1,34 +1,28 @@
-load('fisheriris.mat')
-[X,Xnew,Y,Ynew] = data_sampling(meas(1:100,[1 3]),species(1:100),0.10,'stratified')
+clear, clc, load fisheriris
+addpath('C:\Program Files\MATLAB\R2016a\toolbox\dscibox_src')
 y_train = ones(100,1);
 y_train(1:50) = -1;
+[X,Xnew,Y,Ynew] = dsb_utils.data_sampling(meas(1:100,[1 3]),y_train,0.10,'stratified');
 
-train_f1 = X(:,1)';
-train_f2 = X(:,2)';
+eta = 0.0001; % Learning Rate
+n_epochs = 10000; % Number of Epochs
+[n,m] = size(X);
+w = zeros(n,m); % Synaptic Weights
 
-w1 = zeros(size(train_f1));
-w2 = zeros(size(train_f2));
-
-epochs = 1;
-alpha = 0.0001;
-
-while(epochs < 10000)
-    y = w1 .* train_f1 + w2 .* train_f2;
-    prod = y .* y_train;
-    epochs
-    count = 1;
-    for val = prod
-        if(val >= 1)
+for epoch = 1:n_epochs
+    lambida = 1/epoch; % Regularization Parameter
+    
+    y = sum(w.*X,2);
+    prod = y .* Y;
+    
+    for i = 1:n
+        if prod(i) >= 1
             cost = 0;
-            w1 = w1 - alpha * (2 * 1/epochs * w1);
-            w2 = w2 - alpha * (2 * 1/epochs * w2);
-            
+            w = w - eta * (2 * lambida * w);
         else
-            cost = 1 - val;
-            w1 = w1 + alpha * (train_f1(count) * y_train(count) - 2 * 1/epochs * w1);
-            w2 = w2 + alpha * (train_f2(count) * y_train(count) - 2 * 1/epochs * w2);
-        count = count + 1;
-    epochs = epochs + 1;
+            cost = 1 - prod(i);
+            w = w + eta * (repmat(y_train(i) * X(i,:),n,1) - 2 * lambida * w);
         end
     end
 end
+w
