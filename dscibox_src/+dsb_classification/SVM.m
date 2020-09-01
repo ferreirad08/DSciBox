@@ -1,24 +1,38 @@
-clear, clc, load fisheriris
+close, clear, clc
 addpath('C:\Program Files\MATLAB\R2016a\toolbox\dscibox_src')
-y_train(1:50,1) = -1;
-y_train(51:100,1) = 1;
-[X,Xnew,Y,Ynew] = dsb_utils.data_sampling(meas(1:100,[1 3]),y_train,0.10,'stratified');
+load fisheriris
 
-eta = 0.0001; % Learning Rate
-n_epochs = 10000; % Number of Epochs
-[n,m] = size(X);
-w = zeros(1,m); % Synaptic Weights
+X = meas(51:150,[3 4])
+y = species(51:150)
+[~,~,y] = unique(y)
+y(y == 1) = -1
+y(y == 2) = 1
+
+plot(X(1:50,1),X(1:50,2),'o',X(51:100,1),X(51:100,2),'s')
+
+X = dsb_preprocessing.StandardData().fit(X).transform(X)
+
+C = 15
+eta = 1e-3
+n_epochs = 500
+[n,m] = size(X)
+w = [-0.24750747  1.50033755]%rand(1,m)
+b = 0
+
+margin = @(X,y,w,b) y .* (X * w' + b)
 
 for j = 1:n_epochs
-    lambda = 1/j; % Regularization Parameter    
-    for i = 1:n
-        y = sum(w.*X(i,:));
-        prod = Y(i) * y;
-        if prod >= 1
-            w = w - eta * (2 * lambda * w);
-        else
-            w = w + eta * (Y(i) * X(i,:) - 2 * lambda * w);
-        end
-    end
+    margin_v = margin(X,y,w,b);
+    idx = find(margin_v < 1);
+    d_w = w - C * (y(idx)'*X(idx,:));
+    w = w - eta * d_w;
+    d_b = - C * sum(y(idx));
+    b = b - eta * d_b
 end
-w
+margin_v = margin(X,y,w,b);
+support_vectors = find(margin_v <= 1)
+
+Ypred = X * w' + b;
+Ypred(Ypred < 0) = -1;
+Ypred(Ypred > 0) = 1;
+accuracy = mean(y == Ypred)
