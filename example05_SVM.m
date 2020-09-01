@@ -6,7 +6,7 @@ Y(1:50) = -1
 Y(51:100) = 1
 
 C = 15
-mdl = SVM(C)
+mdl = dsb_classification.SVM(C)
 mdl = mdl.fit(X,Y)
 Ypred = mdl.predict(X)
 accuracy = mean(Y == Ypred)
