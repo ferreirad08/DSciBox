@@ -1,3 +1,9 @@
+clear, clc
+
+% Add library folders to the search path
+addpath('dscibox_src')
+% savepath
+
 % Generate sample data
 X = sort(5 * rand(40,1));
 Xnew = sort(5 * rand(500,1));
