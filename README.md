@@ -79,6 +79,11 @@ Regression
         reg = reg.fit(X,Y)
         Ypred = reg.predict(Xnew)
         
+    k-Nearest Neighbors Regressor
+        mdl = dsb_regression.kNNeighborsRegressor(k,'euclidean',weights);
+        mdl = mdl.fit(X,Y)
+        Ypred = mdl.predict(Xnew)
+        
 Clustering
 
     k-Means
