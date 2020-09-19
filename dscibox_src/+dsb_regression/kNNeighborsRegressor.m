@@ -1,4 +1,11 @@
 classdef kNNeighborsRegressor
+%k-Nearest Neighbors Regressor
+%
+% David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
+% D.Sc. student in Electrical Engineering from the Federal University of
+% Amazonas 
+% e-mail: ferreirad08@gmail.com
+
 properties
     k = 5
     metric = 'euclidean' % distance metric
