@@ -26,8 +26,8 @@ methods
         end
     end
     function obj = fit(obj,X,Y)
-        obj.Y = Y;
         obj.X = X;
+        obj.Y = Y;
     end
     function Ypred = predict(obj,Xnew)
         dist = dsb_utils.cdist(obj.X,Xnew,obj.metric); % distances
