@@ -74,8 +74,8 @@ Classification
 
 Regression
 
-    Linear Regression
-        reg = dsb_regression.LinearRegression()
+    Simple Linear Regression
+        reg = dsb_regression.SimpleLinearRegression()
         reg = reg.fit(X,Y)
         Ypred = reg.predict(Xnew)
         
