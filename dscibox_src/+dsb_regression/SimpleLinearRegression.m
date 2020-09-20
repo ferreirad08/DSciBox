@@ -1,8 +1,8 @@
-classdef LinearRegression
-%Linear Regression
+classdef SimpleLinearRegression
+%Simple Linear Regression
 %
 % SYNTAX
-% 1. reg = dsb_regression.LinearRegression()
+% 1. reg = dsb_regression.SimpleLinearRegression()
 %    reg = reg.fit(X,Y)
 %    Ypred = reg.predict(Xnew)
 %
@@ -17,7 +17,7 @@ classdef LinearRegression
 % 1.
 %      X = [2,3,9,6];
 %      Y = [5,7,12,8];
-%      reg = dsb_regression.LinearRegression().fit(X,Y);
+%      reg = dsb_regression.SimpleLinearRegression().fit(X,Y);
 %      reg.coeff
 %      ans =
 %          0.9000 3.5000
@@ -31,7 +31,7 @@ classdef LinearRegression
 %          5.3000    6.2000   11.6000    8.9000
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
-% PhD student in Electrical Engineering from the Federal University of
+% D.Sc. student in Electrical Engineering from the Federal University of
 % Amazonas 
 % e-mail: ferreirad08@gmail.com
 
@@ -41,7 +41,7 @@ properties
     R_squared
 end
 methods
-    function obj = LinearRegression(n)
+    function obj = SimpleLinearRegression(n)
         if nargin > 0
             obj.n = n;
         end
