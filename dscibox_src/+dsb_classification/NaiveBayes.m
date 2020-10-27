@@ -22,7 +22,7 @@ classdef NaiveBayes
 
 properties
     PDF = 'gaussian' % Probability density function
-    C
+    name_labels
     n_class
     mu
     sigma
@@ -35,8 +35,8 @@ methods
         end
     end
     function obj = fit(obj,X,Y)
-        [obj.C,~,Y] = unique(Y);
-        obj.n_class = numel(obj.C);
+        [obj.name_labels,~,Y] = unique(Y);
+        obj.n_class = numel(obj.name_labels);
 
         % Calculate the means and standard deviations
         obj.mu = zeros(obj.n_class,size(X,2)); obj.sigma = obj.mu;
@@ -56,7 +56,7 @@ methods
             Ypred(i) = I(1); % Label with highest probability
         end
 
-        Ypred = obj.C(Ypred);
+        Ypred = obj.name_labels(Ypred);
     end
     function [Ysorted,probabilities,I] = find(obj,Xnew)
         meas = repmat(Xnew,obj.n_class,1); % Repeats measurements in a matrix
@@ -68,7 +68,7 @@ methods
         
         probability = prod([p obj.prior],2); % Product
         [probabilities,I] = sort(probability/sum(probability),'descend'); % Ordered probabilities
-        Ysorted = obj.C(I); % Most likely labels
+        Ysorted = obj.name_labels(I); % Most likely labels
     end
 end
 end
