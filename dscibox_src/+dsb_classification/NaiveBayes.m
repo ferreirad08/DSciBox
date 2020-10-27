@@ -21,7 +21,7 @@ classdef NaiveBayes
 % e-mail: ferreirad08@gmail.com
 
 properties
-    PDF = 'gaussian'
+    PDF = 'gaussian' % Probability density function
     C
     n_class
     mu
@@ -46,37 +46,29 @@ methods
             obj.sigma(i,:) = std(A,1);
         end
 
-        % Class prior probability
-        obj.prior = histc(Y,1:obj.n_class)/numel(Y);
+        obj.prior = histc(Y,1:obj.n_class)/numel(Y); % Class prior probability
     end
     function Ypred = predict(obj,Xnew)
         P = size(Xnew,1);
         Ypred = zeros(P,1);
         for i = 1:P
-            % Class posterior probability
-            [~,~,I] = find(obj,Xnew(i,:));
-            % Check the label with highest probability
-            Ypred(i) = I(1);
+            [~,~,I] = find(obj,Xnew(i,:)); % Class posterior probability
+            Ypred(i) = I(1); % Label with highest probability
         end
 
         Ypred = obj.C(Ypred);
     end
     function [Ysorted,probabilities,I] = find(obj,Xnew)
-        % Repeats measurements in a matrix
-        meas = repmat(Xnew,obj.n_class,1);
+        meas = repmat(Xnew,obj.n_class,1); % Repeats measurements in a matrix
         if strcmp(obj.PDF,'gaussian')
-            % Probability density function (PDF) of the normal distribution
-            p = dsb_utils.normpdf(meas,obj.mu,obj.sigma);
+            p = dsb_utils.normpdf(meas,obj.mu,obj.sigma); % For normal distribution
         elseif strcmp(obj.PDF,'exponential')
-            % PDF of the exponential distribution
-            p = dsb_utils.exppdf(meas,obj.mu);
+            p = dsb_utils.exppdf(meas,obj.mu); % For exponential distribution
         end
-        % Product
-        probability = prod([p obj.prior],2);
-        % Sort the normalized probabilities in descending order
-        [probabilities,I] = sort(probability/sum(probability),'descend');
-        % Sort the labels in descending order
-        Ysorted = obj.C(I);
+        
+        probability = prod([p obj.prior],2); % Product
+        [probabilities,I] = sort(probability/sum(probability),'descend'); % Ordered probabilities
+        Ysorted = obj.C(I); % Most likely labels
     end
 end
 end
