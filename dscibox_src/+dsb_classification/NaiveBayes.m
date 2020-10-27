@@ -52,13 +52,13 @@ methods
         P = size(Xnew,1);
         Ypred = zeros(P,1);
         for i = 1:P
-            [~,~,I] = find(obj,Xnew(i,:)); % Class posterior probability
-            Ypred(i) = I(1); % Label with highest probability
+            [~,~,indices] = find(obj,Xnew(i,:)); % Class posterior probability
+            Ypred(i) = indices(1); % Label with highest probability
         end
 
         Ypred = obj.name_labels(Ypred);
     end
-    function [Ysorted,probabilities,I] = find(obj,Xnew)
+    function [Ysorted,probabilities,indices] = find(obj,Xnew)
         meas = repmat(Xnew,obj.n_class,1); % Repeats measurements in a matrix
         if strcmp(obj.PDF,'gaussian')
             p = dsb_utils.normpdf(meas,obj.mu,obj.sigma); % For normal distribution
@@ -66,9 +66,9 @@ methods
             p = dsb_utils.exppdf(meas,obj.mu); % For exponential distribution
         end
         
-        probability = prod([p obj.prior],2); % Product
-        [probabilities,I] = sort(probability/sum(probability),'descend'); % Ordered probabilities
-        Ysorted = obj.name_labels(I); % Most likely labels
+        probability = prod([p, obj.prior],2); % Product
+        [probabilities,indices] = sort(probability/sum(probability),'descend'); % Ordered probabilities
+        Ysorted = obj.name_labels(indices); % Most likely labels
     end
 end
 end
