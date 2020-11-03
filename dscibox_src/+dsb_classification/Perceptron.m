@@ -1,9 +1,9 @@
 classdef Perceptron
 %Perceptron Network
 %
-% David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
-% D.Sc. student in Electrical Engineering from the Federal University of Amazonas
-% e-mail: ferreirad08@gmail.com
+% Author: M.Sc. David Ferreira - Federal University of Amazonas
+% Contact: ferreirad08@gmail.com
+% Date: August 2020
 
 properties
     eta = 0.01 % Learning Rate
