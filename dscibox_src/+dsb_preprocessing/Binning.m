@@ -39,7 +39,7 @@ classdef Binning
 % e-mail: ferreirad08@gmail.com
 
 properties
-    n_bins
+    n_bins = 5
     Q
 end
 methods
