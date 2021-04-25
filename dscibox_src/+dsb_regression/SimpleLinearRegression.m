@@ -25,7 +25,7 @@ classdef SimpleLinearRegression
 %      ans =
 %          0.9346
 %
-%      Ynew = [2,3,9,6];
+%      Xnew = [2,3,9,6];
 %      Ypred = reg.predict(Xnew)
 %      Ypred =
 %          5.3000    6.2000   11.6000    8.9000
