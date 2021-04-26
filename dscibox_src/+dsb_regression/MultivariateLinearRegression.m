@@ -15,12 +15,12 @@ classdef MultivariateLinearRegression
 %
 % EXAMPLE
 % 1.
-%      X = [1, 1; 1, 2; 2, 2; 2, 3]
+%      X = [1 1; 1 2; 2 2; 2 3]
 %      y = [6; 8; 9; 11]
 %      reg = dsb_regression.MultivariateLinearRegression().fit(X, y)
 %      reg.coef_
 %      reg.intercept_
-%      reg.predict([3, 5])
+%      reg.predict([3 5])
 %
 % David Alan de Oliveira Ferreira (http://lattes.cnpq.br/3863655668683045)
 % D.Sc. student in Electrical Engineering from the Federal University of
