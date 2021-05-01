@@ -8,6 +8,10 @@ Creators:
 
 D.A.O. Ferreira & C.B. Carvalho
 
+Used in:
+
+https://doi.org/10.3390/s20174714
+
 Description:
 
 Wi-FiPowerInOfficeDataset is a MAT-file (.mat) with three variables: 
