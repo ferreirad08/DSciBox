@@ -6,7 +6,7 @@
 
 Dscibox: Practical Data Science Tools and Techniques with MATLAB Implementations
 
-###Preprocessing
+### Preprocessing
         
 Pricipal Component Analysis
 ```matlab
@@ -14,11 +14,12 @@ pca = dsb_preprocessing.PCA(n_components)
 pca = pca.fit(X)
 Xt = pca.transform(X)
 ```
-    Min-Max Normalizer
-        scaler = dsb_preprocessing.MinMaxNormalizer()
-        scaler = scaler.fit(X)
-        Xt = scaler.transform(X)
-    
+Min-Max Normalizer
+```MATLAB
+scaler = dsb_preprocessing.MinMaxNormalizer()
+scaler = scaler.fit(X)
+Xt = scaler.transform(X)
+```
     Quantile Binning Transformation
         b = dsb_preprocessing.Binning(n_bins)
         b = b.fit(X)
