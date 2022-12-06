@@ -15,85 +15,89 @@ pca = pca.fit(X)
 Xt = pca.transform(X)
 ```
 Min-Max Normalizer
-```MATLAB
+```matlab
 scaler = dsb_preprocessing.MinMaxNormalizer()
 scaler = scaler.fit(X)
 Xt = scaler.transform(X)
 ```
-    Quantile Binning Transformation
-        b = dsb_preprocessing.Binning(n_bins)
-        b = b.fit(X)
-        Xt = b.transform(X)
-    
-    Feature Selection Based on Information Gain
-        ig = dsb_preprocessing.InformationGain(n_features)
-        ig = ig.fit(X,Y)
-        Xr = ig.feature_selection(X)
+Quantile Binning Transformation
+```matlab
+b = dsb_preprocessing.Binning(n_bins)
+b = b.fit(X)
+Xt = b.transform(X)
+```
+Feature Selection Based on Information Gain
+```matlab
+ig = dsb_preprocessing.InformationGain(n_features)
+ig = ig.fit(X,Y)
+Xr = ig.feature_selection(X)
+```
 
-Utilities
+### Utilities
 
-    Simple or Stratified Random Sampling
+Simple or Stratified Random Sampling
+```matlab
         [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(X,Y,0.30,'stratified')
-    
-    Cross Validation
+```
+Cross Validation
         accuracy = dsb_utils.cross_validation(mdl,X,Y,k)
 
-    Accuracy Classification Score
+Accuracy Classification Score
         accuracy = dsb_utils.accuracy_score(Ynew,Ypred)
 
-    Information Entropy
+Information Entropy
         e = dsb_utils.entropy(Y)
 
-    Quantile Analysis
+Quantile Analysis
         Q = dsb_utils.quantile(X,[0.25 0.50 0.75])
 
-    Distance Matrix
+Distance Matrix
         D = dsb_utils.cdist(XA,XB,'euclidean')
         
-Classification
+### Classification
 
-    k-Nearest Neighbors
+k-Nearest Neighbors
         mdl = dsb_classification.kNNeighbors(k,'euclidean')
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [indices,distances] = mdl.find(Xnew)
 
-    Naive Bayes
+Naive Bayes
         mdl = dsb_classification.NaiveBayes('gaussian')
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         [Ysorted,probabilities] = mdl.find(Xnew(1,:))
 
-    Decision Tree
+Decision Tree
         mdl = dsb_classification.DTree()
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
-    Perceptron Network
+Perceptron Network
         mdl = dsb_classification.Perceptron(eta,n_epochs,bias)
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
 
-Regression
+### Regression
 
-    Simple Linear Regression
+Simple Linear Regression
         reg = dsb_regression.SimpleLinearRegression()
         reg = reg.fit(X,Y)
         Ypred = reg.predict(Xnew)
 
-    Multivariate Linear Regression
+Multivariate Linear Regression
         reg = dsb_regression.MultivariateLinearRegression()
         reg = reg.fit(X,Y)
         Ypred = reg.predict(Xnew)
 
-    k-Nearest Neighbors Regressor
+k-Nearest Neighbors Regressor
         mdl = dsb_regression.kNNeighborsRegressor(k,'euclidean',weights);
         mdl = mdl.fit(X,Y)
         Ypred = mdl.predict(Xnew)
         
-Clustering
+### Clustering
 
-    k-Means
+k-Means
         mdl = dsb_clustering.kMeans(k)
         mdl = mdl.fit(X)
         Ypred = mdl.predict(Xnew)
