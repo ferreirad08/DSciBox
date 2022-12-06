@@ -37,46 +37,57 @@ Xr = ig.feature_selection(X)
 
 Simple or Stratified Random Sampling
 ```matlab
-        [X,Xnew,Y,Ynew] = dsb_utils.data_sampling(X,Y,0.30,'stratified')
+[X,Xnew,Y,Ynew] = dsb_utils.data_sampling(X,Y,0.30,'stratified')
 ```
 Cross Validation
-        accuracy = dsb_utils.cross_validation(mdl,X,Y,k)
-
+```matlab
+accuracy = dsb_utils.cross_validation(mdl,X,Y,k)
+```
 Accuracy Classification Score
-        accuracy = dsb_utils.accuracy_score(Ynew,Ypred)
-
+```matlab
+accuracy = dsb_utils.accuracy_score(Ynew,Ypred)
+```
 Information Entropy
-        e = dsb_utils.entropy(Y)
-
+```matlab
+e = dsb_utils.entropy(Y)
+```
 Quantile Analysis
-        Q = dsb_utils.quantile(X,[0.25 0.50 0.75])
-
+```matlab
+Q = dsb_utils.quantile(X,[0.25 0.50 0.75])
+```
 Distance Matrix
-        D = dsb_utils.cdist(XA,XB,'euclidean')
-        
+```matlab
+D = dsb_utils.cdist(XA,XB,'euclidean')
+```
+
 ### Classification
 
 k-Nearest Neighbors
-        mdl = dsb_classification.kNNeighbors(k,'euclidean')
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
-        [indices,distances] = mdl.find(Xnew)
-
+```matlab
+mdl = dsb_classification.kNNeighbors(k,'euclidean')
+mdl = mdl.fit(X,Y)
+Ypred = mdl.predict(Xnew)
+[indices,distances] = mdl.find(Xnew)
+```
 Naive Bayes
-        mdl = dsb_classification.NaiveBayes('gaussian')
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
-        [Ysorted,probabilities] = mdl.find(Xnew(1,:))
-
+```matlab
+mdl = dsb_classification.NaiveBayes('gaussian')
+mdl = mdl.fit(X,Y)
+Ypred = mdl.predict(Xnew)
+[Ysorted,probabilities] = mdl.find(Xnew(1,:))
+```
 Decision Tree
-        mdl = dsb_classification.DTree()
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
-
+```matlab
+mdl = dsb_classification.DTree()
+mdl = mdl.fit(X,Y)
+Ypred = mdl.predict(Xnew)
+```
 Perceptron Network
-        mdl = dsb_classification.Perceptron(eta,n_epochs,bias)
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
+```matlab
+mdl = dsb_classification.Perceptron(eta,n_epochs,bias)
+mdl = mdl.fit(X,Y)
+Ypred = mdl.predict(Xnew)
+```
 
 ### Regression
 
