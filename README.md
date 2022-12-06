@@ -8,7 +8,7 @@ Dscibox: Practical Data Science Tools and Techniques with MATLAB Implementations
 
 Preprocessing
         
-## Pricipal Component Analysis
+### Pricipal Component Analysis
 ```matlab
 pca = dsb_preprocessing.PCA(n_components)
 pca = pca.fit(X)
