@@ -9,10 +9,11 @@ Dscibox: Practical Data Science Tools and Techniques with MATLAB Implementations
 Preprocessing
         
     Pricipal Component Analysis
+```matlab
         pca = dsb_preprocessing.PCA(n_components)
         pca = pca.fit(X)
         Xt = pca.transform(X)
-    
+```
     Min-Max Normalizer
         scaler = dsb_preprocessing.MinMaxNormalizer()
         scaler = scaler.fit(X)
