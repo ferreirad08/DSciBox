@@ -92,23 +92,29 @@ Ypred = mdl.predict(Xnew)
 ### Regression
 
 Simple Linear Regression
-        reg = dsb_regression.SimpleLinearRegression()
-        reg = reg.fit(X,Y)
-        Ypred = reg.predict(Xnew)
-
+```matlab
+reg = dsb_regression.SimpleLinearRegression()
+reg = reg.fit(X,Y)
+Ypred = reg.predict(Xnew)
+```
 Multivariate Linear Regression
-        reg = dsb_regression.MultivariateLinearRegression()
-        reg = reg.fit(X,Y)
-        Ypred = reg.predict(Xnew)
-
+```matlab
+reg = dsb_regression.MultivariateLinearRegression()
+reg = reg.fit(X,Y)
+Ypred = reg.predict(Xnew)
+```
 k-Nearest Neighbors Regressor
-        mdl = dsb_regression.kNNeighborsRegressor(k,'euclidean',weights);
-        mdl = mdl.fit(X,Y)
-        Ypred = mdl.predict(Xnew)
-        
+```matlab
+mdl = dsb_regression.kNNeighborsRegressor(k,'euclidean',weights);
+mdl = mdl.fit(X,Y)
+Ypred = mdl.predict(Xnew)
+```
+
 ### Clustering
 
 k-Means
-        mdl = dsb_clustering.kMeans(k)
-        mdl = mdl.fit(X)
-        Ypred = mdl.predict(Xnew)
+```matlab
+mdl = dsb_clustering.kMeans(k)
+mdl = mdl.fit(X)
+Ypred = mdl.predict(Xnew)
+```
